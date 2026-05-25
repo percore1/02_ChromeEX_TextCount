@@ -41,6 +41,16 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   return true;
 });
 
+function injectBlockNewlines(container) {
+  const blockSelectors = 'p,div,h1,h2,h3,h4,h5,h6,li,blockquote,tr,address,article,section,header,footer,main,nav';
+  container.querySelectorAll(blockSelectors).forEach(el => {
+    el.appendChild(document.createTextNode('\n'));
+  });
+  container.querySelectorAll('br').forEach(el => {
+    el.replaceWith(document.createTextNode('\n'));
+  });
+}
+
 function processSelection() {
   try {
     const selection = window.getSelection();
@@ -53,6 +63,10 @@ function processSelection() {
     const fragment = range.cloneContents();
     const container = document.createElement('div');
     container.appendChild(fragment);
+
+    // ブロック要素の境界に改行を挿入（textContentは改行を含まないため、
+    // 行単位の正規表現が誤って全文を1行扱いするのを防ぐ）
+    injectBlockNewlines(container);
 
     const rawText = container.textContent;
 

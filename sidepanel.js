@@ -123,7 +123,26 @@ async function handleFile(file, fileInfo) {
       displayResult(result);
     } else if (name.endsWith('.docx')) {
       const arrayBuffer = await file.arrayBuffer();
-      const html = (await mammoth.convertToHtml({ arrayBuffer })).value;
+      // 日本語Word/Google Docs由来のスタイル名もh1-h6に変換するためのカスタムマップ
+      const styleMap = [
+        "p[style-name='見出し 1'] => h1:fresh",
+        "p[style-name='見出し 2'] => h2:fresh",
+        "p[style-name='見出し 3'] => h3:fresh",
+        "p[style-name='見出し 4'] => h4:fresh",
+        "p[style-name='見出し 5'] => h5:fresh",
+        "p[style-name='見出し 6'] => h6:fresh",
+        "p[style-name='見出し1'] => h1:fresh",
+        "p[style-name='見出し2'] => h2:fresh",
+        "p[style-name='見出し3'] => h3:fresh",
+        "p[style-name='見出し4'] => h4:fresh",
+        "p[style-name='見出し5'] => h5:fresh",
+        "p[style-name='見出し6'] => h6:fresh",
+        "p[style-name='Title'] => h1:fresh",
+        "p[style-name='Subtitle'] => h2:fresh",
+        "p[style-name='タイトル'] => h1:fresh",
+        "p[style-name='サブタイトル'] => h2:fresh"
+      ];
+      const html = (await mammoth.convertToHtml({ arrayBuffer }, { styleMap })).value;
       fileInfo.textContent = `${file.name}（${formatBytes(file.size)}）を読み込みました`;
       const result = processHtml(html);
       displayResult(result);
@@ -179,10 +198,24 @@ function processPlainText(text) {
   };
 }
 
+function injectBlockNewlines(container) {
+  const blockSelectors = 'p,div,h1,h2,h3,h4,h5,h6,li,blockquote,tr,address,article,section,header,footer,main,nav';
+  container.querySelectorAll(blockSelectors).forEach(el => {
+    el.appendChild(document.createTextNode('\n'));
+  });
+  container.querySelectorAll('br').forEach(el => {
+    el.replaceWith(document.createTextNode('\n'));
+  });
+}
+
 // HTML 用（.docx をmammothで変換した結果）。DOMベースの除外ルールも適用
 function processHtml(html) {
   const container = document.createElement('div');
   container.innerHTML = html;
+
+  // ブロック要素の境界に改行を挿入（mammothの出力はタグ間に空白がなく、
+  // textContentが1行扱いになって行単位の正規表現が誤動作するのを防ぐ）
+  injectBlockNewlines(container);
 
   const rawText = container.textContent;
   const originalCount = rawText.replace(/\s/g, '').length;
