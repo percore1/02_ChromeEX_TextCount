@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "TextCount",
-  "version": "1.1",
+  "version": "1.2",
   "description": "Webページの選択範囲の文字数を指定ルールでカウントします",
   "permissions": ["activeTab", "sidePanel", "scripting", "tabs"],
   "host_permissions": [
@@ -21,7 +21,8 @@
     {
       "matches": ["http://*/*", "https://*/*"],
       "js": ["content.js"],
-      "all_frames": true
+      "all_frames": true,
+      "match_about_blank": true
     }
   ]
 }
