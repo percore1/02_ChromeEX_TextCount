@@ -11,7 +11,36 @@
     <span id="sync-badge" class="sync-badge sync-waiting">待機中</span>
   </div>
 
-  <div id="status" class="status">テキストを選択すると自動的にカウントされます</div>
+  <div class="tabs">
+    <button class="tab active" data-target="tab-auto">自動</button>
+    <button class="tab" data-target="tab-paste">貼り付け</button>
+    <button class="tab" data-target="tab-file">ファイル</button>
+  </div>
+
+  <div id="tab-auto" class="tab-content active">
+    <div class="tab-description">ページでテキストを選択すると自動的にカウントされます。</div>
+  </div>
+
+  <div id="tab-paste" class="tab-content">
+    <div class="tab-description">下のエリアにテキストを貼り付けてください。</div>
+    <textarea id="paste-area" placeholder="ここにテキストを貼り付け..."></textarea>
+    <button id="paste-clear" class="secondary-btn">クリア</button>
+  </div>
+
+  <div id="tab-file" class="tab-content">
+    <div class="tab-description">.txt / .docx ファイルをドロップまたは選択してください。</div>
+    <label id="file-drop" class="file-drop">
+      <input type="file" id="file-input" accept=".txt,.docx" hidden>
+      <div class="file-drop-inner">
+        <div class="file-drop-icon">📄</div>
+        <div class="file-drop-text">クリックまたはドラッグ＆ドロップ</div>
+        <div class="file-drop-sub">.txt / .docx 対応</div>
+      </div>
+    </label>
+    <div id="file-info" class="file-info" style="display:none"></div>
+  </div>
+
+  <div id="status" class="status">テキストを選択・貼り付け・アップロードしてください</div>
 
   <div id="results" style="display:none">
 
@@ -46,6 +75,7 @@
 
   </div>
 
+  <script src="mammoth.browser.min.js"></script>
   <script src="sidepanel.js"></script>
 </body>
 </html>
