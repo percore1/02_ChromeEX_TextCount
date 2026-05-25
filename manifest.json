@@ -1,16 +1,21 @@
 {
   "manifest_version": 3,
   "name": "TextCount",
-  "version": "1.0",
+  "version": "1.1",
   "description": "Webページの選択範囲の文字数を指定ルールでカウントします",
-  "permissions": ["activeTab"],
+  "permissions": ["activeTab", "sidePanel", "scripting", "tabs"],
   "host_permissions": [
     "http://*/*",
     "https://*/*"
   ],
+  "background": {
+    "service_worker": "background.js"
+  },
   "action": {
-    "default_popup": "popup.html",
     "default_title": "TextCount"
+  },
+  "side_panel": {
+    "default_path": "sidepanel.html"
   },
   "content_scripts": [
     {

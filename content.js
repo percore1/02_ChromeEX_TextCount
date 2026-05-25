@@ -9,6 +9,10 @@ document.addEventListener('selectionchange', () => {
     const result = processSelection();
     if (result.hasSelection) {
       cachedResult = result;
+      // サイドパネルへリアルタイムプッシュ（パネルが閉じている場合はエラーを無視）
+      chrome.runtime.sendMessage({ action: 'selectionChanged', data: result }, () => {
+        void chrome.runtime.lastError;
+      });
     }
   }, 150);
 });
