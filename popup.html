@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>TextCount</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="header">TextCount</div>
+
+  <div id="status" class="status">読み込み中...</div>
+
+  <div id="results" style="display:none">
+
+    <div class="count-main">
+      <div class="count-label">カウント対象文字数</div>
+      <div class="count-value">
+        <span id="counted-length">0</span>
+        <span class="count-unit">文字</span>
+      </div>
+    </div>
+
+    <div class="count-detail">
+      <div class="detail-row">
+        <span class="detail-label">元文字数</span>
+        <span class="detail-value"><span id="original-count">0</span> 文字</span>
+      </div>
+      <div class="detail-row">
+        <span class="detail-label">除外文字数</span>
+        <span class="detail-value"><span id="excluded-count">0</span> 文字</span>
+      </div>
+    </div>
+
+    <div class="section">
+      <div class="section-title">適用した除外ルール</div>
+      <ul id="applied-rules"></ul>
+    </div>
+
+    <div class="section section-last">
+      <div class="section-title">除外後テキストプレビュー</div>
+      <div id="preview" class="preview"></div>
+    </div>
+
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
