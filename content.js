@@ -1,6 +1,22 @@
+let cachedResult = null;
+let cacheTimer = null;
+
+// Googleドキュメント等はポップアップを開く瞬間に選択がリセットされるため、
+// selectionchange で最後の有効な選択をキャッシュしておく
+document.addEventListener('selectionchange', () => {
+  clearTimeout(cacheTimer);
+  cacheTimer = setTimeout(() => {
+    const result = processSelection();
+    if (result.hasSelection) {
+      cachedResult = result;
+    }
+  }, 150);
+});
+
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === 'getSelection') {
-    sendResponse(processSelection());
+    const liveResult = processSelection();
+    sendResponse(liveResult.hasSelection ? liveResult : (cachedResult || { hasSelection: false }));
   }
   return true;
 });
