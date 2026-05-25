@@ -252,6 +252,74 @@ body {
   margin-bottom: 6px;
 }
 
+/* セクションヘッダー（タイトル＋ボタン） */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.section-header .section-title {
+  margin-bottom: 0;
+}
+
+/* コピーボタン */
+.copy-btn {
+  font-size: 10px;
+  padding: 3px 9px;
+  background: #f1f3f4;
+  color: #1a73e8;
+  border: 1px solid #d0d0d0;
+  border-radius: 3px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+  white-space: nowrap;
+}
+
+.copy-btn:hover {
+  background: #e8f0fe;
+  border-color: #1a73e8;
+}
+
+.copy-btn.copied {
+  background: #d4edda;
+  color: #155724;
+  border-color: #b7d8be;
+}
+
+/* 警告セクション */
+.warning-section {
+  background: #fef7e0;
+  border-left: 3px solid #f9ab00;
+}
+
+.warning-section .section-title {
+  color: #a36a00;
+}
+
+#warnings-list {
+  list-style: none;
+  padding: 0;
+}
+
+#warnings-list li {
+  font-size: 12px;
+  color: #5f4500;
+  padding: 2px 0 2px 18px;
+  position: relative;
+  line-height: 1.5;
+  word-break: break-all;
+}
+
+#warnings-list li::before {
+  content: "⚠";
+  position: absolute;
+  left: 0;
+  font-size: 11px;
+}
+
 #applied-rules {
   list-style: none;
   padding: 0;

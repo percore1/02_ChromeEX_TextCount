@@ -2,6 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initTabs();
   initPasteTab();
   initFileTab();
+  initCopyButton();
   initAutoSync();
 });
 
@@ -115,15 +116,13 @@ async function handleFile(file, fileInfo) {
   fileInfo.textContent = `読み込み中: ${file.name}`;
 
   try {
-    let text;
     if (name.endsWith('.txt')) {
-      text = await file.text();
+      const text = await file.text();
       fileInfo.textContent = `${file.name}（${formatBytes(file.size)}）を読み込みました`;
       const result = processPlainText(text);
       displayResult(result);
     } else if (name.endsWith('.docx')) {
       const arrayBuffer = await file.arrayBuffer();
-      // 日本語Word/Google Docs由来のスタイル名もh1-h6に変換するためのカスタムマップ
       const styleMap = [
         "p[style-name='見出し 1'] => h1:fresh",
         "p[style-name='見出し 2'] => h2:fresh",
@@ -162,11 +161,54 @@ function formatBytes(bytes) {
   return `${(bytes / 1024 / 1024).toFixed(1)} MB`;
 }
 
-// ====== テキスト処理 ======
-// プレーンテキスト用（貼り付け・.txt）。DOMベースの除外ルールは適用されない
-function processPlainText(text) {
-  const originalCount = text.replace(/\s/g, '').length;
-  const appliedRules = [];
+// ====== 共通ユーティリティ ======
+function injectBlockNewlines(container) {
+  const blockSelectors = 'p,div,h1,h2,h3,h4,h5,h6,li,blockquote,tr,address,article,section,header,footer,main,nav';
+  container.querySelectorAll(blockSelectors).forEach(el => {
+    el.appendChild(document.createTextNode('\n'));
+  });
+  container.querySelectorAll('br').forEach(el => {
+    el.replaceWith(document.createTextNode('\n'));
+  });
+}
+
+function detectTagWarnings(text) {
+  const warnings = [];
+
+  const allTagsRe = /[<＜]\s*\/?\s*h([1-6])[^>＞]*[>＞]/gi;
+  const allTags = [...text.matchAll(allTagsRe)];
+
+  allTags.forEach(m => {
+    if (/[＜＞]/.test(m[0])) {
+      warnings.push(`全角括弧を含む見出しタグ：${m[0]}`);
+    }
+  });
+
+  const openCount = {};
+  const closeCount = {};
+  allTags.forEach(m => {
+    const isClose = /[<＜]\s*\//.test(m[0]);
+    const level = m[1];
+    if (isClose) closeCount[level] = (closeCount[level] || 0) + 1;
+    else openCount[level] = (openCount[level] || 0) + 1;
+  });
+  for (let i = 1; i <= 6; i++) {
+    const o = openCount[i] || 0;
+    const c = closeCount[i] || 0;
+    if (o > c) warnings.push(`<h${i}> の閉じタグが不足（開き${o}件 / 閉じ${c}件）`);
+    else if (c > o) warnings.push(`</h${i}> の開きタグが不足（開き${o}件 / 閉じ${c}件）`);
+  }
+
+  return [...new Set(warnings)];
+}
+
+// テキスト共通の除外ルール（リテラル見出し・引用・URL・マーカー・価格・タブ）
+function applyTextExclusions(text, appliedRules) {
+  // リテラル見出しタグの除外（半角/全角括弧対応、ペア＋孤立タグ）
+  const beforeHeadingTag = text;
+  text = text.replace(/[<＜]h([1-6])[^>＞]*[>＞][\s\S]*?[<＜]\s*\/h\1[>＞]/gi, '');
+  text = text.replace(/[<＜]\s*\/?\s*h[1-6][^>＞]*[>＞]/gi, '');
+  if (beforeHeadingTag !== text) appliedRules.push('見出しタグ（文字列）を除外');
 
   const citationRegex = /^[^\n]*(引用元|参照元|出典元|参考元|引用|参照|出典|参考)\s*[：:][^\n]*/gm;
   const beforeCitation = text;
@@ -183,7 +225,24 @@ function processPlainText(text) {
   text = text.replace(/^\d+[.）)]\s*/gm, '');
   if (beforeMarker !== text) appliedRules.push('リストマーカーを除外');
 
+  // 価格表記を除外（¥/￥ + 数値、または 数値 + 円）
+  const beforePrice = text;
+  text = text.replace(/[¥￥]\s*\d[\d,]*(?:\.\d+)?/g, '');
+  text = text.replace(/\d[\d,]*(?:\.\d+)?\s*円/g, '');
+  if (beforePrice !== text) appliedRules.push('価格表記を除外');
+
   text = text.replace(/\t/g, '');
+  return text;
+}
+
+// ====== テキスト処理 ======
+// プレーンテキスト用（貼り付け・.txt）
+function processPlainText(text) {
+  const originalCount = text.replace(/\s/g, '').length;
+  const appliedRules = [];
+  const warnings = detectTagWarnings(text);
+
+  text = applyTextExclusions(text, appliedRules);
 
   const previewText = text.replace(/\n{3,}/g, '\n\n').trim();
   const countedLength = text.replace(/[ \n\r　]/g, '').length;
@@ -194,27 +253,16 @@ function processPlainText(text) {
     originalCount,
     excludedCount: originalCount - countedLength,
     previewText,
-    appliedRules
+    appliedRules,
+    warnings
   };
 }
 
-function injectBlockNewlines(container) {
-  const blockSelectors = 'p,div,h1,h2,h3,h4,h5,h6,li,blockquote,tr,address,article,section,header,footer,main,nav';
-  container.querySelectorAll(blockSelectors).forEach(el => {
-    el.appendChild(document.createTextNode('\n'));
-  });
-  container.querySelectorAll('br').forEach(el => {
-    el.replaceWith(document.createTextNode('\n'));
-  });
-}
-
-// HTML 用（.docx をmammothで変換した結果）。DOMベースの除外ルールも適用
+// HTML 用（.docx をmammothで変換した結果）
 function processHtml(html) {
   const container = document.createElement('div');
   container.innerHTML = html;
 
-  // ブロック要素の境界に改行を挿入（mammothの出力はタグ間に空白がなく、
-  // textContentが1行扱いになって行単位の正規表現が誤動作するのを防ぐ）
   injectBlockNewlines(container);
 
   const rawText = container.textContent;
@@ -236,22 +284,8 @@ function processHtml(html) {
 
   let text = container.textContent;
 
-  const citationRegex = /^[^\n]*(引用元|参照元|出典元|参考元|引用|参照|出典|参考)\s*[：:][^\n]*/gm;
-  const beforeCitation = text;
-  text = text.replace(citationRegex, '');
-  if (beforeCitation !== text) appliedRules.push('引用元・参照・出典等の行を除外');
-
-  const urlRegex = /(https?:\/\/|www\.)[^ \t\n\r　]*/g;
-  const beforeUrl = text;
-  text = text.replace(urlRegex, '');
-  if (beforeUrl !== text) appliedRules.push('URL を除外');
-
-  const beforeMarker = text;
-  text = text.replace(/[・●○►▶※]/g, '');
-  text = text.replace(/^\d+[.）)]\s*/gm, '');
-  if (beforeMarker !== text) appliedRules.push('リストマーカーを除外');
-
-  text = text.replace(/\t/g, '');
+  const warnings = detectTagWarnings(text);
+  text = applyTextExclusions(text, appliedRules);
 
   const previewText = text.replace(/\n{3,}/g, '\n\n').trim();
   const countedLength = text.replace(/[ \n\r　]/g, '').length;
@@ -262,8 +296,36 @@ function processHtml(html) {
     originalCount,
     excludedCount: originalCount - countedLength,
     previewText,
-    appliedRules
+    appliedRules,
+    warnings
   };
+}
+
+// ====== コピーボタン ======
+function initCopyButton() {
+  const copyBtn = document.getElementById('copy-btn');
+  let copyTimer = null;
+
+  copyBtn.addEventListener('click', async () => {
+    const text = document.getElementById('preview').textContent;
+    if (!text || text === '（カウント対象テキストなし）') return;
+    try {
+      await navigator.clipboard.writeText(text);
+      copyBtn.textContent = '✓ コピーしました';
+      copyBtn.classList.add('copied');
+      if (copyTimer) clearTimeout(copyTimer);
+      copyTimer = setTimeout(() => {
+        copyBtn.textContent = '📋 コピー';
+        copyBtn.classList.remove('copied');
+      }, 2000);
+    } catch (e) {
+      copyBtn.textContent = '✗ コピー失敗';
+      if (copyTimer) clearTimeout(copyTimer);
+      copyTimer = setTimeout(() => {
+        copyBtn.textContent = '📋 コピー';
+      }, 2000);
+    }
+  });
 }
 
 // ====== 表示 ======
@@ -289,6 +351,21 @@ function displayResult(result) {
   rulesList.innerHTML = '';
   addRuleItem(rulesList, 'スペース・改行・タブを除外');
   (result.appliedRules || []).forEach(rule => addRuleItem(rulesList, rule));
+
+  // 警告セクション
+  const warningsSection = document.getElementById('warnings-section');
+  const warningsList = document.getElementById('warnings-list');
+  warningsList.innerHTML = '';
+  if (result.warnings && result.warnings.length > 0) {
+    warningsSection.style.display = 'block';
+    result.warnings.forEach(w => {
+      const li = document.createElement('li');
+      li.textContent = w;
+      warningsList.appendChild(li);
+    });
+  } else {
+    warningsSection.style.display = 'none';
+  }
 
   const preview = document.getElementById('preview');
   preview.textContent = result.previewText || '（カウント対象テキストなし）';

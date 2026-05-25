@@ -14,13 +14,10 @@ function triggerSelectionCheck() {
   }, 150);
 }
 
-// capture: true — GoogleドキュメントのstopImmediatePropagationを回避
 document.addEventListener('selectionchange', triggerSelectionCheck, true);
-// mouseup/keyup — selectionchangeが発火しない環境への追加トリガー
 document.addEventListener('mouseup', triggerSelectionCheck);
 document.addEventListener('keyup', triggerSelectionCheck);
 
-// Googleドキュメント対応: ポーリングで選択テキストの変化を検出
 if (window.location.hostname === 'docs.google.com') {
   let lastSelText = '';
   setInterval(() => {
@@ -51,6 +48,40 @@ function injectBlockNewlines(container) {
   });
 }
 
+// リテラルな見出しタグ（半角/全角括弧）から問題を抽出
+function detectTagWarnings(text) {
+  const warnings = [];
+
+  // すべての見出しタグ候補を抽出（半角・全角括弧の両方）
+  const allTagsRe = /[<＜]\s*\/?\s*h([1-6])[^>＞]*[>＞]/gi;
+  const allTags = [...text.matchAll(allTagsRe)];
+
+  // 全角括弧を含むタグを警告
+  allTags.forEach(m => {
+    if (/[＜＞]/.test(m[0])) {
+      warnings.push(`全角括弧を含む見出しタグ：${m[0]}`);
+    }
+  });
+
+  // 開閉数の不一致を警告
+  const openCount = {};
+  const closeCount = {};
+  allTags.forEach(m => {
+    const isClose = /[<＜]\s*\//.test(m[0]);
+    const level = m[1];
+    if (isClose) closeCount[level] = (closeCount[level] || 0) + 1;
+    else openCount[level] = (openCount[level] || 0) + 1;
+  });
+  for (let i = 1; i <= 6; i++) {
+    const o = openCount[i] || 0;
+    const c = closeCount[i] || 0;
+    if (o > c) warnings.push(`<h${i}> の閉じタグが不足（開き${o}件 / 閉じ${c}件）`);
+    else if (c > o) warnings.push(`</h${i}> の開きタグが不足（開き${o}件 / 閉じ${c}件）`);
+  }
+
+  return [...new Set(warnings)];
+}
+
 function processSelection() {
   try {
     const selection = window.getSelection();
@@ -64,13 +95,10 @@ function processSelection() {
     const container = document.createElement('div');
     container.appendChild(fragment);
 
-    // ブロック要素の境界に改行を挿入（textContentは改行を含まないため、
-    // 行単位の正規表現が誤って全文を1行扱いするのを防ぐ）
     injectBlockNewlines(container);
 
     const rawText = container.textContent;
 
-    // cloneContentsが空の場合（Googleドキュメントキャンバスモード等）のフォールバック
     if (!rawText.trim()) {
       const fallbackText = selection.toString();
       if (!fallbackText.trim()) return { hasSelection: false };
@@ -82,7 +110,8 @@ function processSelection() {
         originalCount,
         excludedCount: originalCount - countedLength,
         previewText: fallbackText.replace(/\n{3,}/g, '\n\n').trim(),
-        appliedRules: []
+        appliedRules: [],
+        warnings: []
       };
     }
 
@@ -104,6 +133,15 @@ function processSelection() {
 
     let text = container.textContent;
 
+    // 警告の検出は除外処理前に行う
+    const warnings = detectTagWarnings(text);
+
+    // リテラル見出しタグの除外（半角/全角括弧の両方、開閉のペア＋孤立タグ）
+    const beforeHeadingTag = text;
+    text = text.replace(/[<＜]h([1-6])[^>＞]*[>＞][\s\S]*?[<＜]\s*\/h\1[>＞]/gi, '');
+    text = text.replace(/[<＜]\s*\/?\s*h[1-6][^>＞]*[>＞]/gi, '');
+    if (beforeHeadingTag !== text) appliedRules.push('見出しタグ（文字列）を除外');
+
     const citationRegex = /^[^\n]*(引用元|参照元|出典元|参考元|引用|参照|出典|参考)\s*[：:][^\n]*/gm;
     const beforeCitation = text;
     text = text.replace(citationRegex, '');
@@ -119,6 +157,12 @@ function processSelection() {
     text = text.replace(/^\d+[.）)]\s*/gm, '');
     if (beforeMarker !== text) appliedRules.push('リストマーカーを除外');
 
+    // 価格表記を除外（¥/￥ + 数値、または 数値 + 円）
+    const beforePrice = text;
+    text = text.replace(/[¥￥]\s*\d[\d,]*(?:\.\d+)?/g, '');
+    text = text.replace(/\d[\d,]*(?:\.\d+)?\s*円/g, '');
+    if (beforePrice !== text) appliedRules.push('価格表記を除外');
+
     text = text.replace(/\t/g, '');
 
     const previewText = text.replace(/\n{3,}/g, '\n\n').trim();
@@ -131,7 +175,8 @@ function processSelection() {
       originalCount,
       excludedCount,
       previewText,
-      appliedRules
+      appliedRules,
+      warnings
     };
   } catch (e) {
     return { hasSelection: false };
