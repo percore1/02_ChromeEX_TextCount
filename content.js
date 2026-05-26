@@ -110,12 +110,14 @@ function processSelection() {
         originalCount,
         excludedCount: originalCount - countedLength,
         previewText: fallbackText.replace(/\n{3,}/g, '\n\n').trim(),
+        rawText: fallbackText,
         appliedRules: [],
         warnings: []
       };
     }
 
     const originalCount = rawText.replace(/\s/g, '').length;
+    const rawTextForProofreading = rawText;
 
     const appliedRules = [];
 
@@ -175,6 +177,7 @@ function processSelection() {
       originalCount,
       excludedCount,
       previewText,
+      rawText: rawTextForProofreading,
       appliedRules,
       warnings
     };

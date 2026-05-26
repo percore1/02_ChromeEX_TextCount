@@ -11,6 +11,13 @@
     <span id="sync-badge" class="sync-badge sync-waiting">待機中</span>
   </div>
 
+  <!-- 外側：機能タブ -->
+  <div class="feature-tabs">
+    <button class="feature-tab active" data-feature="count">文字数カウント</button>
+    <button class="feature-tab" data-feature="proofread">校閲チェック</button>
+  </div>
+
+  <!-- 内側：入力タブ（共通） -->
   <div class="tabs">
     <button class="tab active" data-target="tab-auto">自動</button>
     <button class="tab" data-target="tab-paste">貼り付け</button>
@@ -18,7 +25,7 @@
   </div>
 
   <div id="tab-auto" class="tab-content active">
-    <div class="tab-description">ページでテキストを選択すると自動的にカウントされます。</div>
+    <div class="tab-description">ページでテキストを選択すると自動的に処理されます。</div>
   </div>
 
   <div id="tab-paste" class="tab-content">
@@ -42,7 +49,8 @@
 
   <div id="status" class="status">テキストを選択・貼り付け・アップロードしてください</div>
 
-  <div id="results" style="display:none">
+  <!-- 文字数カウント結果 -->
+  <div id="results" class="feature-pane feature-pane-count" style="display:none">
 
     <div class="count-main">
       <div class="count-label">カウント対象文字数</div>
@@ -83,7 +91,43 @@
 
   </div>
 
+  <!-- 校閲チェック結果 -->
+  <div id="proofread-pane" class="feature-pane feature-pane-proofread" style="display:none">
+
+    <div class="count-main">
+      <div class="count-label">検出件数</div>
+      <div class="count-value">
+        <span id="proofread-count">0</span>
+        <span class="count-unit">件</span>
+      </div>
+    </div>
+
+    <div id="proofread-error" class="section warning-section" style="display:none">
+      <div class="section-title">⚠ ルール読み込みエラー</div>
+      <div id="proofread-error-msg"></div>
+    </div>
+
+    <div id="proofread-matched-section" class="section" style="display:none">
+      <div class="section-title">検出された項目</div>
+      <div id="proofread-matched"></div>
+    </div>
+
+    <div id="proofread-empty" class="section" style="display:none">
+      <div class="empty-message">検出された項目はありません</div>
+    </div>
+
+    <div class="section section-last">
+      <div class="section-header collapsible" id="checklist-header">
+        <span class="section-title">チェックリスト（参考）</span>
+        <span class="collapse-icon" id="checklist-icon">▶</span>
+      </div>
+      <div id="checklist-body" class="checklist-body" style="display:none"></div>
+    </div>
+
+  </div>
+
   <script src="mammoth.browser.min.js"></script>
+  <script src="proofreading.js"></script>
   <script src="sidepanel.js"></script>
 </body>
 </html>

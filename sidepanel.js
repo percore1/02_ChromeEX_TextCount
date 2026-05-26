@@ -1,12 +1,60 @@
+// 機能タブ（外側）の現在値
+let currentFeature = 'count'; // 'count' | 'proofread'
+
+// 最後に処理した結果を保持（タブ切替時に再描画するため）
+let lastResult = null;
+
 document.addEventListener('DOMContentLoaded', () => {
+  initFeatureTabs();
   initTabs();
   initPasteTab();
   initFileTab();
   initCopyButton();
+  initChecklistCollapse();
   initAutoSync();
+
+  // ルールの先読み（失敗時もアプリは動かす）
+  if (window.Proofreading) {
+    window.Proofreading.loadRules();
+  }
 });
 
-// ====== タブ切替 ======
+// ====== 機能タブ（外側） ======
+function initFeatureTabs() {
+  document.querySelectorAll('.feature-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      document.querySelectorAll('.feature-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      currentFeature = tab.dataset.feature;
+      applyFeatureView();
+    });
+  });
+}
+
+function applyFeatureView() {
+  const countPane = document.getElementById('results');
+  const proofreadPane = document.getElementById('proofread-pane');
+  const status = document.getElementById('status');
+
+  if (!lastResult || !lastResult.hasSelection) {
+    countPane.style.display = 'none';
+    proofreadPane.style.display = 'none';
+    status.style.display = 'block';
+    return;
+  }
+
+  status.style.display = 'none';
+  if (currentFeature === 'count') {
+    countPane.style.display = 'block';
+    proofreadPane.style.display = 'none';
+  } else {
+    countPane.style.display = 'none';
+    proofreadPane.style.display = 'block';
+    renderProofread(lastResult);
+  }
+}
+
+// ====== タブ切替（入力タブ） ======
 function initTabs() {
   document.querySelectorAll('.tab').forEach(tab => {
     tab.addEventListener('click', () => {
@@ -70,6 +118,7 @@ function initPasteTab() {
   pasteArea.addEventListener('input', () => {
     const text = pasteArea.value;
     if (!text.trim()) {
+      lastResult = null;
       showStatus('テキストを選択・貼り付け・アップロードしてください');
       return;
     }
@@ -79,6 +128,7 @@ function initPasteTab() {
 
   clearBtn.addEventListener('click', () => {
     pasteArea.value = '';
+    lastResult = null;
     showStatus('テキストを選択・貼り付け・アップロードしてください');
   });
 }
@@ -238,6 +288,7 @@ function applyTextExclusions(text, appliedRules) {
 // ====== テキスト処理 ======
 // プレーンテキスト用（貼り付け・.txt）
 function processPlainText(text) {
+  const rawText = text;
   const originalCount = text.replace(/\s/g, '').length;
   const appliedRules = [];
   const warnings = detectTagWarnings(text);
@@ -253,6 +304,7 @@ function processPlainText(text) {
     originalCount,
     excludedCount: originalCount - countedLength,
     previewText,
+    rawText,
     appliedRules,
     warnings
   };
@@ -267,6 +319,7 @@ function processHtml(html) {
 
   const rawText = container.textContent;
   const originalCount = rawText.replace(/\s/g, '').length;
+  const rawTextForProofreading = rawText;
 
   const appliedRules = [];
 
@@ -296,6 +349,7 @@ function processHtml(html) {
     originalCount,
     excludedCount: originalCount - countedLength,
     previewText,
+    rawText: rawTextForProofreading,
     appliedRules,
     warnings
   };
@@ -328,18 +382,38 @@ function initCopyButton() {
   });
 }
 
+// ====== チェックリスト折りたたみ ======
+function initChecklistCollapse() {
+  const header = document.getElementById('checklist-header');
+  const body = document.getElementById('checklist-body');
+  const icon = document.getElementById('checklist-icon');
+  if (!header || !body || !icon) return;
+
+  header.addEventListener('click', () => {
+    const expanded = body.style.display !== 'none';
+    body.style.display = expanded ? 'none' : 'block';
+    icon.classList.toggle('expanded', !expanded);
+  });
+}
+
 // ====== 表示 ======
 function displayResult(result) {
   if (!result || !result.hasSelection) {
+    lastResult = null;
     setSyncBadge(false);
     showStatus('テキストを選択・貼り付け・アップロードしてください');
     return;
   }
 
+  lastResult = result;
   setSyncBadge(true);
   document.getElementById('status').style.display = 'none';
-  document.getElementById('results').style.display = 'block';
 
+  renderCount(result);
+  applyFeatureView();
+}
+
+function renderCount(result) {
   document.getElementById('counted-length').textContent =
     result.countedLength.toLocaleString();
   document.getElementById('original-count').textContent =
@@ -352,7 +426,6 @@ function displayResult(result) {
   addRuleItem(rulesList, 'スペース・改行・タブを除外');
   (result.appliedRules || []).forEach(rule => addRuleItem(rulesList, rule));
 
-  // 警告セクション
   const warningsSection = document.getElementById('warnings-section');
   const warningsList = document.getElementById('warnings-list');
   warningsList.innerHTML = '';
@@ -371,6 +444,159 @@ function displayResult(result) {
   preview.textContent = result.previewText || '（カウント対象テキストなし）';
 }
 
+// ====== 校閲チェック描画 ======
+function renderProofread(result) {
+  if (!window.Proofreading) return;
+
+  const text = (result && result.rawText) || '';
+
+  window.Proofreading.loadRules().then(rules => {
+    const errorBox = document.getElementById('proofread-error');
+    const errorMsg = document.getElementById('proofread-error-msg');
+    const loadErr = window.Proofreading.getLoadError();
+    if (loadErr) {
+      errorBox.style.display = 'block';
+      errorMsg.textContent = String(loadErr.message || loadErr);
+    } else {
+      errorBox.style.display = 'none';
+    }
+
+    const { detectionCount, matched, checklist } =
+      window.Proofreading.checkText(text, rules);
+
+    const countEl = document.getElementById('proofread-count');
+    countEl.textContent = detectionCount.toLocaleString();
+    countEl.classList.toggle('has-detection', detectionCount > 0);
+
+    renderMatched(matched);
+    renderChecklist(checklist);
+  });
+}
+
+function renderMatched(matched) {
+  const section = document.getElementById('proofread-matched-section');
+  const container = document.getElementById('proofread-matched');
+  const empty = document.getElementById('proofread-empty');
+  container.innerHTML = '';
+
+  if (!matched || matched.length === 0) {
+    section.style.display = 'none';
+    empty.style.display = 'block';
+    return;
+  }
+
+  section.style.display = 'block';
+  empty.style.display = 'none';
+
+  const groups = window.Proofreading.groupByCategory(matched, item => item.rule.category);
+  groups.forEach(group => {
+    const block = document.createElement('div');
+    block.className = 'proofread-category';
+
+    const title = document.createElement('div');
+    title.className = 'proofread-category-title';
+    title.textContent = group.category;
+    block.appendChild(title);
+
+    group.items.forEach(item => {
+      block.appendChild(buildRuleCard(item.rule, item.matches));
+    });
+
+    container.appendChild(block);
+  });
+}
+
+function buildRuleCard(rule, matches) {
+  const card = document.createElement('div');
+  card.className = 'proofread-rule';
+
+  const head = document.createElement('div');
+  head.className = 'proofread-rule-head';
+
+  const badge = document.createElement('span');
+  const sev = rule.severity || 'info';
+  badge.className = 'severity-badge severity-' + sev;
+  badge.textContent = sev.toUpperCase();
+  head.appendChild(badge);
+
+  const title = document.createElement('span');
+  title.className = 'proofread-rule-title';
+  title.textContent = rule.title || rule.id;
+  head.appendChild(title);
+
+  card.appendChild(head);
+
+  if (matches && matches.length > 0) {
+    const matchRow = document.createElement('div');
+    matchRow.className = 'proofread-rule-matches';
+    const label = document.createElement('span');
+    label.className = 'label';
+    label.textContent = '該当箇所:';
+    matchRow.appendChild(label);
+    matches.forEach(m => {
+      const chip = document.createElement('span');
+      chip.className = 'match-chip';
+      chip.textContent = m;
+      matchRow.appendChild(chip);
+    });
+    card.appendChild(matchRow);
+  }
+
+  if (rule.type === 'replacement' && rule.replacement) {
+    const rec = document.createElement('div');
+    rec.className = 'proofread-rule-recommend';
+    const label = document.createElement('span');
+    label.className = 'label';
+    label.textContent = '推奨:';
+    rec.appendChild(label);
+    rec.appendChild(document.createTextNode(rule.replacement));
+    card.appendChild(rec);
+  }
+
+  if (rule.description) {
+    const desc = document.createElement('div');
+    desc.className = 'proofread-rule-desc';
+    desc.textContent = rule.description;
+    card.appendChild(desc);
+  }
+
+  return card;
+}
+
+function renderChecklist(checklist) {
+  const container = document.getElementById('checklist-body');
+  container.innerHTML = '';
+
+  if (!checklist || checklist.length === 0) {
+    const empty = document.createElement('div');
+    empty.className = 'empty-message';
+    empty.textContent = 'チェックリストは登録されていません';
+    container.appendChild(empty);
+    return;
+  }
+
+  const groups = window.Proofreading.groupByCategory(checklist, r => r.category);
+  groups.forEach(group => {
+    const block = document.createElement('div');
+    block.className = 'checklist-category';
+
+    const title = document.createElement('div');
+    title.className = 'checklist-category-title';
+    title.textContent = group.category;
+    block.appendChild(title);
+
+    group.items.forEach(rule => {
+      const item = document.createElement('div');
+      item.className = 'checklist-item';
+      item.textContent = rule.title || rule.id;
+      item.title = rule.description || '';
+      block.appendChild(item);
+    });
+
+    container.appendChild(block);
+  });
+}
+
 function addRuleItem(list, text) {
   const li = document.createElement('li');
   li.textContent = text;
@@ -381,6 +607,7 @@ function showStatus(message) {
   document.getElementById('status').textContent = message;
   document.getElementById('status').style.display = 'block';
   document.getElementById('results').style.display = 'none';
+  document.getElementById('proofread-pane').style.display = 'none';
 }
 
 function setSyncBadge(active) {
