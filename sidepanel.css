@@ -515,6 +515,22 @@ body {
   margin-right: 4px;
 }
 
+.proofread-rule-comment {
+  margin: 4px 0;
+  font-size: 11px;
+  color: #444;
+  background: #f5f6f8;
+  padding: 3px 6px;
+  border-radius: 2px;
+  line-height: 1.5;
+}
+
+.proofread-rule-comment .label {
+  color: #666;
+  font-weight: bold;
+  margin-right: 4px;
+}
+
 .proofread-rule-desc {
   margin-top: 5px;
   font-size: 11px;

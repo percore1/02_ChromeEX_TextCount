@@ -434,26 +434,31 @@ MVP では以下の3種類のみ対応する。
 | `replacement` | string | – | `replacement` 型のみ。推奨表記の文字列（例: `ください`） |
 | `admin_memo` | string | – | 管理メモ（任意） |
 
-#### 11.5.3 `bunken_checklist_cleaned.json` の変換ルール
+#### 11.5.3 `text_checklist.csv` の変換ルール
 
-`bunken_checklist_cleaned.json`（全20件、文賢の辞書編集画面由来のクリーン済みデータ）を上記スキーマに **変換** して `rules/proofreading_rules.json` の初期データとする。
+`text_checklist.csv`（全191件、ルール推敲 171件＋チェックリスト 20件）を上記スキーマに **変換** して `rules/proofreading_rules.json` の初期データとする。
 
 変換マッピング:
 
-| 元フィールド | 変換後フィールド | 備考 |
-|------------|-----------------|------|
+| CSV フィールド | 変換後フィールド | 備考 |
+|---------------|-----------------|------|
+| `id` | `id` | `rule-001` 形式（3桁ゼロ埋め） |
 | `category` | `category` | そのまま |
 | `check_item` | `title` | そのまま |
 | `explanation` | `description` | そのまま（改行を保持） |
-| `enabled` | `enabled` | そのまま |
+| `enabled` | `enabled` | `True` → true |
+| `keyword` | `keywords` | 配列化（`[keyword]`）。空のときは `[]` |
+| `recommended_word` | `replacement` | `replacement` 型のみ |
+| `basic_comment_preview` | `basic_comment` | 推奨コメントとしてUIに表示 |
+| `morphological_setting` | `morphological_setting` | 参照情報として保持（MVP では未使用） |
 | `admin_memo` | `admin_memo` | 空文字でも保持 |
-| – | `id` | 連番で採番（`rule-001` 〜 `rule-020`） |
-| – | `type` | 全件 `checklist` |
+| – | `type` | `keyword` ありなら `replacement`、なしなら `checklist` |
 | – | `severity` | 全件 `info` |
-| – | `keywords` | 全件 `[]` |
-| – | `source` | 全件 `bunken_cleaned` |
+| – | `source` | 全件 `text_checklist` |
 
-> 注: 文賢の HTML ソース、`data-v` 属性、SVG、`<script>`、`<style>`、class 名等は **一切持ち込まない**。`category` / `check_item` / `explanation` / `admin_memo` の4項目のみ参照する。著作権・利用規約上の配慮として、当面は自社用・個人用の参考ルールとして扱う。
+> 注: CSV の `source_file` / `source_page` / `source_row` / `extraction_note` 列は出典トレース用のメタデータであり、ルール JSON には含めない。著作権・利用規約上の配慮として、当面は自社用・個人用の参考ルールとして扱う。
+>
+> 旧データ（`bunken_checklist_cleaned.json` 全20件）は `text_checklist.csv` の「チェックリスト」シート相当分（id 172〜191）に内包されている。
 
 ### 11.6 ルール照合ロジック（MVP）
 

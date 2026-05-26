@@ -553,6 +553,17 @@ function buildRuleCard(rule, matches) {
     card.appendChild(rec);
   }
 
+  if (rule.basic_comment) {
+    const comment = document.createElement('div');
+    comment.className = 'proofread-rule-comment';
+    const label = document.createElement('span');
+    label.className = 'label';
+    label.textContent = '推奨コメント:';
+    comment.appendChild(label);
+    comment.appendChild(document.createTextNode(rule.basic_comment));
+    card.appendChild(comment);
+  }
+
   if (rule.description) {
     const desc = document.createElement('div');
     desc.className = 'proofread-rule-desc';

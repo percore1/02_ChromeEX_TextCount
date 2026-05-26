@@ -1,305 +1,3189 @@
 [
-  {
-    "id": "rule-001",
-    "type": "checklist",
-    "category": "わかりやすさのチェックリスト",
-    "title": "「箇条書き」を用いて、整理できる箇所はありませんか？",
-    "description": "複数の項目を含む文章の場合、箇条書きを用いて整理するとわかりやすくなります。\n\n【before】\n白ワインには、シャルドネとソーヴィニヨン・ブランとリースリングという有名なブドウ品種があるんです。\n↓\n【after】\n白ワインを学ぶ上で知っておくべきブドウ品種は以下の3つです。\n\n1．シャルドネ\n2．ソーヴィニヨン・ブラン\n3．リースリング",
-    "severity": "info",
-    "enabled": true,
-    "keywords": [],
-    "source": "bunken_cleaned",
-    "admin_memo": ""
-  },
-  {
-    "id": "rule-002",
-    "type": "checklist",
-    "category": "わかりやすさのチェックリスト",
-    "title": "短く、シンプルに略せる文章はありませんか？",
-    "description": "同じ意味であれば、文章は短くしたほうが読みやすくなります。\n\n【before】\nライティングにおける非常に重要なポイントは、書いた文章をいかに素早く推敲することができるかです。\n↓\n【after】\nライティングの重要なポイントは、書いた文章をできるだけ素早く推敲することです。",
-    "severity": "info",
-    "enabled": true,
-    "keywords": [],
-    "source": "bunken_cleaned",
-    "admin_memo": ""
-  },
-  {
-    "id": "rule-003",
-    "type": "checklist",
-    "category": "わかりやすさのチェックリスト",
-    "title": "「主語」と「述語」の距離は近いですか？",
-    "description": "主語と述語の距離を近くしたほうが、わかりやすい文章になります。\n\n【before】\nそのボクサーは2019年10月、後楽園ホールにて、チャンピオンベルトを巻いた。\n↓\n【after】\n2019年10月、後楽園ホールにて、そのボクサーはチャンピオンベルトを巻いた。",
-    "severity": "info",
-    "enabled": true,
-    "keywords": [],
-    "source": "bunken_cleaned",
-    "admin_memo": ""
-  },
-  {
-    "id": "rule-004",
-    "type": "checklist",
-    "category": "わかりやすさのチェックリスト",
-    "title": "長い修飾語は「前」に、短い修飾語は「後」に書いていますか？",
-    "description": "長い修飾語は「前」に、短い修飾語は「後」に書くことで、わかりやすい文章になります。\n\n【before】\n赤色の買ったばかりのPC\n↓\n【after】\n買ったばかりの赤色のPC",
-    "severity": "info",
-    "enabled": true,
-    "keywords": [],
-    "source": "bunken_cleaned",
-    "admin_memo": ""
-  },
-  {
-    "id": "rule-005",
-    "type": "checklist",
-    "category": "わかりやすさのチェックリスト",
-    "title": "大きな状況は「前」に、小さな状況は「後」に書いていますか？",
-    "description": "大きな状況は「前」に、小さな状況は「後」に書くことで、わかりやすい文章になります。\n\n【before】\nお台場海浜公園で、2019年の12月、有志によるクリスマスイベントが開かれます。\n↓\n【after】\n2019年の12月、お台場海浜公園で、有志によるクリスマスイベントが開かれます。",
-    "severity": "info",
-    "enabled": true,
-    "keywords": [],
-    "source": "bunken_cleaned",
-    "admin_memo": ""
-  },
-  {
-    "id": "rule-006",
-    "type": "checklist",
-    "category": "わかりやすさのチェックリスト",
-    "title": "三つ以上の語句を並べる場合は、「と」「や」などは最初にもってきていますか？",
-    "description": "三つ以上の語句を並べる場合は、「と」「や」などは先にもってくると、わかりやすい文章になります。\n\n【before】\n東京、京都や大阪に行ってみたい。\n↓\n【after】\n東京や京都、大阪に行ってみたい。",
-    "severity": "info",
-    "enabled": true,
-    "keywords": [],
-    "source": "bunken_cleaned",
-    "admin_memo": ""
-  },
-  {
-    "id": "rule-007",
-    "type": "checklist",
-    "category": "わかりやすさのチェックリスト",
-    "title": "「指示代名詞」を使い過ぎていませんか？",
-    "description": "指示語が多すぎると、読み手が「その指示語は何を指していたのか？」がわからなくなるケースがあります。\nよって、指示語はあえて少し減らし、「普通名詞」「固有名詞」を多めに使ったほうがよいでしょう。\n（とくに、スマートフォンで斜め読みする人にとっては、「普通名詞」「固有名詞」が多めのほうが内容を理解しやすくなります）\n\n【before】\nイタリアワインは多彩な表情をもったワインです。\nこのワインの勢いは本物です。\nなぜなら、このワインは、ブドウが不作だった2014年を除き、2012年からワイン生産量の世界一をキープしているからです。\n↓\n【after】\nイタリアワインは多彩な表情をもったワインです。\nイタリアワインの勢いは本物です。\nなぜなら、イタリアワインは、ブドウが不作だった2014年を除き、2012年からワイン生産量の世界一をキープしているからです。",
-    "severity": "info",
-    "enabled": true,
-    "keywords": [],
-    "source": "bunken_cleaned",
-    "admin_memo": ""
-  },
-  {
-    "id": "rule-008",
-    "type": "checklist",
-    "category": "わかりやすさのチェックリスト",
-    "title": "できるだけ最初に「結論」を書くようにしていますか？",
-    "description": "できるだけ最初に結論をもってくるほうが、読み手のモチベーションが続きやすく、完読してもらいやすくなります。\n「結論　→　理由　→　事例（具体例）　→　再度結論を伝える」という「PREP法」を意識するとよいでしょう。\n\nP＝Point（結論）\nR＝Reason（理由）\nE＝Example（事例、具体例）\nP＝Point（結論を繰り返す）",
-    "severity": "info",
-    "enabled": true,
-    "keywords": [],
-    "source": "bunken_cleaned",
-    "admin_memo": ""
-  },
-  {
-    "id": "rule-009",
-    "type": "checklist",
-    "category": "わかりやすさのチェックリスト",
-    "title": "読み手に共感してもらうための「感情表現」は意識していますか？",
-    "description": "「話し言葉」が使える文章であれば、話し言葉を入れると、あなたの感情が相手に伝わりやすくなり、相手が共感しやすくなります。\n感情が見えない文章には、人は共感しにくいものです。\n共感してほしいのであれば、あなたの感情が宿った文章を書きましょう。",
-    "severity": "info",
-    "enabled": true,
-    "keywords": [],
-    "source": "bunken_cleaned",
-    "admin_memo": ""
-  },
-  {
-    "id": "rule-010",
-    "type": "checklist",
-    "category": "わかりやすさのチェックリスト",
-    "title": "取り上げている情報は信頼できるものですか？ウェブや書籍から情報を引用したり、参考にしたりする場合は「出典」を明記しましたか？",
-    "description": "わかりやすい文章を書けば書くほど、その情報が相手にストレートに伝わりやすくなります。\nそれと同時に、情報を伝える側の責任もよりいっそう強くなります。\nウェブや書籍から情報を引用したり、参考にしたりする場合は、出典を明記しましょう。\n\n▼引用のルール\n1．オリジナル部分と引用部分の主従関係が明確である\n2．オリジナル部分と引用部分の区別がハッキリしている\n3．引用する必要性がある\n4．出典元を明記している\n5．改変せずにそのまま引用している",
-    "severity": "info",
-    "enabled": true,
-    "keywords": [],
-    "source": "bunken_cleaned",
-    "admin_memo": ""
-  },
-  {
-    "id": "rule-011",
-    "type": "checklist",
-    "category": "公に発信する際に注意すべきチェックリスト",
-    "title": "「あなたのことをよく知らない人」が読んだときに、誤解を与える内容ではありませんか？",
-    "description": "インターネット上では、あなたのことをよく知らない人が、あなたの文章を読む場合があります。\n「こう書いておけばよかった・・・」「あれも書いておけばよかった・・・」と後悔しないよう、誤解されるような書き方になっていないか、足りない情報がないかを注意しましょう。",
-    "severity": "info",
-    "enabled": true,
-    "keywords": [],
-    "source": "bunken_cleaned",
-    "admin_memo": ""
-  },
-  {
-    "id": "rule-012",
-    "type": "checklist",
-    "category": "公に発信する際に注意すべきチェックリスト",
-    "title": "「過去に投稿した内容」との「一貫性」は問題ありませんか？",
-    "description": "あなたの意見や価値観が、過去に投稿された記事やツイートと異なっている場合、一貫性がない人だと非難されるケースがあります。\nあなたの意見や価値観に変化が起きたのであれば、「なぜ意見が変わったのか？」という理由や「いつ頃から変わったのか？」という時期を具体的に示しておきましょう。",
-    "severity": "info",
-    "enabled": true,
-    "keywords": [],
-    "source": "bunken_cleaned",
-    "admin_memo": ""
-  },
-  {
-    "id": "rule-013",
-    "type": "checklist",
-    "category": "公に発信する際に注意すべきチェックリスト",
-    "title": "今日は誰かにとってセンシティブな日のため、投稿を「自重したほうがよい日」ではありませんか？",
-    "description": "記事やツイートを投稿する場合、投稿するタイミングは大切です。\n今日が誰かにとって「センシティブ」な日でないかを確認しておきましょう。\nもし、その日の過去に大きな事故や災害などが起きているのであれば、同じ日に陽気な投稿をしてしまうと「空気が読めない人」と非難されるケースがあります。",
-    "severity": "info",
-    "enabled": true,
-    "keywords": [],
-    "source": "bunken_cleaned",
-    "admin_memo": ""
-  },
-  {
-    "id": "rule-014",
-    "type": "checklist",
-    "category": "公に発信する際に注意すべきチェックリスト",
-    "title": "「LGBT」など、多様な愛や性の在り方に配慮できていますか？",
-    "description": "世の中には、多様な価値観があり、とくに愛や性の在り方には様々な形があります。\nLGBT（レズビアン、ゲイ、バイセクシュアル、トランスジェンダー）といった方々にも配慮した文章を意識しましょう。",
-    "severity": "info",
-    "enabled": true,
-    "keywords": [],
-    "source": "bunken_cleaned",
-    "admin_memo": ""
-  },
-  {
-    "id": "rule-015",
-    "type": "checklist",
-    "category": "公に発信する際に注意すべきチェックリスト",
-    "title": "その内容は「パワハラ」や「セクハラ」だと受け取られるものではないですか？",
-    "description": "あなたの会社では問題ないような制度や日常的なやりとりが、外部からは見え方次第で「パワハラ」「セクハラ」だと誤解されたり、非難されることがあります。\n働き方に関する投稿はとくにセンシティブですので気をつけましょう。",
-    "severity": "info",
-    "enabled": true,
-    "keywords": [],
-    "source": "bunken_cleaned",
-    "admin_memo": ""
-  },
-  {
-    "id": "rule-016",
-    "type": "checklist",
-    "category": "公に発信する際に注意すべきチェックリスト",
-    "title": "いたずらに煽（あお）っていませんか？ただ読み手を不安にさせて放置していませんか？",
-    "description": "読み手を不必要に不安にさせるような文章は、多くの方にシェアされやすく、「煽動（せんどう）」という行為につながる恐れがあります。\n読み手が不安になりそうな文章を書く際には、「その不安をなくすためにはどのようにすればいいのか？」といった具体的な対策や考えを添えるようにしましょう。",
-    "severity": "info",
-    "enabled": true,
-    "keywords": [],
-    "source": "bunken_cleaned",
-    "admin_memo": ""
-  },
-  {
-    "id": "rule-017",
-    "type": "checklist",
-    "category": "公に発信する際に注意すべきチェックリスト",
-    "title": "「統計データ」を扱う場合は、その情報が正しいかを検証しましたか？",
-    "description": "統計データを扱う際は、そのデータが最新のものか？信頼できる人たちが導き出したデータか？調査方法に問題はないか？を調べておきましょう。\n間違った統計データを用いると、間違った主張につながり、結果的に大炎上につながる恐れがあります。",
-    "severity": "info",
-    "enabled": true,
-    "keywords": [],
-    "source": "bunken_cleaned",
-    "admin_memo": ""
-  },
-  {
-    "id": "rule-018",
-    "type": "checklist",
-    "category": "公に発信する際に注意すべきチェックリスト",
-    "title": "誰かを取り上げる際は、その人の「プライバシー」に配慮していますか？",
-    "description": "肩書きや会社名、写真だけでも、その人が誰かを特定できてしまう時代です。\n匿名でも他者について公の場で取り上げる際は、その人が特定される可能性があることを考えておきましょう。\n個人を特定できる情報を公開する際は、本人の許可をもらった上で「許可をもらっている」とわかるようにして投稿しましょう。",
-    "severity": "info",
-    "enabled": true,
-    "keywords": [],
-    "source": "bunken_cleaned",
-    "admin_memo": ""
-  },
-  {
-    "id": "rule-019",
-    "type": "checklist",
-    "category": "公に発信する際に注意すべきチェックリスト",
-    "title": "「著作権」を侵害していませんか？",
-    "description": "他者の文章や画像を許可なく転載すると、著作権侵害になる恐れがあります。\nとくに「歌詞の掲載」や「要約」などは注意しましょう。\n\n▼引用のルール\n1．オリジナル部分と引用部分の主従関係が明確である\n2．オリジナル部分と引用部分の区別がハッキリしている\n3．引用する必要性がある\n4．出典元を明記している\n5．改変せずにそのまま引用している",
-    "severity": "info",
-    "enabled": true,
-    "keywords": [],
-    "source": "bunken_cleaned",
-    "admin_memo": ""
-  },
-  {
-    "id": "rule-020",
-    "type": "checklist",
-    "category": "公に発信する際に注意すべきチェックリスト",
-    "title": "お詫びの内容があるとしたら、誠意が伝わる内容になっていますか？",
-    "description": "お詫びは誠意が伝わることが大事です。\n\n1．「相手も悪い」という書き方を極力しない（「誤解を招いたなら」「気を悪くされたなら」等の表現は要注意）\n2．「？」や「！」といった記号を使わない\n3．中途半端なお詫び表現より、しっかりお詫びをしたほうがよい（「申し訳ございません」より「誠に申し訳ございません」「本当に申し訳ございません」）\n4．問題の原因と対策を書く",
-    "severity": "info",
-    "enabled": true,
-    "keywords": [],
-    "source": "bunken_cleaned",
-    "admin_memo": ""
-  },
-  {
-    "id": "rule-101",
-    "type": "keyword",
-    "category": "断定・煽り表現",
-    "title": "断定的・煽り表現が含まれている可能性",
-    "description": "「絶対」「必ず」「100%」などの断定表現や、不安を煽る言い回しは、誤解や炎上のリスクがあります。事実として担保できる範囲に限定するか、緩和表現に置き換えましょう。",
-    "severity": "warning",
-    "enabled": true,
-    "keywords": ["絶対", "必ず", "100%", "誰でも稼げる", "今すぐ"],
-    "source": "manual",
-    "admin_memo": ""
-  },
-  {
-    "id": "rule-102",
-    "type": "keyword",
-    "category": "差別・配慮表現",
-    "title": "配慮が必要な可能性のある表現",
-    "description": "属性に関する表現が含まれています。文脈によっては誤解や偏見を生む可能性があるため、必要かどうかを再確認してください。",
-    "severity": "warning",
-    "enabled": true,
-    "keywords": ["女のくせに", "男のくせに", "おっさん", "おばさん"],
-    "source": "manual",
-    "admin_memo": ""
-  },
-  {
-    "id": "rule-201",
-    "type": "replacement",
-    "category": "表記ゆれ",
-    "title": "「下さい」→「ください」",
-    "description": "補助動詞の「ください」はひらがな表記が推奨されます（「〜してください」など）。",
-    "severity": "info",
-    "enabled": true,
-    "keywords": ["下さい"],
-    "replacement": "ください",
-    "source": "manual",
-    "admin_memo": ""
-  },
-  {
-    "id": "rule-202",
-    "type": "replacement",
-    "category": "表記ゆれ",
-    "title": "「出来る」→「できる」",
-    "description": "可能を表す「できる」はひらがな表記が推奨されます。",
-    "severity": "info",
-    "enabled": true,
-    "keywords": ["出来る", "出来ます", "出来ない"],
-    "replacement": "できる / できます / できない",
-    "source": "manual",
-    "admin_memo": ""
-  },
-  {
-    "id": "rule-203",
-    "type": "replacement",
-    "category": "表記ゆれ",
-    "title": "「事」→「こと」",
-    "description": "形式名詞の「こと」はひらがな表記が推奨されます（「読むこと」「書くこと」など）。",
-    "severity": "info",
-    "enabled": true,
-    "keywords": ["する事", "という事", "した事"],
-    "replacement": "すること / ということ / したこと",
-    "source": "manual",
-    "admin_memo": ""
-  }
+    {
+        "id":  "rule-001",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "繋ご → つなご",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "繋ご"
+                     ],
+        "replacement":  "つなご",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「つなご」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-002",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "繋げ → つなげ",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "繋げ"
+                     ],
+        "replacement":  "つなげ",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「つなげ」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-003",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "繋ぐ → つなぐ",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "繋ぐ"
+                     ],
+        "replacement":  "つなぐ",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「つなぐ」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-004",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "繋ぎ → つなぎ",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "繋ぎ"
+                     ],
+        "replacement":  "つなぎ",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「つなぎ」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-005",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "繋が → つなが",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "繋が"
+                     ],
+        "replacement":  "つなが",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「つなが」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-006",
+        "type":  "replacement",
+        "category":  "フリールール",
+        "title":  "ホームページ → サイト",
+        "description":  "独自ルールとして、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "ホームページ"
+                     ],
+        "replacement":  "サイト",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "サイト",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-007",
+        "type":  "replacement",
+        "category":  "フリールール",
+        "title":  "ホームページアドレス → URL",
+        "description":  "独自ルールとして、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "ホームページアドレス"
+                     ],
+        "replacement":  "URL",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "URL",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-008",
+        "type":  "replacement",
+        "category":  "カタカナで書くほうがよい言葉",
+        "title":  "Email → メールアドレス",
+        "description":  "表記を統一するため、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "Email"
+                     ],
+        "replacement":  "メールアドレス",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「メールアドレス」とカタカナで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-009",
+        "type":  "replacement",
+        "category":  "カタカナで書くほうがよい言葉",
+        "title":  "Eメール → メールアドレス",
+        "description":  "表記を統一するため、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "Eメール"
+                     ],
+        "replacement":  "メールアドレス",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「メールアドレス」とカタカナで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-010",
+        "type":  "replacement",
+        "category":  "カタカナで書くほうがよい言葉",
+        "title":  "断トツ → ダントツ",
+        "description":  "表記を統一するため、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "断トツ"
+                     ],
+        "replacement":  "ダントツ",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「ダントツ」とカタカナで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-011",
+        "type":  "replacement",
+        "category":  "フリールール",
+        "title":  "ガラケー → フィーチャーフォン",
+        "description":  "独自ルールとして、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "ガラケー"
+                     ],
+        "replacement":  "フィーチャーフォン",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "フィーチャーフォン",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-012",
+        "type":  "replacement",
+        "category":  "フリールール",
+        "title":  "パソコン → PC",
+        "description":  "独自ルールとして、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "パソコン"
+                     ],
+        "replacement":  "PC",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "PC",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-013",
+        "type":  "replacement",
+        "category":  "フリールール",
+        "title":  "メインテナンス → メンテナンス",
+        "description":  "独自ルールとして、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "メインテナンス"
+                     ],
+        "replacement":  "メンテナンス",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "メンテナンス",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-014",
+        "type":  "replacement",
+        "category":  "フリールール",
+        "title":  "ウィンドウ → ウインドウ",
+        "description":  "独自ルールとして、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "ウィンドウ"
+                     ],
+        "replacement":  "ウインドウ",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "ウインドウ",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-015",
+        "type":  "replacement",
+        "category":  "フリールール",
+        "title":  "楽 → ラク",
+        "description":  "独自ルールとして、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "楽"
+                     ],
+        "replacement":  "ラク",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "ラク",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-016",
+        "type":  "replacement",
+        "category":  "フリールール",
+        "title":  "宛 → 宛て",
+        "description":  "独自ルールとして、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "宛"
+                     ],
+        "replacement":  "宛て",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "宛て",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-017",
+        "type":  "replacement",
+        "category":  "フリールール",
+        "title":  "わたしたち → 私たち",
+        "description":  "独自ルールとして、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "わたしたち"
+                     ],
+        "replacement":  "私たち",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "私たち",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-018",
+        "type":  "replacement",
+        "category":  "フリールール",
+        "title":  "充分 → 十分",
+        "description":  "独自ルールとして、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "充分"
+                     ],
+        "replacement":  "十分",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "十分",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-019",
+        "type":  "replacement",
+        "category":  "漢字で書くほうがよい言葉",
+        "title":  "がんばる → 頑張る",
+        "description":  "表記を統一するため、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "がんばる"
+                     ],
+        "replacement":  "頑張る",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「頑張る」と漢字で書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-020",
+        "type":  "replacement",
+        "category":  "フリールール",
+        "title":  "引越 → 引っ越し",
+        "description":  "独自ルールとして、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "引越"
+                     ],
+        "replacement":  "引っ越し",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "引っ越し",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-021",
+        "type":  "replacement",
+        "category":  "フリールール",
+        "title":  "引越し → 引っ越し",
+        "description":  "独自ルールとして、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "引越し"
+                     ],
+        "replacement":  "引っ越し",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "引っ越し",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-022",
+        "type":  "replacement",
+        "category":  "フリールール",
+        "title":  "乗換 → 乗り換え",
+        "description":  "独自ルールとして、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "乗換"
+                     ],
+        "replacement":  "乗り換え",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "乗り換え",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-023",
+        "type":  "replacement",
+        "category":  "フリールール",
+        "title":  "乗換え → 乗り換え",
+        "description":  "独自ルールとして、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "乗換え"
+                     ],
+        "replacement":  "乗り換え",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "乗り換え",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-024",
+        "type":  "replacement",
+        "category":  "フリールール",
+        "title":  "税別 → 税抜",
+        "description":  "独自ルールとして、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "税別"
+                     ],
+        "replacement":  "税抜",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "税抜",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-025",
+        "type":  "replacement",
+        "category":  "フリールール",
+        "title":  "税抜き → 税抜",
+        "description":  "独自ルールとして、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "税抜き"
+                     ],
+        "replacement":  "税抜",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "税抜",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-026",
+        "type":  "replacement",
+        "category":  "漢字で書くほうがよい言葉",
+        "title":  "くわしい → 詳しい",
+        "description":  "表記を統一するため、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "くわしい"
+                     ],
+        "replacement":  "詳しい",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「詳しい」と漢字で書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-027",
+        "type":  "replacement",
+        "category":  "漢字で書くほうがよい言葉",
+        "title":  "うけたまわる → 承る",
+        "description":  "表記を統一するため、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "うけたまわる"
+                     ],
+        "replacement":  "承る",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「承る」と漢字で書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-028",
+        "type":  "replacement",
+        "category":  "漢字で書くほうがよい言葉",
+        "title":  "売り上げ → 売上",
+        "description":  "表記を統一するため、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "売り上げ"
+                     ],
+        "replacement":  "売上",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「売上」と漢字で書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-029",
+        "type":  "replacement",
+        "category":  "カタカナで書くほうがよい言葉",
+        "title":  "押す → クリック",
+        "description":  "表記を統一するため、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "押す"
+                     ],
+        "replacement":  "クリック",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「クリック」とカタカナで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-030",
+        "type":  "replacement",
+        "category":  "カタカナで書くほうがよい言葉",
+        "title":  "押下 → クリック",
+        "description":  "表記を統一するため、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "押下"
+                     ],
+        "replacement":  "クリック",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「クリック」とカタカナで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-031",
+        "type":  "replacement",
+        "category":  "カタカナで書くほうがよい言葉",
+        "title":  "オーナー様 → ショップ様",
+        "description":  "表記を統一するため、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "オーナー様"
+                     ],
+        "replacement":  "ショップ様",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「ショップ様」とカタカナで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-032",
+        "type":  "replacement",
+        "category":  "カタカナで書くほうがよい言葉",
+        "title":  "管理者 → ショップ様",
+        "description":  "表記を統一するため、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "管理者"
+                     ],
+        "replacement":  "ショップ様",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「ショップ様」とカタカナで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-033",
+        "type":  "replacement",
+        "category":  "カタカナで書くほうがよい言葉",
+        "title":  "一から → イチから",
+        "description":  "表記を統一するため、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "一から"
+                     ],
+        "replacement":  "イチから",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「イチから」とカタカナで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-034",
+        "type":  "replacement",
+        "category":  "カタカナで書くほうがよい言葉",
+        "title":  "EXCEL → エクセル",
+        "description":  "表記を統一するため、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "EXCEL"
+                     ],
+        "replacement":  "エクセル",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「エクセル」とカタカナで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-035",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "丁度 → ちょうど",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "丁度"
+                     ],
+        "replacement":  "ちょうど",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「ちょうど」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-036",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "騙す → だます",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "騙す"
+                     ],
+        "replacement":  "だます",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「だます」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-037",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "時 → とき",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "時"
+                     ],
+        "replacement":  "とき",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「とき」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-038",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "事 → こと",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "事"
+                     ],
+        "replacement":  "こと",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「こと」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-039",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "等 → など",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "等"
+                     ],
+        "replacement":  "など",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「など」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-040",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "為 → ため",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "為"
+                     ],
+        "replacement":  "ため",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「ため」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-041",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "尚 → なお",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "尚"
+                     ],
+        "replacement":  "なお",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「なお」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-042",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "し易い → しやすい",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "し易い"
+                     ],
+        "replacement":  "しやすい",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「しやすい」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-043",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "の所 → のところ",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "の所"
+                     ],
+        "replacement":  "のところ",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「のところ」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-044",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "更に → さらに",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "更に"
+                     ],
+        "replacement":  "さらに",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「さらに」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-045",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "する上で → するうえで",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "する上で"
+                     ],
+        "replacement":  "するうえで",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「するうえで」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-046",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "当たり → あたり",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "当たり"
+                     ],
+        "replacement":  "あたり",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「あたり」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-047",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "表す → あらわす",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "表す"
+                     ],
+        "replacement":  "あらわす",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「あらわす」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-048",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "大変 → たいへん",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "大変"
+                     ],
+        "replacement":  "たいへん",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「たいへん」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-049",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "にも関わらず → にもかかわらず",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "にも関わらず"
+                     ],
+        "replacement":  "にもかかわらず",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「にもかかわらず」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-050",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "にも拘わらず → にもかかわらず",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "にも拘わらず"
+                     ],
+        "replacement":  "にもかかわらず",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「にもかかわらず」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-051",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "以って → もって",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "以って"
+                     ],
+        "replacement":  "もって",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「もって」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-052",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "以て → もって",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "以て"
+                     ],
+        "replacement":  "もって",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「もって」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-053",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "頂ける → いただける",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "頂ける"
+                     ],
+        "replacement":  "いただける",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「いただける」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-054",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "て頂き → いただき",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "て頂き"
+                     ],
+        "replacement":  "いただき",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「いただき」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-055",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "一つ一つ → 一つひとつ",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "一つ一つ"
+                     ],
+        "replacement":  "一つひとつ",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「一つひとつ」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-056",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "戴き → いただき",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "戴き"
+                     ],
+        "replacement":  "いただき",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「いただき」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-057",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "未だ → まだ or いまだ",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "未だ"
+                     ],
+        "replacement":  "まだ or いまだ",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「まだ or いまだ」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-058",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "1つ1つ → 一つひとつ",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "1つ1つ"
+                     ],
+        "replacement":  "一つひとつ",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「一つひとつ」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-059",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "1つ１つ → 一つひとつ",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "1つ１つ"
+                     ],
+        "replacement":  "一つひとつ",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「一つひとつ」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-060",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "早速 → さっそく",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "早速"
+                     ],
+        "replacement":  "さっそく",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「さっそく」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-061",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "1人 → ひとり",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "1人"
+                     ],
+        "replacement":  "ひとり",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「ひとり」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-062",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "1人1人 → 一人ひとり",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "1人1人"
+                     ],
+        "replacement":  "一人ひとり",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「一人ひとり」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-063",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "一人一人 → 一人ひとり",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "一人一人"
+                     ],
+        "replacement":  "一人ひとり",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「一人ひとり」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-064",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "１人１人 → 一人ひとり",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "１人１人"
+                     ],
+        "replacement":  "一人ひとり",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「一人ひとり」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-065",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "ひとり一人 → 一人ひとり",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "ひとり一人"
+                     ],
+        "replacement":  "一人ひとり",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「一人ひとり」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-066",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "という事 → ということ",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "という事"
+                     ],
+        "replacement":  "ということ",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「ということ」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-067",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "先ず → まず",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "先ず"
+                     ],
+        "replacement":  "まず",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「まず」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-068",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "果して → はたして",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "果して"
+                     ],
+        "replacement":  "はたして",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「はたして」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-069",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "何ら → なんら",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "何ら"
+                     ],
+        "replacement":  "なんら",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「なんら」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-070",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "何等 → なんら",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "何等"
+                     ],
+        "replacement":  "なんら",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「なんら」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-071",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "既に → すでに",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "既に"
+                     ],
+        "replacement":  "すでに",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「すでに」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-072",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "直ぐ → すぐ",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "直ぐ"
+                     ],
+        "replacement":  "すぐ",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「すぐ」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-073",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "遂に → ついに",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "遂に"
+                     ],
+        "replacement":  "ついに",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「ついに」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-074",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "至って → いたって",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "至って"
+                     ],
+        "replacement":  "いたって",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「いたって」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-075",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "極めて → きわめて",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "極めて"
+                     ],
+        "replacement":  "きわめて",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「きわめて」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-076",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "一際 → ひときわ",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "一際"
+                     ],
+        "replacement":  "ひときわ",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「ひときわ」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-077",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "何れ → いずれ",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "何れ"
+                     ],
+        "replacement":  "いずれ",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「いずれ」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-078",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "全て → すべて",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "全て"
+                     ],
+        "replacement":  "すべて",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「すべて」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-079",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "折角 → せっかく",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "折角"
+                     ],
+        "replacement":  "せっかく",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「せっかく」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-080",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "甚だ → はなはだ",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "甚だ"
+                     ],
+        "replacement":  "はなはだ",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「はなはだ」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-081",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "程々 → ほどほど",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "程々"
+                     ],
+        "replacement":  "ほどほど",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「ほどほど」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-082",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "下さい → ください",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "下さい"
+                     ],
+        "replacement":  "ください",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「ください」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-083",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "流石 → さすが",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "流石"
+                     ],
+        "replacement":  "さすが",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「さすが」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-084",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "且つ → かつ",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "且つ"
+                     ],
+        "replacement":  "かつ",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「かつ」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-085",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "及び → および",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "及び"
+                     ],
+        "replacement":  "および",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「および」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-086",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "此方 → こちら",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "此方"
+                     ],
+        "replacement":  "こちら",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「こちら」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-087",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "又は → または",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "又は"
+                     ],
+        "replacement":  "または",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「または」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-088",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "殆ど → ほとんど",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "殆ど"
+                     ],
+        "replacement":  "ほとんど",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「ほとんど」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-089",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "程ほど → ほどほど",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "程ほど"
+                     ],
+        "replacement":  "ほどほど",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「ほどほど」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-090",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "若しくは → もしくは",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "若しくは"
+                     ],
+        "replacement":  "もしくは",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「もしくは」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-091",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "迄 → まで",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "迄"
+                     ],
+        "replacement":  "まで",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「まで」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-092",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "滅多に → めったに",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "滅多に"
+                     ],
+        "replacement":  "めったに",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「めったに」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-093",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "全く → まったく",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "全く"
+                     ],
+        "replacement":  "まったく",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「まったく」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-094",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "故に → ゆえに",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "故に"
+                     ],
+        "replacement":  "ゆえに",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「ゆえに」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-095",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "悪い → わるい",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "悪い"
+                     ],
+        "replacement":  "わるい",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「わるい」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-096",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "優しい → やさしい",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "優しい"
+                     ],
+        "replacement":  "やさしい",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「やさしい」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-097",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "最早 → もはや",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "最早"
+                     ],
+        "replacement":  "もはや",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「もはや」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-098",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "依って → よって",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "依って"
+                     ],
+        "replacement":  "よって",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「よって」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-099",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "因って → よって",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "因って"
+                     ],
+        "replacement":  "よって",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「よって」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-100",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "拠って → よって",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "拠って"
+                     ],
+        "replacement":  "よって",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「よって」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-101",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "因って → よって",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "因って"
+                     ],
+        "replacement":  "よって",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「よって」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-102",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "僕達 → 僕たち",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "僕達"
+                     ],
+        "replacement":  "僕たち",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「僕たち」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-103",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "僅か → わずか",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "僅か"
+                     ],
+        "replacement":  "わずか",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「わずか」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-104",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "私達 → 私たち",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "私達"
+                     ],
+        "replacement":  "私たち",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「私たち」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-105",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "の様に → のように",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "の様に"
+                     ],
+        "replacement":  "のように",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「のように」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-106",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "割と → わりと",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "割と"
+                     ],
+        "replacement":  "わりと",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「わりと」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-107",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "先程 → さきほど",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "先程"
+                     ],
+        "replacement":  "さきほど",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「さきほど」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-108",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "分からない → わからない",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "分からない"
+                     ],
+        "replacement":  "わからない",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「わからない」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-109",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "勿論 → もちろん",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "勿論"
+                     ],
+        "replacement":  "もちろん",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「もちろん」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-110",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "子供 → 子ども",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "子供"
+                     ],
+        "replacement":  "子ども",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「子ども」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-111",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "分かり → わかり",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "分かり"
+                     ],
+        "replacement":  "わかり",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「わかり」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-112",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "良い → よい もしくは「いい」",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "良い"
+                     ],
+        "replacement":  "よい もしくは「いい」",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「よい もしくは「いい」」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-113",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "解る → わかる",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "解る"
+                     ],
+        "replacement":  "わかる",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「わかる」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-114",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "判る → わかる",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "判る"
+                     ],
+        "replacement":  "わかる",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「わかる」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-115",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "柔らかい → やわらかい",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "柔らかい"
+                     ],
+        "replacement":  "やわらかい",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「やわらかい」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-116",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "基づいて → もとづいて",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "基づいて"
+                     ],
+        "replacement":  "もとづいて",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「もとづいて」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-117",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "基づく → もとづく",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "基づく"
+                     ],
+        "replacement":  "もとづく",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「もとづく」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-118",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "真面目に → まじめに",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "真面目に"
+                     ],
+        "replacement":  "まじめに",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「まじめに」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-119",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "二つ → ふたつ",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "二つ"
+                     ],
+        "replacement":  "ふたつ",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「ふたつ」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-120",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "紛らわしい → まぎらわしい",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "紛らわしい"
+                     ],
+        "replacement":  "まぎらわしい",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「まぎらわしい」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-121",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "独り → ひとり",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "独り"
+                     ],
+        "replacement":  "ひとり",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「ひとり」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-122",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "始め → はじめ",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "始め"
+                     ],
+        "replacement":  "はじめ",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「はじめ」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-123",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "初め → はじめ",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "初め"
+                     ],
+        "replacement":  "はじめ",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「はじめ」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-124",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "挟んで → はさんで",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "挟んで"
+                     ],
+        "replacement":  "はさんで",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「はさんで」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-125",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "後ほど → のちほど",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "後ほど"
+                     ],
+        "replacement":  "のちほど",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「のちほど」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-126",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "温い → ぬるい",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "温い"
+                     ],
+        "replacement":  "ぬるい",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「ぬるい」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-127",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "何となく → なんとなく",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "何となく"
+                     ],
+        "replacement":  "なんとなく",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「なんとなく」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-128",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "直す → なおす",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "直す"
+                     ],
+        "replacement":  "なおす",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「なおす」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-129",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "繋がる → つながる",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "繋がる"
+                     ],
+        "replacement":  "つながる",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「つながる」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-130",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "付ける → つける",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "付ける"
+                     ],
+        "replacement":  "つける",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「つける」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-131",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "使う → つかう",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "使う"
+                     ],
+        "replacement":  "つかう",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「つかう」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-132",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "次いで → ついで",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "次いで"
+                     ],
+        "replacement":  "ついで",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「ついで」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-133",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "確かに → たしかに",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "確かに"
+                     ],
+        "replacement":  "たしかに",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「たしかに」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-134",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "過ぎる → すぎる",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "過ぎる"
+                     ],
+        "replacement":  "すぎる",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「すぎる」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-135",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "面白い → おもしろい",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "面白い"
+                     ],
+        "replacement":  "おもしろい",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「おもしろい」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-136",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "上手く → うまく",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "上手く"
+                     ],
+        "replacement":  "うまく",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「うまく」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-137",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "分かる → わかる",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "分かる"
+                     ],
+        "replacement":  "わかる",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「わかる」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-138",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "言う → いう",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "言う"
+                     ],
+        "replacement":  "いう",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「いう」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-139",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "持つ → もつ",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "持つ"
+                     ],
+        "replacement":  "もつ",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「もつ」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-140",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "特に → とくに",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "特に"
+                     ],
+        "replacement":  "とくに",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「とくに」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-141",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "子供達 → 子供たち",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "子供達"
+                     ],
+        "replacement":  "子供たち",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「子供たち」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-142",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "但し → ただし",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "但し"
+                     ],
+        "replacement":  "ただし",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「ただし」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-143",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "是非 → ぜひ",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "是非"
+                     ],
+        "replacement":  "ぜひ",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「ぜひ」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-144",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "暫く → しばらく",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "暫く"
+                     ],
+        "replacement":  "しばらく",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「しばらく」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-145",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "所謂 → いわゆる",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "所謂"
+                     ],
+        "replacement":  "いわゆる",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「いわゆる」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-146",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "戴く → いただく",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "戴く"
+                     ],
+        "replacement":  "いただく",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「いただく」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-147",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "頂く → いただく",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "頂く"
+                     ],
+        "replacement":  "いただく",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「いただく」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-148",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "致します → いたします",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "致します"
+                     ],
+        "replacement":  "いたします",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「いたします」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-149",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "併せて → あわせて",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "併せて"
+                     ],
+        "replacement":  "あわせて",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「あわせて」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-150",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "改めて → あらためて",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "改めて"
+                     ],
+        "replacement":  "あらためて",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「あらためて」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-151",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "予め → あらかじめ",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "予め"
+                     ],
+        "replacement":  "あらかじめ",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「あらかじめ」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-152",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "貴女 → あなた",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "貴女"
+                     ],
+        "replacement":  "あなた",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「あなた」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-153",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "貴方 → あなた",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "貴方"
+                     ],
+        "replacement":  "あなた",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「あなた」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-154",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "敢えて → あえて",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "敢えて"
+                     ],
+        "replacement":  "あえて",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「あえて」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-155",
+        "type":  "replacement",
+        "category":  "ひらがなで書くほうがよい言葉",
+        "title":  "例えば → たとえば",
+        "description":  "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。読み手や文脈に合わせて、ひらがなに開くことを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "例えば"
+                     ],
+        "replacement":  "たとえば",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「たとえば」とひらがなで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-156",
+        "type":  "replacement",
+        "category":  "漢字で書くほうがよい言葉",
+        "title":  "ひとつ一つ → 一つひとつ",
+        "description":  "表記を統一するため、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "ひとつ一つ"
+                     ],
+        "replacement":  "一つひとつ",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「一つひとつ」と漢字で書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-157",
+        "type":  "replacement",
+        "category":  "漢字で書くほうがよい言葉",
+        "title":  "ひとつひとつ → 一つひとつ",
+        "description":  "表記を統一するため、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "ひとつひとつ"
+                     ],
+        "replacement":  "一つひとつ",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「一つひとつ」と漢字で書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-158",
+        "type":  "replacement",
+        "category":  "漢字で書くほうがよい言葉",
+        "title":  "ひとりひとり → 一人ひとり",
+        "description":  "表記を統一するため、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "ひとりひとり"
+                     ],
+        "replacement":  "一人ひとり",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「一人ひとり」と漢字で書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-159",
+        "type":  "replacement",
+        "category":  "カタカナで書くほうがよい言葉",
+        "title":  "滅茶苦茶 → メチャクチャ",
+        "description":  "表記を統一するため、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "滅茶苦茶"
+                     ],
+        "replacement":  "メチャクチャ",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「メチャクチャ」とカタカナで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-160",
+        "type":  "replacement",
+        "category":  "カタカナで書くほうがよい言葉",
+        "title":  "目処 → メド",
+        "description":  "表記を統一するため、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "目処"
+                     ],
+        "replacement":  "メド",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「メド」とカタカナで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-161",
+        "type":  "replacement",
+        "category":  "カタカナで書くほうがよい言葉",
+        "title":  "目途 → メド",
+        "description":  "表記を統一するため、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "目途"
+                     ],
+        "replacement":  "メド",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「メド」とカタカナで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-162",
+        "type":  "replacement",
+        "category":  "カタカナで書くほうがよい言葉",
+        "title":  "括弧 → カッコ",
+        "description":  "表記を統一するため、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "括弧"
+                     ],
+        "replacement":  "カッコ",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「カッコ」とカタカナで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-163",
+        "type":  "replacement",
+        "category":  "カタカナで書くほうがよい言葉",
+        "title":  "ハマル → ハマる",
+        "description":  "表記を統一するため、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "ハマル"
+                     ],
+        "replacement":  "ハマる",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「ハマる」とカタカナで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-164",
+        "type":  "replacement",
+        "category":  "カタカナで書くほうがよい言葉",
+        "title":  "つらい → ツライ",
+        "description":  "表記を統一するため、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "つらい"
+                     ],
+        "replacement":  "ツライ",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「ツライ」とカタカナで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-165",
+        "type":  "replacement",
+        "category":  "カタカナで書くほうがよい言葉",
+        "title":  "辛い → ツライ",
+        "description":  "表記を統一するため、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "辛い"
+                     ],
+        "replacement":  "ツライ",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「ツライ」とカタカナで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-166",
+        "type":  "replacement",
+        "category":  "カタカナで書くほうがよい言葉",
+        "title":  "うんちく → ウンチク",
+        "description":  "表記を統一するため、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "うんちく"
+                     ],
+        "replacement":  "ウンチク",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「ウンチク」とカタカナで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-167",
+        "type":  "replacement",
+        "category":  "カタカナで書くほうがよい言葉",
+        "title":  "めりはり → メリハリ",
+        "description":  "表記を統一するため、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "めりはり"
+                     ],
+        "replacement":  "メリハリ",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「メリハリ」とカタカナで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-168",
+        "type":  "replacement",
+        "category":  "カタカナで書くほうがよい言葉",
+        "title":  "減り張り → メリハリ",
+        "description":  "表記を統一するため、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "減り張り"
+                     ],
+        "replacement":  "メリハリ",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「メリハリ」とカタカナで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-169",
+        "type":  "replacement",
+        "category":  "カタカナで書くほうがよい言葉",
+        "title":  "蘊蓄 → ウンチク",
+        "description":  "表記を統一するため、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "蘊蓄"
+                     ],
+        "replacement":  "ウンチク",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「ウンチク」とカタカナで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-170",
+        "type":  "replacement",
+        "category":  "カタカナで書くほうがよい言葉",
+        "title":  "無駄 → ムダ",
+        "description":  "表記を統一するため、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "無駄"
+                     ],
+        "replacement":  "ムダ",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「ムダ」とカタカナで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-171",
+        "type":  "replacement",
+        "category":  "カタカナで書くほうがよい言葉",
+        "title":  "無理 → ムリ",
+        "description":  "表記を統一するため、推奨ワードへの置き換えを検討してください。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+                         "無理"
+                     ],
+        "replacement":  "ムリ",
+        "morphological_setting":  "OFF",
+        "basic_comment":  "「ムリ」とカタカナで書くほうがよいかもしれません。",
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-172",
+        "type":  "checklist",
+        "category":  "わかりやすさのチェックリスト",
+        "title":  "「箇条書き」を用いて、整理できる箇所はありませんか？",
+        "description":  "複数の項目を含む文章の場合、箇条書きを用いて整理するとわかりやすくなります。\n\n【before】\n白ワインには、シャルドネとソーヴィニヨン・ブランとリースリングという有名なブドウ品種があるんです。\n↓\n【after】\n白ワインを学ぶ上で知っておくべきブドウ品種は以下の3つです。\n\n1．シャルドネ\n2．ソーヴィニヨン・ブラン\n3．リースリング",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+
+                     ],
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-173",
+        "type":  "checklist",
+        "category":  "わかりやすさのチェックリスト",
+        "title":  "短く、シンプルに略せる文章はありませんか？",
+        "description":  "同じ意味であれば、文章は短くしたほうが読みやすくなります。\n\n【before】\nライティングにおける非常に重要なポイントは、書いた文章をいかに素早く推敲することができるかです。\n↓\n【after】\nライティングの重要なポイントは、書いた文章をできるだけ素早く推敲することです。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+
+                     ],
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-174",
+        "type":  "checklist",
+        "category":  "わかりやすさのチェックリスト",
+        "title":  "「主語」と「述語」の距離は近いですか？",
+        "description":  "主語と述語の距離を近くしたほうが、わかりやすい文章になります。\n\n【before】\nそのボクサーは2019年10月、後楽園ホールにて、チャンピオンベルトを巻いた。\n↓\n【after】\n2019年10月、後楽園ホールにて、そのボクサーはチャンピオンベルトを巻いた。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+
+                     ],
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-175",
+        "type":  "checklist",
+        "category":  "わかりやすさのチェックリスト",
+        "title":  "長い修飾語は「前」に、短い修飾語は「後」に書いていますか？",
+        "description":  "長い修飾語は「前」に、短い修飾語は「後」に書くことで、わかりやすい文章になります。\n\n【before】\n赤色の買ったばかりのPC\n↓\n【after】\n買ったばかりの赤色のPC",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+
+                     ],
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-176",
+        "type":  "checklist",
+        "category":  "わかりやすさのチェックリスト",
+        "title":  "大きな状況は「前」に、小さな状況は「後」に書いていますか？",
+        "description":  "大きな状況は「前」に、小さな状況は「後」に書くことで、わかりやすい文章になります。\n\n【before】\nお台場海浜公園で、2019年の12月、有志によるクリスマスイベントが開かれます。\n↓\n【after】\n2019年の12月、お台場海浜公園で、有志によるクリスマスイベントが開かれます。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+
+                     ],
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-177",
+        "type":  "checklist",
+        "category":  "わかりやすさのチェックリスト",
+        "title":  "三つ以上の語句を並べる場合は、「と」「や」などは最初にもってきていますか？",
+        "description":  "三つ以上の語句を並べる場合は、「と」「や」などは先にもってくると、わかりやすい文章になります。\n\n【before】\n東京、京都や大阪に行ってみたい。\n↓\n【after】\n東京や京都、大阪に行ってみたい。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+
+                     ],
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-178",
+        "type":  "checklist",
+        "category":  "わかりやすさのチェックリスト",
+        "title":  "「指示代名詞」を使い過ぎていませんか？",
+        "description":  "指示語が多すぎると、読み手が「その指示語は何を指していたのか？」がわからなくなるケースがあります。\nよって、指示語はあえて少し減らし、「普通名詞」「固有名詞」を多めに使ったほうがよいでしょう。\n（とくに、スマートフォンで斜め読みする人にとっては、「普通名詞」「固有名詞」が多めのほうが内容を理解しやすくなります）\n\n【before】\nイタリアワインは多彩な表情をもったワインです。\nこのワインの勢いは本物です。\nなぜなら、このワインは、ブドウが不作だった2014年を除き、2012年からワイン生産量の世界一をキープしているからです。\n↓\n【after】\nイタリアワインは多彩な表情をもったワインです。\nイタリアワインの勢いは本物です。\nなぜなら、イタリアワインは、ブドウが不作だった2014年を除き、2012年からワイン生産量の世界一をキープしているからです。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+
+                     ],
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-179",
+        "type":  "checklist",
+        "category":  "わかりやすさのチェックリスト",
+        "title":  "できるだけ最初に「結論」を書くようにしていますか？",
+        "description":  "できるだけ最初に結論をもってくるほうが、読み手のモチベーションが続きやすく、完読してもらいやすくなります。\n「結論　→　理由　→　事例（具体例）　→　再度結論を伝える」という「PREP法」を意識するとよいでしょう。\n\nP＝Point（結論）\nR＝Reason（理由）\nE＝Example（事例、具体例）\nP＝Point（結論を繰り返す）\n\n●例文\nライティングでもっとも大切なことは「読み手が欲しい情報」を届けることです。\nなぜなら、多くの読み手は文章を読みたいわけではなく、情報を知りたいだけだからです。\n\nたとえば、あなたにとって重要な情報が書かれている記事があったとします。\nその記事に誤字脱字が少しあったとして、読まない理由になるでしょうか？\nおそらく、多少の誤字脱字があったとしても、最後まで読んでしまうはずです。\n\nよって、ライティングでもっとも大切なことは、「読み手が欲しい情報」を届けることだといえるのです。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+
+                     ],
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-180",
+        "type":  "checklist",
+        "category":  "わかりやすさのチェックリスト",
+        "title":  "読み手に共感してもらうための「感情表現」は意識していますか？",
+        "description":  "たとえば「話し言葉」が使える文章であれば、以下のような「話し言葉」を入れると、あなたの感情が相手に伝わりやすくなり、相手が共感しやすくなります。\n感情が見えない文章には、人は共感しにくいものです。\n共感してほしいのであれば、あなたの感情が宿った文章を書きましょう。\n\n●例文\nあなたは文章を書いているとき、「もっと語彙力があればなあ・・・」と肩を落としたことはありませんか？\n\n\nまた、上記の「話し言葉」はあくまでも、感情を伝えるひとつの方法です。\n話し言葉を使わずとも、文賢の【文章表現】機能を使えば、感情の伝わる文章に仕上げることは難しくありません。\n\nたとえば、文賢の【文章表現】機能には、「好き」という感情を表すための表現がたくさん用意されています。\n\n\n●文章表現の例\n・笑顔を抑えきれない\n・うれしそうな顔をほこらばせる\n・相手のことで頭が一杯になる\n・ハートを射貫かれる\n・嬉しすぎて鳥肌が立つ\n・語り始めると止まらない\n・うれしすぎて大声で叫びたくなる\n・心が奪われるほどの\n\n\n文賢の【文章表現】機能はあくまでも、ひとつの感情表現を取り上げたものです。\nあなたなりの感情表現を考えてみてくださいね。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+
+                     ],
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-181",
+        "type":  "checklist",
+        "category":  "わかりやすさのチェックリスト",
+        "title":  "取り上げている情報は信頼できるものですか？ウェブや書籍から情報を引用したり、参考にしたりする場合は「出典」を明記しましたか？",
+        "description":  "わかりやすい文章を書けば書くほど、その情報が相手にストレートに伝わりやすくなります。\nそして、それと同時に、情報を伝える側の責任もよりいっそう強くなります。\n\nよって、何かの情報を取り上げる場合は、その情報が信頼できるものかを確認しましょう。\nまた、ウェブや書籍から情報を引用したり、参考にしたりする場合は、出典を明記しましょう。\n\nちなみに、引用する際は、以下のルールを守るようにしてください。\n\n▼引用のルール\n1．オリジナル部分と引用部分の主従関係が明確であり、引用されている文章や画像は、あくまでもオリジナル部分を補足する程度である\n2．オリジナル部分と引用部分の区別がハッキリしている\n3．引用する必要性がある\n4．出典元を明記している\n5．改変せずにそのまま引用している\n\n\n上記の引用のルールに当てはまるケースや、著作者からの許可をとっているケースを除き、他者の文章や画像を許可なく転載すると、著作権侵害となる可能性があります。\nとくに「歌詞の掲載」や「要約」などには注意しましょう。\n\n●ブログへの歌詞掲載について（JASRAC）\nhttps://www.jasrac.or.jp/info/network/pickup/blog.html\n\n●最新のベストセラー小説のあらすじを書いて、ホームページに掲載することは、著作権者に断りなく行えますか？（文化庁）\nhttps://pf.bunka.go.jp/chosaku/chosakuken/naruhodo/answer.asp?Q_ID=0000338",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+
+                     ],
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-182",
+        "type":  "checklist",
+        "category":  "公に発信する際に注意すべきチェックリスト",
+        "title":  "「あなたのことをよく知らない人」が読んだときに、誤解を与える内容ではありませんか？",
+        "description":  "インターネット上では、あなたのことをよく知らない人が、あなたの文章を読む場合があります。\n「こう書いておけばよかった・・・」「あれも書いておけばよかった・・・」と後悔しないよう、誤解されるような書き方になっていないか、足りない情報がないかを注意しましょう。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+
+                     ],
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-183",
+        "type":  "checklist",
+        "category":  "公に発信する際に注意すべきチェックリスト",
+        "title":  "「過去に投稿した内容」との「一貫性」は問題ありませんか？",
+        "description":  "あなたの意見や価値観が、過去に投稿された記事やツイートと異なっている場合、一貫性がない人だと非難されるケースがあります。\nもしかすると、誰かがあなたの昔からの投稿をずっと読み続けているかもしれません。\nよって、あなたの意見や価値観に変化が起きたのであれば、「なぜ意見が変わったのか？」という理由や「いつ頃から変わったのか？」という時期を具体的に示しておきましょう。\n\n（例：●●という理由で考え方が変わった。書籍を読み終えてから視点が変わった etc･･･）",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+
+                     ],
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-184",
+        "type":  "checklist",
+        "category":  "公に発信する際に注意すべきチェックリスト",
+        "title":  "今日は誰かにとってセンシティブな日のため、投稿を「自重したほうがよい日」ではありませんか？",
+        "description":  "記事やツイートを投稿する場合、投稿するタイミングは大切です。\nたとえば、今日が誰かにとって「センシティブ」な日でないかを確認しておきましょう。\nもし、その日の過去に大きな事故や災害などが起きているのであれば、同じ日に陽気な投稿をしてしまうと「空気が読めない人」と非難されるケースがあります。\nよって、その日「どんなことが話題になっているか？」をSNSやニュースで常にチェックしておくことをオススメします。\n（Googleニュースで「今日が何の日か？」と検索しておくと安心です）\nhttps://www.google.com/search?q=%E4%BB%8A%E6%97%A5%E3%81%AF%E4%BD%95%E3%81%AE%E6%97%A5\u0026tbm=nws",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+
+                     ],
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-185",
+        "type":  "checklist",
+        "category":  "公に発信する際に注意すべきチェックリスト",
+        "title":  "「LGBT」など、多様な愛や性の在り方に配慮できていますか？",
+        "description":  "世の中には、多様な価値観があり、とくに愛や性の在り方には様々な形があります。\nLGBT（レズビアン、ゲイ、バイセクシュアル、トランスジェンダー）といった方々にも配慮した文章を意識しましょう。\n\n●多様な性について考えよう（法務省）\nhttp://www.moj.go.jp/JINKEN/LGBT/index.html",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+
+                     ],
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-186",
+        "type":  "checklist",
+        "category":  "公に発信する際に注意すべきチェックリスト",
+        "title":  "その内容は「パワハラ」や「セクハラ」だと受け取られるものではないですか？",
+        "description":  "あなたの会社では問題ないような制度や日常的なやりとりが、外部からは見え方次第で「パワハラ」「セクハラ」だと誤解されたり、非難されることがあります。\n働き方に関する投稿はとくにセンシティブですので気をつけましょう。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+
+                     ],
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-187",
+        "type":  "checklist",
+        "category":  "公に発信する際に注意すべきチェックリスト",
+        "title":  "いたずらに煽（あお）っていませんか？ただ読み手を不安にさせて放置していませんか？",
+        "description":  "読み手を不必要に不安にさせるような文章は、多くの方にシェアされやすく、「煽動（せんどう）」という行為につながる恐れがあります。\n読み手が不安になりそうな文章を書く際には、「その不安をなくすためにはどのようにすればいいのか？」といった具体的な対策や考えを添えるようにしましょう。\nたとえば、年長者の方が、若い人たちの未来を不安にさせるような主張をする際には注意が必要です。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+
+                     ],
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-188",
+        "type":  "checklist",
+        "category":  "公に発信する際に注意すべきチェックリスト",
+        "title":  "「統計データ」を扱う場合は、その情報が正しいかを検証しましたか？",
+        "description":  "統計データを扱う際は、そのデータが最新のものか？信頼できる人たちが導き出したデータか？調査方法に問題はないか？を調べておきましょう。\n間違った統計データを用いると、間違った主張につながり、結果的に大炎上につながる恐れがあります。\nもし、その統計データの信頼性に不安を感じるのであれば、専門家やデータサイエンティストなど識者の意見を聞いたほうがよいでしょう。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+
+                     ],
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-189",
+        "type":  "checklist",
+        "category":  "公に発信する際に注意すべきチェックリスト",
+        "title":  "誰かを取り上げる際は、その人の「プライバシー」に配慮していますか？",
+        "description":  "肩書きや会社名、写真だけでも、その人が誰かを特定できてしまう時代です。\n匿名でも他者について公の場で取り上げる際は、その人が特定される可能性があることを考えておきましょう。\n\nまた、個人を特定できる情報を公開する際は、本人の許可をもらった上で「許可をもらっている」とわかるようにして投稿しましょう。\n「許可をもらっている」と書いておかないと、まわりの人が「許可をもらって公表しているのだろうか？」と不安になってしまいます。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+
+                     ],
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-190",
+        "type":  "checklist",
+        "category":  "公に発信する際に注意すべきチェックリスト",
+        "title":  "「著作権」を侵害していませんか？",
+        "description":  "他者の文章や画像を許可なく転載すると、著作権侵害になる恐れがあります。\nとくに「歌詞の掲載」や「要約」などは注意しましょう。\n\n●ブログへの歌詞掲載について（JASRAC）\nhttps://www.jasrac.or.jp/info/network/pickup/blog.html\n\n●最新のベストセラー小説のあらすじを書いて、ホームページに掲載することは、著作権者に断りなく行えますか？（文化庁）\nhttps://pf.bunka.go.jp/chosaku/chosakuken/naruhodo/answer.asp?Q_ID=0000338\n\n\nただし、以下のルールを守って「引用」する場合や、許可を得ている場合などは、著作権侵害には当たりません。\n\n▼引用のルール\n1．オリジナル部分と引用部分の主従関係が明確であり、引用されている文章や画像は、あくまでもオリジナル部分を補足する程度である\n\n2．オリジナル部分と引用部分の区別がハッキリしている\n\n3．引用する必要性がある\n\n4．出典元を明記している\n\n5．改変せずにそのまま引用している",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+
+                     ],
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    },
+    {
+        "id":  "rule-191",
+        "type":  "checklist",
+        "category":  "公に発信する際に注意すべきチェックリスト",
+        "title":  "お詫びの内容があるとしたら、誠意が伝わる内容になっていますか？",
+        "description":  "お詫びは誠意が伝わることが大事です。\nお詫びをする際は、以下の点を意識しておきましょう。\n\n1．「相手も悪い」という書き方を極力しない\n「誤解を招いたなら」「気を悪くされたなら」といった表現は、「自分には悪気がなかったが、相手が怒っているので仕方なく謝罪する」という雰囲気がでてしまうので要注意です。\n\n2．「？」や「！」といった記号を使わない\n「いかがでしょうか？」や「大丈夫でしょうか！？」のように「？」や「！」を使ってしまうと、お詫び文が軽い印象になってしまうため、使わないようにしましょう。\n\n3．中途半端なお詫び表現より、しっかりお詫びをしたほうがよい\n「申し訳ございません」より「誠に申し訳ございません」や「本当に申し訳ございません」としたほうが、申し訳ないという気持ちがより伝わります。\n\n4．問題の原因と対策を書く\n問題が起こった原因と対策を具体的に書きましょう。\n「なぜこのような問題が起こったのか？」「再発を防ぐために今後どのような対策を講じるのか？」をハッキリと伝えると、安心感や納得感が生まれます。",
+        "severity":  "info",
+        "enabled":  true,
+        "keywords":  [
+
+                     ],
+        "source":  "text_checklist",
+        "admin_memo":  ""
+    }
 ]

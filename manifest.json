@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "TextCount",
-  "version": "1.6",
+  "version": "1.6.1",
   "description": "Webページの選択範囲の文字数カウントと、ローカルルールベースの校閲チェックを行います",
   "permissions": ["activeTab", "sidePanel", "scripting", "tabs"],
   "host_permissions": [
