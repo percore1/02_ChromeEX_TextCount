@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initFileTab();
   initCopyButton();
   initChecklistCollapse();
+  initOpenFullscreen();
   initAutoSync();
 
   // ルールの先読み（失敗時もアプリは動かす）
@@ -18,6 +19,23 @@ document.addEventListener('DOMContentLoaded', () => {
     window.Proofreading.loadRules();
   }
 });
+
+// 全画面校閲ツールを開く
+function initOpenFullscreen() {
+  const btn = document.getElementById('open-fullscreen-btn');
+  if (!btn) return;
+  btn.addEventListener('click', () => {
+    const text = (lastResult && lastResult.rawText) || '';
+    const open = () => {
+      chrome.tabs.create({ url: chrome.runtime.getURL('review.html') });
+    };
+    if (chrome.storage && chrome.storage.local) {
+      chrome.storage.local.set({ reviewToolText: text }).then(open).catch(open);
+    } else {
+      open();
+    }
+  });
+}
 
 // ====== 機能タブ（外側） ======
 function initFeatureTabs() {

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>TextCount 校閲ツール</title>
+  <link rel="stylesheet" href="review.css">
+</head>
+<body>
+  <header class="review-header">
+    <div class="header-left">
+      <h1 class="review-title">TextCount 校閲ツール</h1>
+      <span id="rules-status" class="rules-status">ルール読込中...</span>
+    </div>
+
+    <div class="header-stats">
+      <div class="stat-item">
+        <span class="stat-label">文字数</span>
+        <span id="stat-chars" class="stat-value">0</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">検出</span>
+        <span id="stat-detections" class="stat-value">0</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-label">該当ルール</span>
+        <span id="stat-rules" class="stat-value">0</span>
+      </div>
+    </div>
+
+    <div class="header-actions">
+      <button id="copy-btn" class="header-btn" title="入力テキストをコピー">📋 コピー</button>
+      <button id="clear-btn" class="header-btn" title="入力をクリア">クリア</button>
+    </div>
+  </header>
+
+  <div id="rules-error" class="rules-error" style="display:none">
+    <strong>⚠ ルール読み込みエラー:</strong>
+    <span id="rules-error-msg"></span>
+  </div>
+
+  <main class="review-main">
+    <!-- 左ペイン：入力 + プレビュー -->
+    <section class="left-pane">
+      <div class="pane-header">
+        <div class="pane-title">校閲対象テキスト</div>
+        <div class="pane-actions">
+          <button class="pane-btn active" data-mode="split">分割</button>
+          <button class="pane-btn" data-mode="input">入力のみ</button>
+          <button class="pane-btn" data-mode="preview">プレビューのみ</button>
+        </div>
+      </div>
+
+      <div class="left-content" data-mode="split">
+        <div class="input-section">
+          <div class="section-label">📝 入力</div>
+          <textarea id="input-area" placeholder="ここに校閲対象テキストを入力または貼り付けてください。&#10;入力に応じて右側の検出結果が自動更新されます。"></textarea>
+        </div>
+        <div class="preview-section">
+          <div class="section-label">👁 プレビュー（ハイライト付き）</div>
+          <div id="preview-area" class="preview-area"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 右ペイン：検出結果一覧 -->
+    <section class="right-pane">
+      <div class="pane-header">
+        <div class="pane-title">検出結果</div>
+        <div class="pane-actions">
+          <select id="filter-source-tab" class="filter-select" title="source_tab フィルタ">
+            <option value="">全ソース</option>
+            <option value="ルール校正">ルール校正</option>
+            <option value="ルール推敲">ルール推敲</option>
+            <option value="ルール推敲カテゴリ">ルール推敲カテゴリ</option>
+          </select>
+          <select id="filter-severity" class="filter-select" title="severity フィルタ">
+            <option value="">全 severity</option>
+            <option value="critical">critical</option>
+            <option value="error">error</option>
+            <option value="warning">warning</option>
+            <option value="info">info</option>
+            <option value="notice">notice</option>
+          </select>
+          <select id="sort-mode" class="filter-select" title="並び順">
+            <option value="position">文書順</option>
+            <option value="severity">重要度順</option>
+            <option value="category">カテゴリ順</option>
+          </select>
+        </div>
+      </div>
+
+      <div id="results-list" class="results-list">
+        <div class="empty-state">テキストを入力すると検出結果が表示されます</div>
+      </div>
+
+      <div class="manual-section">
+        <div class="manual-header" id="manual-toggle">
+          <span class="manual-title">自動検出対象外の確認項目</span>
+          <span id="manual-count" class="manual-count-badge">0</span>
+          <span class="manual-arrow" id="manual-arrow">▶</span>
+        </div>
+        <div id="manual-list" class="manual-list" style="display:none"></div>
+      </div>
+    </section>
+  </main>
+
+  <script src="proofreading.js"></script>
+  <script src="review.js"></script>
+</body>
+</html>

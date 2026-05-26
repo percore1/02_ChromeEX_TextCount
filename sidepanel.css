@@ -773,3 +773,33 @@ body {
 .feature-tab[data-feature="proofread"].active {
   background: rgba(255,255,255,0.18);
 }
+
+/* 全画面校閲ツール起動バー */
+.open-fullscreen-bar {
+  padding: 8px 10px;
+  background: linear-gradient(90deg, #0d8475 0%, #1a73e8 100%);
+  border-bottom: 1px solid #cfe7e2;
+}
+
+.open-fullscreen-btn {
+  width: 100%;
+  padding: 7px 10px;
+  font-size: 12px;
+  font-weight: bold;
+  color: #fff;
+  background: rgba(255,255,255,0.16);
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: inherit;
+  letter-spacing: 0.02em;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.open-fullscreen-btn:hover {
+  background: rgba(255,255,255,0.26);
+}
+
+.open-fullscreen-btn:active {
+  transform: scale(0.98);
+}
