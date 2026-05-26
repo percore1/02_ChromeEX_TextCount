@@ -458,7 +458,7 @@ MVP では以下の3種類のみ対応する。
 
 > 注: CSV の `source_file` / `source_page` / `source_row` / `extraction_note` 列は出典トレース用のメタデータであり、ルール JSON には含めない。著作権・利用規約上の配慮として、当面は自社用・個人用の参考ルールとして扱う。
 >
-> 旧データ（`bunken_checklist_cleaned.json` 全20件）は `text_checklist.csv` の「チェックリスト」シート相当分（id 172〜191）に内包されている。
+> チェックリスト20件（id 172〜191）は `text_checklist.csv` の「チェックリスト」シート相当分に含まれている。`bunken_checklist_cleaned.*` は移行済みのため削除済み。
 
 ### 11.6 ルール照合ロジック（MVP）
 
@@ -515,7 +515,7 @@ MVP では以下の3種類のみ対応する。
 - [ ] サイドパネル外側に「文字数カウント」「校閲チェック」の機能タブを追加
 - [ ] 機能タブ × 入力タブ（自動 / 貼り付け / ファイル）の2階層構成を実装
 - [ ] `rules/proofreading_rules.json` を外部ファイルとして読み込む
-- [ ] `bunken_checklist_cleaned.json` をスキーマに合わせて変換した初期ルールを同梱する
+- [ ] `text_checklist.csv` をスキーマに合わせて変換した初期ルール（191件）を同梱する
 - [ ] `type=checklist` のルールを一覧表示できる
 - [ ] `type=keyword` のルールで、選択範囲内にキーワードが含まれる場合のみ検出表示できる
 - [ ] `type=replacement` のルールで、対象語句が含まれる場合に推奨表記を表示できる
