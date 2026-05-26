@@ -461,7 +461,7 @@ function renderProofread(result) {
       errorBox.style.display = 'none';
     }
 
-    const { detectionCount, matched, checklist } =
+    const { detectionCount, matched, manual } =
       window.Proofreading.checkText(text, rules);
 
     const countEl = document.getElementById('proofread-count');
@@ -470,8 +470,19 @@ function renderProofread(result) {
 
     renderMatched(matched);
     renderProofreadSource(text, matched);
-    renderChecklist(checklist);
+    renderManual(manual);
   });
+}
+
+// source_tab → CSS クラス名
+function sourceTabClass(sourceTab) {
+  switch (sourceTab) {
+    case 'ルール校正': return 'source-tab-rule-correction';
+    case 'ルール推敲': return 'source-tab-rule-refine';
+    case 'ルール推敲カテゴリ': return 'source-tab-rule-category';
+    case 'チェックリスト': return 'source-tab-checklist';
+    default: return 'source-tab-checklist';
+  }
 }
 
 function renderMatched(matched) {
@@ -514,12 +525,30 @@ function buildRuleCard(rule, occurrences) {
   const head = document.createElement('div');
   head.className = 'proofread-rule-head';
 
-  const badge = document.createElement('span');
+  // severity バッジ
   const sev = rule.severity || 'info';
+  const badge = document.createElement('span');
   badge.className = 'severity-badge severity-' + sev;
   badge.textContent = sev.toUpperCase();
   head.appendChild(badge);
 
+  // source_tab バッジ（ルール校正 / ルール推敲 / ルール推敲カテゴリ / チェックリスト）
+  if (rule.sourceTab) {
+    const stb = document.createElement('span');
+    stb.className = 'source-tab-badge ' + sourceTabClass(rule.sourceTab);
+    stb.textContent = rule.sourceTab;
+    head.appendChild(stb);
+  }
+
+  // detection_type タグ
+  if (rule.detectionType) {
+    const dt = document.createElement('span');
+    dt.className = 'detection-type-tag';
+    dt.textContent = rule.detectionType;
+    head.appendChild(dt);
+  }
+
+  // タイトル
   const title = document.createElement('span');
   title.className = 'proofread-rule-title';
   title.textContent = rule.title || rule.id;
@@ -527,6 +556,7 @@ function buildRuleCard(rule, occurrences) {
 
   card.appendChild(head);
 
+  // 該当箇所チップ
   if (occurrences && occurrences.length > 0) {
     const matchRow = document.createElement('div');
     matchRow.className = 'proofread-rule-matches';
@@ -536,9 +566,15 @@ function buildRuleCard(rule, occurrences) {
     matchRow.appendChild(label);
     occurrences.forEach((occ, idx) => {
       const chip = document.createElement('span');
-      chip.className = 'match-chip';
-      chip.textContent = occ.text + ' #' + (idx + 1);
+      const kindCls = (occ.kind === 'sentence') ? ' kind-sentence' : ' kind-span';
+      chip.className = 'match-chip' + kindCls;
+      // sentence は文冒頭20文字に省略、span はマッチテキストをそのまま
+      const display = (occ.kind === 'sentence')
+        ? (occ.text.length > 20 ? occ.text.slice(0, 20) + '…' : occ.text)
+        : occ.text;
+      chip.textContent = display + ' #' + (idx + 1);
       chip.dataset.matchId = occ.id;
+      chip.dataset.kind = occ.kind || 'span';
       chip.dataset.keyword = occ.keyword;
       chip.title = (occ.before || '') + '【' + occ.text + '】' + (occ.after || '');
       chip.addEventListener('click', () => jumpToMatch(occ));
@@ -547,28 +583,32 @@ function buildRuleCard(rule, occurrences) {
     card.appendChild(matchRow);
   }
 
-  if (rule.type === 'replacement' && rule.replacement) {
+  // 改善案（推奨ワード）
+  if (rule.recommended) {
     const rec = document.createElement('div');
     rec.className = 'proofread-rule-recommend';
     const label = document.createElement('span');
     label.className = 'label';
-    label.textContent = '推奨:';
+    label.textContent = '改善案:';
     rec.appendChild(label);
-    rec.appendChild(document.createTextNode(rule.replacement));
+    rec.appendChild(document.createTextNode(rule.recommended));
     card.appendChild(rec);
   }
 
-  if (rule.basic_comment) {
+  // 推奨コメント（短文）
+  const shortMsg = rule.message || rule.basicComment || rule.basic_comment;
+  if (shortMsg && shortMsg !== rule.recommended) {
     const comment = document.createElement('div');
     comment.className = 'proofread-rule-comment';
     const label = document.createElement('span');
     label.className = 'label';
     label.textContent = '推奨コメント:';
     comment.appendChild(label);
-    comment.appendChild(document.createTextNode(rule.basic_comment));
+    comment.appendChild(document.createTextNode(shortMsg));
     card.appendChild(comment);
   }
 
+  // 補足説明
   if (rule.description) {
     const desc = document.createElement('div');
     desc.className = 'proofread-rule-desc';
@@ -579,7 +619,7 @@ function buildRuleCard(rule, occurrences) {
   return card;
 }
 
-// 校閲対象テキストを描画し、occurrences をハイライト
+// 校閲対象テキストを描画し、occurrences をハイライト（sentence は背景外側、span は内側に重ね描画）
 function renderProofreadSource(text, matched) {
   const section = document.getElementById('proofread-source-section');
   const container = document.getElementById('proofread-source');
@@ -592,36 +632,64 @@ function renderProofreadSource(text, matched) {
     return;
   }
 
-  // 全 occurrences を start 昇順に並べる（重複・包含は先勝ち）
   const all = [];
-  matched.forEach(m => {
-    m.occurrences.forEach(occ => all.push(occ));
-  });
-  all.sort((a, b) => a.start - b.start || b.end - a.end);
+  matched.forEach(m => m.occurrences.forEach(occ => all.push(occ)));
 
-  const placed = [];
-  let cursor = 0;
-  all.forEach(occ => {
-    if (occ.start < cursor) return; // 先のハイライトと重なる場合はスキップ
-    placed.push(occ);
-    cursor = occ.end;
-  });
+  // sentence / span をそれぞれ独立に文字位置マップへ書き込む
+  const sentenceAt = new Array(text.length + 1).fill(null);
+  const spanAt = new Array(text.length + 1).fill(null);
 
-  let pos = 0;
-  placed.forEach(occ => {
-    if (occ.start > pos) {
-      container.appendChild(document.createTextNode(text.slice(pos, occ.start)));
+  const sentenceOccs = all.filter(o => o.kind === 'sentence');
+  // sentence は短い範囲を優先（複数文ルールの重なりで内側のものが視認できるように）
+  sentenceOccs.sort((a, b) => (a.end - a.start) - (b.end - b.start));
+  sentenceOccs.forEach(o => {
+    for (let i = o.start; i < o.end; i++) {
+      if (!sentenceAt[i]) sentenceAt[i] = o;
     }
-    const span = document.createElement('span');
-    span.className = 'hl';
-    span.dataset.matchId = occ.id;
-    span.textContent = text.slice(occ.start, occ.end);
-    span.addEventListener('click', () => jumpToMatch(occ));
-    container.appendChild(span);
-    pos = occ.end;
   });
-  if (pos < text.length) {
-    container.appendChild(document.createTextNode(text.slice(pos)));
+
+  const spanOccs = all.filter(o => o.kind !== 'sentence');
+  // span は先勝ち（既存挙動と同等）
+  spanOccs.sort((a, b) => a.start - b.start || b.end - a.end);
+  spanOccs.forEach(o => {
+    for (let i = o.start; i < o.end; i++) {
+      if (!spanAt[i]) spanAt[i] = o;
+    }
+  });
+
+  // 文字を線形に走査し、同じ (sentenceId, spanId) が続く区間ごとに DOM を作る
+  let pos = 0;
+  while (pos < text.length) {
+    const curSent = sentenceAt[pos];
+    const curSpan = spanAt[pos];
+    let end = pos + 1;
+    while (end < text.length && sentenceAt[end] === curSent && spanAt[end] === curSpan) end++;
+    const segText = text.slice(pos, end);
+
+    let leaf = document.createTextNode(segText);
+    if (curSpan) {
+      const el = document.createElement('span');
+      el.className = 'hl kind-span';
+      el.dataset.matchId = curSpan.id;
+      el.appendChild(leaf);
+      el.addEventListener('click', (ev) => { ev.stopPropagation(); jumpToMatch(curSpan); });
+      leaf = el;
+    }
+    if (curSent) {
+      const el = document.createElement('span');
+      el.className = 'hl kind-sentence';
+      el.dataset.matchId = curSent.id;
+      el.appendChild(leaf);
+      el.addEventListener('click', (ev) => {
+        // 内側 span のクリックは span が処理。sentence 要素自体のクリック時のみジャンプ
+        if (ev.target === el || (ev.target.parentElement === el && !ev.target.classList.contains('kind-span'))) {
+          jumpToMatch(curSent);
+        }
+      });
+      leaf = el;
+    }
+    container.appendChild(leaf);
+    pos = end;
   }
 
   section.style.display = 'block';
@@ -656,42 +724,57 @@ function jumpToMatch(occ) {
 }
 
 function requestPageHighlight(occ) {
-  // 同一キーワードのうち何番目か（renderProofreadSource と独立して計算）
   if (!lastResult || !lastResult.rawText) return;
   const text = lastResult.rawText;
+  const isSentence = occ.kind === 'sentence';
+
+  // 検索キー：span はそのまま、sentence は空白を畳んだ冒頭プレフィックス（content.js 側でさらに正規化）
+  const key = occ.keyword;
+  if (!key) return;
+
+  // 同一キーワードのうち何番目か（rawText 上で算出）
   let nth = 0;
   let from = 0;
   while (from <= text.length) {
-    const idx = text.indexOf(occ.keyword, from);
+    const idx = text.indexOf(key, from);
     if (idx === -1) break;
     if (idx === occ.start) break;
     nth += 1;
-    from = idx + occ.keyword.length;
+    from = idx + key.length;
   }
 
   chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
     if (!tabs || !tabs[0]) return;
     chrome.tabs.sendMessage(
       tabs[0].id,
-      { action: 'highlightInPage', keyword: occ.keyword, occurrenceIndex: nth },
-      () => { /* errorは無視（拡張不可ページなど） */ void chrome.runtime.lastError; }
+      {
+        action: 'highlightInPage',
+        keyword: key,
+        occurrenceIndex: nth,
+        allowCrossNode: isSentence
+      },
+      () => { void chrome.runtime.lastError; }
     );
   });
 }
 
-function renderChecklist(checklist) {
+function renderManual(manual) {
   const container = document.getElementById('checklist-body');
+  const countBadge = document.getElementById('manual-count');
   container.innerHTML = '';
 
-  if (!checklist || checklist.length === 0) {
+  const count = manual ? manual.length : 0;
+  if (countBadge) countBadge.textContent = String(count);
+
+  if (!manual || manual.length === 0) {
     const empty = document.createElement('div');
     empty.className = 'empty-message';
-    empty.textContent = 'チェックリストは登録されていません';
+    empty.textContent = '手動チェック項目は登録されていません';
     container.appendChild(empty);
     return;
   }
 
-  const groups = window.Proofreading.groupByCategory(checklist, r => r.category);
+  const groups = window.Proofreading.groupByCategory(manual, r => r.category);
   groups.forEach(group => {
     const block = document.createElement('div');
     block.className = 'checklist-category';

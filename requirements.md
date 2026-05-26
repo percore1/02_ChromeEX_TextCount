@@ -3,7 +3,7 @@
 **プロジェクト名:** 02_ChromeEX_TextCount  
 **作成日:** 2026-05-26  
 **最終更新日:** 2026-05-26  
-**ステータス:** MVP要件確定（既存マクロ差分反映済み） / 校閲チェック機能 要件追記（実装前）
+**ステータス:** MVP要件確定（既存マクロ差分反映済み） / 校閲チェック機能 v2 実装完了（detection_type ベース、226 ルール対応）
 
 ---
 
@@ -55,17 +55,26 @@ Webページ上で選択した範囲の文字数を、指定ルールに基づ�
 
 ```
 02_ChromeEX_TextCount/
-├── manifest.json              # 拡張機能の設定ファイル（Manifest V3 / side_panel 指定）
+├── manifest.json              # 拡張機能の設定（Manifest V3 / side_panel 指定）
 ├── background.js              # サービスワーカー
 ├── sidepanel.html             # サイドパネルUI（v1.1以降の正UI）
 ├── sidepanel.css              # サイドパネルのスタイル
-├── sidepanel.js               # サイドパネルのロジック
-├── content.js                 # ページ上の選択範囲取得・除外処理
+├── sidepanel.js               # サイドパネルのロジック（カウント・校閲描画・ジャンプ）
+├── content.js                 # ページ上の選択範囲取得・除外処理・ページ内ハイライト
+├── proofreading.js            # 校閲チェックエンジン（detector ディスパッチャ）
 ├── mammoth.browser.min.js     # .docx 解析ライブラリ（ローカル同梱）
+├── text_checklist.json        # 校閲ルール（実装の正本、固定ファイル名、226件）
+├── text_checklist.csv         # 校閲ルール（人間用・管理確認用、同じ内容）
+├── text_checklist.md          # 校閲ルール（人間用・管理確認用、同じ内容）
+├── rules/
+│   └── proofreading_rules.json   # 旧スキーマ（参考用に残置、拡張からは読まない）
+├── requirements.md
 └── README.md
 ```
 
-> 注: 初期に存在した `popup.html / popup.css / popup.js` は v1.1 のサイドパネル化以降は manifest 未参照（実体は残っているが拡張からは読み込まれない）。本要件以降、UI の正は **サイドパネル** とする。校閲チェック機能はサイドパネル側に実装する。
+- UI の正は **サイドパネル**。初期の `popup.html/css/js` は manifest 未参照のまま残置
+- 校閲ルールは `text_checklist.json` を正本とし、CSV/MD は人間用。ファイル名は今後も変えない
+- 過去バージョンは Git の commit 履歴で管理する（別名ファイルは作らない）
 
 ---
 
@@ -339,21 +348,31 @@ Chrome拡張版は既存マクロ（A.MAC）の後継として設計するが、
 
 ---
 
-## 11. 校閲チェック機能（追加要件）
+## 11. 校閲チェック機能
 
 ### 11.1 目的
 
 同じ選択範囲のテキストに対して、文字数カウントだけでなく **ローカルのルールベース校閲チェック** も実行できるようにする。  
-MVPでは「検出」「注意喚起」「補足表示」までを対象とし、AI API 連携や自動リライトは行わない。
+「検出」「注意喚起」「補足表示」「該当箇所ハイライト」「プレビュー内ジャンプ」「ページ内ジャンプ」までを対象とする。  
+AI API 連携や自動リライトは行わない。
 
-### 11.2 技術方針（追加分）
+### 11.2 技術方針
 
 | 項目 | 内容 |
 |------|------|
 | 校閲エンジン | ローカル・ルールベース（外部API不使用） |
-| ルール定義 | 外部 JSON ファイル（`rules/proofreading_rules.json`） |
-| 照合ロジック | サイドパネル側で実行（必要に応じて `proofreading.js` に分離） |
+| ルール定義 | `text_checklist.json`（プロジェクト直下、固定ファイル名） |
+| 補助データ | `text_checklist.csv` / `text_checklist.md`（人間用の管理・確認ファイル。コードからは読まない） |
+| 旧ファイル | `rules/proofreading_rules.json` は **参考として残置**（拡張からは読まない） |
+| 照合ロジック | `proofreading.js` に集約（detector ディスパッチャ方式） |
 | 既存機能への影響 | 文字数カウントの挙動は変更しない（互換維持） |
+
+#### 運用方針（ファイル名固定）
+
+- 拡張機能が読むファイル名は **固定**（`text_checklist.json`）
+- 別名ファイル（`*_v2.json` / `*_latest.json` 等）は作らない
+- 過去バージョンは Git の commit 履歴で管理する
+- CSV / JSON / MD は同じファイル名のまま上書き更新する
 
 ### 11.3 UI 構成（サイドパネル）
 
@@ -377,157 +396,246 @@ MVPでは「検出」「注意喚起」「補足表示」までを対象とし�
 
 | No. | 表示項目 | 説明 |
 |-----|----------|------|
-| 1 | 検出件数 | 該当した校閲ルールの総件数 |
-| 2 | カテゴリ | ルール定義の `category`（例: わかりやすさのチェックリスト） |
-| 3 | 該当ルール名 | ルールの `title`（旧 check_item） |
-| 4 | 該当箇所 | keyword / replacement で検出した語句（文字列） |
-| 5 | 推奨コメント | replacement ルールの推奨表記 |
-| 6 | 補足説明 | ルールの `description`（旧 explanation） |
+| 1 | 検出件数 | 自動検出された occurrence 数（オカレンス単位、同一ルールが複数箇所マッチしてもすべて加算） |
+| 2 | カテゴリ別グループ | ルールの `category` 単位で見出しグループ化 |
+| 3 | severity バッジ | `notice` / `info` / `warning` / `error` / `critical` の5段階を色分け |
+| 4 | source_tab バッジ | `ルール校正` / `ルール推敲` / `ルール推敲カテゴリ` / `チェックリスト` の4種類を色分け |
+| 5 | detection_type タグ | `exact` / `regex` / `sentence_metric` / `sequence` / `heuristic` / `manual` を小タグで表示 |
+| 6 | 該当ルール名 | ルールの `check_item` |
+| 7 | 該当箇所チップ | 検出した語句または文冒頭（クリック可能、複数回ヒットは個別） |
+| 8 | 改善案 | `recommended_word` がある場合に表示 |
+| 9 | 推奨コメント | `basic_comment_preview` または `message`（短文） |
+| 10 | 補足説明 | `explanation`（長文） |
+| 11 | 校閲対象テキスト | 全文を表示。検出箇所はインライン・ハイライト（クリックでジャンプ） |
+| 12 | 自動検出対象外の確認項目 | `detection_type=manual` の項目。折りたたみセクション、件数バッジ付き |
 
-表示の並びは「カテゴリでグルーピング → ルール一覧」を基本とする（仮決定 D-8）。
+表示の並びは「カテゴリ → ルール → オカレンス」の3段階。
 
-### 11.4 ルール種別
+#### 11.3.3 配色設計
 
-MVP では以下の3種類のみ対応する。
+- **文字数カウントタブ**: ブルー系（`#1a73e8`）
+- **校閲チェックタブ**: ティール系（`#0d8475`）
+- 検出件数：通常はティール、検出ありの場合は赤（`#c5221f`）
+- ハイライト:
+  - `kind=span`: 黄色背景（語句単位の濃いハイライト）
+  - `kind=sentence`: ティールの下線＋淡色背景（文単位、span と重ねて視認できる）
 
-| type | 用途 | 検出条件 | 表示 |
-|------|------|----------|------|
-| `checklist` | 常時表示する確認項目 | 文章内容に依存せず、常に一覧表示 | 検出件数には含めない／参考表示 |
-| `keyword` | 指定キーワードが含まれる場合に検出 | `keywords` 配列の語が選択範囲に含まれる | カテゴリ・ルール名・該当箇所・補足を表示 |
-| `replacement` | 特定の表記に対する推奨表記の提示 | `keywords`（誤用語）が含まれる | 該当箇所＋推奨コメント（推奨表記）＋補足を表示 |
+### 11.4 detection_type 別の検出方針
+
+| detection_type | 担当 detector | 検出方法 | ハイライト範囲 (kind) |
+|---------------|--------------|----------|----------------------|
+| `exact` | ExactDetector | `keyword` フィールド（`;` 区切り複数可）の各語を `String.includes` で検出 | `span`（語句） |
+| `dictionary` | ExactDetector | 同上（実質 exact と同等） | `span` |
+| `regex` | RegexDetector | `pattern` を `new RegExp(pattern, 'gu')` で検出。try/catch で個別保護、無限ループ対策あり | `span` |
+| `sentence_metric` | SentenceMetricDetector | `pattern` を DSL（`sentence_length>=N` / `comma_count>=N` / 複数条件は `AND`）として解釈し、文単位で判定 | `sentence`（文全体） |
+| `sequence` | SequenceDetector | カテゴリ別ロジック（同助詞連続 / 同文末表現連続 / 表記揺れ alias_groups） | `span` または `sentence` |
+| `heuristic` | HeuristicDetector | カテゴリ別ハードコード判定（体言止め / 主述不明瞭 / 過剰丁寧語 など）。未知のヒューリスティックは regex として試行 | `span` または `sentence` |
+| `manual` | （非検出） | 検出は行わず、UI 上で「自動検出対象外の確認項目」として一覧表示 | – |
+
+#### 11.4.1 DSL の取扱い（安全性）
+
+- `pattern` 内の DSL（`sentence_length>=100` 等）は **`eval` を使わない**
+- ホワイトリストパーサで以下の語彙のみを受理:
+  - メトリクス: `sentence_length`, `comma_count`
+  - 比較演算子: `>=`, `<=`, `==`, `>`, `<`
+  - 結合: ` AND `
+  - 特殊接頭辞: `alias_groups:`, `same_sentence_ending`, `same_particle`
+- パース不可なパターンは検出スキップ（クラッシュ防止）
+
+#### 11.4.2 正規表現の安全性
+
+- 全 regex を `try/catch` で個別保護
+- ゼロ幅マッチは `lastIndex` を1進めて無限ループ回避
+- 安全カウンタ（20,000回）でループ上限を設定
 
 ### 11.5 ルールデータ仕様
 
 #### 11.5.1 ファイル
 
-- パス: `rules/proofreading_rules.json`
+- パス: `text_checklist.json`（プロジェクト直下、固定）
 - 形式: ルールオブジェクトの配列（JSON）
 - 文字コード: UTF-8（BOMなし）
+- 件数: 226 ルール（参考）
 
 #### 11.5.2 ルールスキーマ
 
 ```json
 {
-  "id": "rule-001",
-  "type": "checklist",
-  "category": "わかりやすさのチェックリスト",
-  "title": "できるだけ最初に「結論」を書くようにしていますか？",
-  "description": "できるだけ最初に結論をもってくるほうが、読み手のモチベーションが続きやすく、完読してもらいやすくなります。",
-  "severity": "info",
+  "id": 1,
+  "source_tab": "ルール推敲",
   "enabled": true,
-  "keywords": [],
-  "source": "bunken_cleaned"
+  "category": "ひらがなで書くほうがよい言葉",
+  "keyword": "繋ご",
+  "recommended_word": "つなご",
+  "morphological_setting": "OFF",
+  "check_item": "繋ご → つなご",
+  "basic_comment_preview": "「つなご」とひらがなで書くほうがよいかもしれません。",
+  "explanation": "漢字表記よりも、ひらがな表記のほうが読みやすい可能性があります。…",
+  "admin_memo": "",
+  "rule_type": "dictionary",
+  "severity": "notice",
+  "detection_type": "exact",
+  "auto_detectable": true,
+  "pattern": "繋ご",
+  "message": "「つなご」とひらがなで書くほうがよいかもしれません。",
+  "examples": "",
+  "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
 }
 ```
 
-| フィールド | 型 | 必須 | 説明 |
-|------------|-----|------|------|
-| `id` | string | ✓ | 一意なルールID（`rule-001` 形式） |
-| `type` | enum | ✓ | `checklist` / `keyword` / `replacement` |
-| `category` | string | ✓ | カテゴリ名（UIグルーピングに使用） |
-| `title` | string | ✓ | ルールのタイトル（旧 check_item） |
-| `description` | string | ✓ | 補足説明（旧 explanation） |
-| `severity` | enum | ✓ | `info` / `warning` / `error` のいずれか（MVPは `info` 中心） |
-| `enabled` | boolean | ✓ | false の場合は UI 上で非適用 |
-| `keywords` | string[] | ✓ | `keyword`/`replacement` で検出対象とする語の配列。`checklist` は空配列 |
-| `source` | string | ✓ | ルール由来（例: `bunken_cleaned`、`manual`） |
-| `replacement` | string | – | `replacement` 型のみ。推奨表記の文字列（例: `ください`） |
-| `admin_memo` | string | – | 管理メモ（任意） |
+| フィールド | 型 | 説明 |
+|------------|-----|------|
+| `id` | number | 一意なルールID |
+| `source_tab` | enum | `ルール校正` / `ルール推敲` / `ルール推敲カテゴリ` / `チェックリスト` |
+| `enabled` | boolean | `false` ならロード時に除外 |
+| `category` | string | カテゴリ名（UI グルーピング） |
+| `keyword` | string | 検出キーワード（複数時は `;` または `；` 区切り） |
+| `recommended_word` | string | 改善案（推奨ワード） |
+| `check_item` | string | ルールのタイトル |
+| `basic_comment_preview` | string | 推奨コメント（短文、UI表示用） |
+| `explanation` | string | 補足説明（長文） |
+| `rule_type` | enum | `dictionary` / `review` / `manual_checklist` / `proofreading` |
+| `severity` | enum | `notice` / `info` / `warning` / `error` / `critical` |
+| `detection_type` | enum | `exact` / `dictionary` / `regex` / `sentence_metric` / `sequence` / `heuristic` / `manual` |
+| `auto_detectable` | boolean | `false` の場合は manual と同じ扱い |
+| `pattern` | string | 正規表現 or DSL（detection_type に依存） |
+| `message` | string | 表示用メッセージ |
+| `implementation_note` | string | 実装メモ（参考用、UIには出さない） |
+| `morphological_setting` | string | 形態素解析設定（MVPでは未使用、参照用） |
+| `admin_memo` | string | 管理メモ |
+| `examples` | string | 例示テキスト |
 
-#### 11.5.3 `text_checklist.csv` の変換ルール
+#### 11.5.3 detection_type 別の件数（参考、合計226）
 
-`text_checklist.csv`（全191件、ルール推敲 171件＋チェックリスト 20件）を上記スキーマに **変換** して `rules/proofreading_rules.json` の初期データとする。
+| detection_type | 件数 |
+|----------------|-----:|
+| exact | 184 |
+| manual | 20 |
+| regex | 11 |
+| sentence_metric | 3 |
+| sequence | 3 |
+| heuristic | 3 |
+| dictionary | 2 |
 
-変換マッピング:
+#### 11.5.4 source_tab 別の件数（参考、合計226）
 
-| CSV フィールド | 変換後フィールド | 備考 |
-|---------------|-----------------|------|
-| `id` | `id` | `rule-001` 形式（3桁ゼロ埋め） |
-| `category` | `category` | そのまま |
-| `check_item` | `title` | そのまま |
-| `explanation` | `description` | そのまま（改行を保持） |
-| `enabled` | `enabled` | `True` → true |
-| `keyword` | `keywords` | 配列化（`[keyword]`）。空のときは `[]` |
-| `recommended_word` | `replacement` | `replacement` 型のみ |
-| `basic_comment_preview` | `basic_comment` | 推奨コメントとしてUIに表示 |
-| `morphological_setting` | `morphological_setting` | 参照情報として保持（MVP では未使用） |
-| `admin_memo` | `admin_memo` | 空文字でも保持 |
-| – | `type` | `keyword` ありなら `replacement`、なしなら `checklist` |
-| – | `severity` | 全件 `info` |
-| – | `source` | 全件 `text_checklist` |
+| source_tab | 件数 |
+|------------|-----:|
+| ルール推敲 | 171 |
+| ルール推敲カテゴリ | 22 |
+| ルール校正 | 13 |
+| チェックリスト | 20 |
 
-> 注: CSV の `source_file` / `source_page` / `source_row` / `extraction_note` 列は出典トレース用のメタデータであり、ルール JSON には含めない。著作権・利用規約上の配慮として、当面は自社用・個人用の参考ルールとして扱う。
->
-> チェックリスト20件（id 172〜191）は `text_checklist.csv` の「チェックリスト」シート相当分に含まれている。`bunken_checklist_cleaned.*` は移行済みのため削除済み。
+#### 11.5.5 CSV / MD との関係
 
-### 11.6 ルール照合ロジック（MVP）
+- **正本**: `text_checklist.json`
+- `text_checklist.csv` / `text_checklist.md` は人間による編集・確認用の同名・別形式ファイル。コードからは読まない
+- 3ファイルは内容が一致する想定（手動更新時に同期）
+- 旧 `rules/proofreading_rules.json` は参考用に残置するのみ。拡張機能のロード対象ではない
+
+### 11.6 ルール照合ロジック
 
 入力テキストに対して以下の順で処理する。
 
 ```
-1. rules/proofreading_rules.json を fetch() で読み込む（初回のみ、以後はキャッシュ）
-2. enabled: false のルールは除外
-3. ルールを type 別に分岐:
-   a. checklist  : 内容に関わらず一覧表示用に保持（検出件数にはカウントしない）
-   b. keyword    : keywords 配列のいずれかの語が入力テキストに含まれるかを判定
-   c. replacement: keywords 配列の語が入力テキストに含まれるかを判定（一致時に推奨表記を併記）
-4. 検出した match を「該当箇所（マッチした文字列）」と一緒にカテゴリ単位でグルーピング
-5. サイドパネルに表示
+1. text_checklist.json を fetch() で読み込む（初回のみ、以後はキャッシュ）
+2. enabled: false のルールはロード時に除外
+3. ルールを正規化（normalizeRule）し、内部正規形に揃える
+4. detection_type で detector にディスパッチ:
+   - exact / dictionary → ExactDetector
+   - regex             → RegexDetector
+   - sentence_metric   → SentenceMetricDetector
+   - sequence          → SequenceDetector
+   - heuristic         → HeuristicDetector
+   - manual            → 検出せず、manual 一覧へ
+5. 各 occurrence に id（match-XXXX）を採番し、kind（span / sentence）を付与
+6. 結果を「カテゴリ → ルール → occurrences」の構造で UI へ返す
 ```
 
-#### 11.6.1 入力テキストの扱い（仮決定 D-9）
+#### 11.6.1 入力テキストの扱い
 
-校閲チェックの入力テキストは **「除外処理前の生テキスト」「除外処理後のテキスト」の両方をデータとして保持** する。
+校閲チェックの入力テキストは **「除外処理前の生テキスト（rawText）」「除外処理後のテキスト（processedText）」の両方を `result` オブジェクトに保持** する。
 
-- MVP のデフォルトは **除外処理前の生テキスト** を校閲対象にする（書き手視点で素直なため）
-- 将来的に、ルールの `severity` や `type` 単位で参照テキストを切り替えられる余地を残す
-- 内部 API（result オブジェクト）に `rawText` と `processedText` の両方を含める
+- 校閲対象のデフォルトは **rawText**（書き手視点で素直なため）
+- カウントは従来通り processedText
+- 将来的に、ルールの severity や detection_type 単位で参照テキストを切り替えられる余地を残す
 
-### 11.7 popup（サイドパネル）表示仕様の拡張
+### 11.7 ハイライト・ジャンプ機能
 
-校閲チェックタブには以下を新規で表示する。
+#### 11.7.1 プレビュー内ジャンプ
 
-| No. | 表示項目 | 説明 |
-|-----|----------|------|
-| 1 | 検出件数（keyword/replacement の合計） | `0` のときは「検出なし」と明示 |
-| 2 | カテゴリ別グループ | カテゴリ名を見出しに、配下にルール一覧 |
-| 3 | 各ルールの行 | `title` / `該当箇所` / `推奨コメント` / `補足説明` を表示 |
-| 4 | チェックリスト一覧（折りたたみ） | `type=checklist` のルールを一覧表示。デフォルトは折りたたみ |
-| 5 | severity バッジ | `info`/`warning`/`error` を色分け表示（MVPは info のみだが将来用に枠を確保） |
+- 校閲対象テキストはサイドパネル内に全文表示し、検出箇所をインラインでハイライト
+- ハイライトは2層構造:
+  - `kind=sentence`: 文全体に淡色背景＋下線（背景レイヤ）
+  - `kind=span`: 語句に濃いめの背景（前面レイヤ、`kind=sentence` の中に重ねて配置）
+- チップ・ハイライトのいずれをクリックしても該当箇所へスクロール
+- スクロール先は約2.5秒間、強調アウトラインを表示
 
-文字数カウントタブの表示は **既存仕様のまま** 維持する（4章・6章は変更なし）。
+#### 11.7.2 ページ内ジャンプ（自動タブ）
 
-### 11.8 実装フロー（校閲チェック）
+| 検出種別 | ページ内ジャンプ |
+|---------|-----------------|
+| `kind=span`（exact / regex / sequence 一部） | ◎（既存ロジック：単一テキストノード内 indexOf） |
+| `kind=sentence`（sentence_metric / heuristic / sequence 一部） | △（**ベストエフォート**：クロスノードのプレフィックス検索） |
+
+クロスノード検索ロジック（`content.js` の `highlightCrossNodeInPage`）:
+
+1. ページ内の全テキストノードを連結した仮想テキストを構築
+2. 空白を圧縮した正規化テキストを生成（テキストノード境界を吸収）
+3. 検出文の冒頭プレフィックス（空白除去後25文字）を正規化テキスト上で検索
+4. ヒットした位置から逆引きで該当テキストノードと range を構築
+5. Range を Selection に設定して `scrollIntoView`
+
+失敗時はサイレントフォールバック（エラー表示なし）。プレビュー内ジャンプは確実に動作する。
+
+### 11.8 実装フロー
 
 ```
-1. サイドパネル起動時に rules/proofreading_rules.json を読み込み、enabled なルールをメモリにキャッシュ
+1. サイドパネル起動時に text_checklist.json を読み込み、enabled なルールを normalizeRule してキャッシュ
 2. 入力テキスト（選択範囲 / 貼り付け / ファイル）が更新されたら:
    a. 文字数カウント結果オブジェクト（rawText, processedText を含む）を更新
-   b. 校閲チェックエンジンに rawText を渡してマッチ判定
-   c. マッチ結果を「カテゴリ → ルール」の構造で組み立て
+   b. 校閲チェックエンジン (checkText) に rawText を渡して detector を実行
+   c. 結果を {detectionCount, matched: [{rule, occurrences}], manual} に整形
 3. 機能タブ（カウント / 校閲）の表示状態に応じて結果セクションを切り替え
+4. 校閲チェック時:
+   - カード描画（renderMatched / buildRuleCard）
+   - インラインハイライト描画（renderProofreadSource、span/sentence 2層）
+   - manual 一覧描画（renderManual）
+5. ジャンプ操作:
+   - jumpToMatch: プレビュー内スクロール＋強調
+   - 自動タブのとき：content.js に highlightInPage メッセージ送信
+     - span: allowCrossNode=false（既存単一ノード検索）
+     - sentence: allowCrossNode=true（クロスノード検索）
 ```
 
-### 11.9 MVPスコープ（校閲）
+### 11.9 スコープ
 
-#### 11.9.1 MVPで実装する機能（校閲）
+#### 11.9.1 v1.8 で実装した機能（校閲）
 
-- [ ] サイドパネル外側に「文字数カウント」「校閲チェック」の機能タブを追加
-- [ ] 機能タブ × 入力タブ（自動 / 貼り付け / ファイル）の2階層構成を実装
-- [ ] `rules/proofreading_rules.json` を外部ファイルとして読み込む
-- [ ] `text_checklist.csv` をスキーマに合わせて変換した初期ルール（191件）を同梱する
-- [ ] `type=checklist` のルールを一覧表示できる
-- [ ] `type=keyword` のルールで、選択範囲内にキーワードが含まれる場合のみ検出表示できる
-- [ ] `type=replacement` のルールで、対象語句が含まれる場合に推奨表記を表示できる
-- [ ] 検出件数・カテゴリ・該当ルール名・該当箇所・推奨コメント・補足説明を表示できる
-- [ ] 校閲タブから文字数カウントタブに切り替えても、入力テキストとカウント結果が保持される
-- [ ] `enabled: false` のルールは適用されない
+- [x] サイドパネル外側に「文字数カウント」「校閲チェック」の機能タブを追加
+- [x] 機能タブ × 入力タブ（自動 / 貼り付け / ファイル）の2階層構成
+- [x] `text_checklist.json` を外部ファイルとして読み込む（226 ルール、固定ファイル名）
+- [x] detection_type ベースの 6 系統 detector を実装
+- [x] exact / dictionary ルール（184件）の検出
+- [x] regex ルール（11件）の検出（try/catch 個別保護）
+- [x] sentence_metric ルール（3件）の検出：一文100文字以上 / 読点4つ以上 / 50文字以上で読点なし
+- [x] sequence ルール（3件）の検出：同文末連続 / 同助詞連続 / 表記揺れ
+- [x] heuristic ルール（3件）の検出：体言止め / 主述不明瞭 / 過剰丁寧語
+- [x] manual ルール（20件）の専用セクション表示（自動検出対象外の確認項目）
+- [x] severity 5段階・source_tab 4種類のラベル分離表示
+- [x] detection_type タグ表示
+- [x] 検出件数・カテゴリ・該当ルール名・該当箇所・改善案・推奨コメント・補足説明を表示
+- [x] 同じキーワードが複数回出ても個別 occurrence として検出・ジャンプ可
+- [x] プレビュー内ジャンプ（span / sentence 両対応）
+- [x] ページ内ジャンプ（span: 単一ノード、sentence: クロスノード・ベストエフォート）
+- [x] 文字数カウントと校閲チェックでメインカラーを分離（青 / ティール）
+- [x] `enabled: false` のルールは適用されない
 
-#### 11.9.2 MVPでは実装しない機能（校閲）
+#### 11.9.2 スコープ外（v1.8 では実装しない）
 
 - AI API（OpenAI / Claude 等）による自動校閲
 - 文章の自動リライト
-- 文中（Webページ内）へのハイライト挿入
+- ページ DOM への永続的なハイライト挿入（現状は Selection のみ）
 - 右クリックコンテキストメニューからの校閲
 - サイドパネル上でのルール編集 UI
 - ルールのインポート / エクスポート UI
@@ -537,32 +645,36 @@ MVP では以下の3種類のみ対応する。
 ### 11.10 制約事項（校閲）
 
 - 文賢の HTML ソース・属性・SVG・class名等は **拡張機能に同梱しない**
-- ルール化に使うのは `category` / `check_item` / `explanation` / `admin_memo` の4項目のみ
 - 著作権・利用規約上の配慮として、当面は自社用・個人用の参考ルールとして扱う
 - ローカル動作のみで完結し、外部送信は行わない
+- `text_checklist.json` / `.csv` / `.md` のファイル名は **変更しない**
 
 ### 11.11 未決事項（校閲）
 
 | No. | 項目 | 内容 | 優先度 |
 |-----|------|------|--------|
-| U-7 | severity 別の表示差 | `warning`/`error` 用ルールを今後追加するか、現状 `info` で十分か | 中 |
-| U-8 | keyword の照合方式 | 完全一致 / 部分一致 / 正規表現対応の要否（MVPは部分一致） | 中 |
-| U-9 | 大文字小文字・全半角ゆれ | キーワード照合時のゆれ吸収（例: ですます／です、ます）の扱い | 中 |
-| U-10 | 検出件数のカウント方式 | 「ルール単位」か「マッチ箇所単位」か（MVP仮: ルール単位） | 中 |
-| U-11 | checklist の表示位置 | 機能タブ内に常時展開 or 折りたたみ。デフォルトは折りたたみ仮決定 | 低 |
-| U-12 | 校閲対象テキストの切替 | rawText / processedText のどちらを使うかのルール別設定 | 低（MVP後） |
-| U-13 | ルールの並び順 | id 順 / category 順 / severity 順 | 低 |
+| U-7 | severity 別の表示差 | `notice`/`info`/`warning`/`error`/`critical` の運用ルール | 中 |
+| U-8 | キーワード照合の正規化 | 大文字小文字・全半角ゆれの吸収（MVP では未実装） | 中 |
+| U-9 | パフォーマンス | 50KB 超の長文での detector 実行速度（必要なら debounce 強化） | 中 |
+| U-10 | heuristic 誤検出 | 体言止め・主述不明瞭・過剰丁寧語は誤検出前提。閾値調整余地 | 中 |
+| U-11 | sentence kind のページ内ジャンプ精度 | クロスノード検索でも見つからないケースの追加対策 | 低 |
+| U-12 | ルールの並び順 | id 順 / category 順 / severity 順 | 低 |
+| U-13 | rule_type の活用 | UI 上で `dictionary`/`review`/`proofreading`/`manual_checklist` を区別するか | 低 |
 
 ### 11.12 仮決定事項（校閲）
 
 | No. | 項目 | 仮決定内容 |
 |-----|------|------------|
 | D-7 | サイドパネルのタブ階層 | 外側=機能タブ（カウント／校閲）×内側=入力タブ（自動／貼り付け／ファイル）の2階層 |
-| D-8 | 校閲結果のグルーピング | カテゴリでグルーピング → ルール一覧 の2段表示 |
-| D-9 | 校閲対象テキスト | 除外処理前の生テキストを既定とする。result オブジェクトに rawText と processedText の両方を保持 |
-| D-10 | チェックリスト表示 | デフォルトは折りたたみ、ヘッダクリックで展開 |
-| D-11 | 検出件数のカウント方式 | ルール単位（同じルールが複数箇所マッチしても件数は1） |
-| D-12 | キーワード照合 | 部分一致（`String.prototype.includes`）。大文字小文字・全半角は吸収しない（MVP） |
+| D-8 | 校閲結果のグルーピング | カテゴリでグルーピング → ルール一覧 → occurrences の3段 |
+| D-9 | 校閲対象テキスト | 除外処理前の生テキスト（rawText）を既定とする |
+| D-10 | manual 表示 | デフォルトは折りたたみ、ヘッダクリックで展開。件数バッジ付き |
+| D-11 | 検出件数のカウント方式 | **occurrence 単位**（同じルールが複数箇所マッチしても全件加算） |
+| D-12 | キーワード照合 | 部分一致（`String.includes`）。大文字小文字・全半角は吸収しない |
+| D-13 | パターンの安全性 | `eval` を使わず、DSL はホワイトリストパーサ。regex は try/catch ＋ 無限ループ対策 |
+| D-14 | sentence ハイライト | 文単位は淡色背景＋下線、span（語句）は濃いめ背景の2層 |
+| D-15 | ページ内ジャンプ | span はそのまま、sentence は冒頭25文字の空白除去プレフィックスでクロスノード検索 |
+| D-16 | 旧データファイル | `rules/proofreading_rules.json` は参考用に残置（拡張からは読まない） |
 
 ---
 

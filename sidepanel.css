@@ -388,16 +388,30 @@ body {
   background: #fafafa;
 }
 
+/* 機能ごとのアクセントカラー: カウント=青、校閲=ティール */
+.feature-pane-count .count-main {
+  background: linear-gradient(180deg, #f5f9ff 0%, #fff 100%);
+}
+
+.feature-pane-proofread .count-main {
+  background: linear-gradient(180deg, #f0f9f7 0%, #fff 100%);
+  border-bottom-color: #cfe7e2;
+}
+
+.feature-pane-proofread .count-label {
+  color: #0d6b5e;
+}
+
 /* 校閲チェック結果 */
 .feature-pane-proofread #proofread-count {
   font-size: 44px;
   font-weight: bold;
-  color: #1a73e8;
+  color: #0d8475;
   line-height: 1;
 }
 
 .feature-pane-proofread #proofread-count.has-detection {
-  color: #d93025;
+  color: #c5221f;
 }
 
 .empty-message {
@@ -456,6 +470,11 @@ body {
   flex-shrink: 0;
 }
 
+.severity-notice {
+  background: #eef0f3;
+  color: #5f6368;
+}
+
 .severity-info {
   background: #e8f0fe;
   color: #1a73e8;
@@ -469,6 +488,57 @@ body {
 .severity-error {
   background: #fce8e6;
   color: #c5221f;
+}
+
+.severity-critical {
+  background: #c5221f;
+  color: #fff;
+}
+
+/* source_tab ラベル */
+.source-tab-badge {
+  font-size: 10px;
+  padding: 1px 6px;
+  border-radius: 8px;
+  letter-spacing: 0;
+  flex-shrink: 0;
+  border: 1px solid transparent;
+}
+
+.source-tab-rule-correction {
+  background: #fce8e6;
+  color: #b31412;
+  border-color: #f4c7c3;
+}
+
+.source-tab-rule-refine {
+  background: #e6f4ea;
+  color: #137333;
+  border-color: #c8e6c9;
+}
+
+.source-tab-rule-category {
+  background: #f3e8fd;
+  color: #6b2bb2;
+  border-color: #d9c2f0;
+}
+
+.source-tab-checklist {
+  background: #eef0f3;
+  color: #5f6368;
+  border-color: #d0d4da;
+}
+
+/* 検出タイプ表示 */
+.detection-type-tag {
+  font-size: 9px;
+  font-weight: bold;
+  padding: 1px 5px;
+  border-radius: 2px;
+  background: #f1f3f4;
+  color: #555;
+  letter-spacing: 0.02em;
+  flex-shrink: 0;
 }
 
 .proofread-rule-title {
@@ -528,21 +598,55 @@ body {
 }
 
 .proofread-source .hl {
-  background: #fff3a3;
-  border-bottom: 1px solid #e0c060;
   cursor: pointer;
   padding: 0 1px;
   border-radius: 2px;
 }
 
-.proofread-source .hl:hover {
+/* span 種別: 濃いめ背景（語句単位） */
+.proofread-source .hl.kind-span,
+.proofread-source .hl:not(.kind-sentence) {
+  background: #fff3a3;
+  border-bottom: 1px solid #e0c060;
+}
+
+.proofread-source .hl.kind-span:hover,
+.proofread-source .hl:not(.kind-sentence):hover {
   background: #ffeaa0;
+}
+
+/* sentence 種別: 淡め背景＋下線（文単位、span と重ねても視認可能） */
+.proofread-source .hl.kind-sentence {
+  background: rgba(13, 132, 117, 0.10);
+  border-bottom: 2px solid #0d8475;
+  padding: 0;
+}
+
+.proofread-source .hl.kind-sentence:hover {
+  background: rgba(13, 132, 117, 0.18);
 }
 
 .proofread-source .hl.active {
   background: #ffb74d;
   outline: 2px solid #ef6c00;
   outline-offset: 0;
+}
+
+.proofread-source .hl.kind-sentence.active {
+  background: rgba(239, 108, 0, 0.30);
+  outline: 2px solid #ef6c00;
+}
+
+/* match-chip 種別バリアント */
+.match-chip.kind-sentence {
+  background: #e6f4ea;
+  color: #0d6b5e;
+  border-color: #c8e6c9;
+  font-style: italic;
+}
+
+.match-chip.kind-sentence:hover {
+  background: #cfe7e2;
 }
 
 .proofread-rule-recommend {
@@ -642,4 +746,30 @@ body {
   position: absolute;
   left: 0;
   color: #888;
+}
+
+/* manual セクションの件数バッジ */
+.manual-count {
+  display: inline-block;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 6px;
+  background: #5f6368;
+  color: #fff;
+  font-size: 10px;
+  font-weight: bold;
+  border-radius: 9px;
+  line-height: 18px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: 6px;
+}
+
+/* 機能タブのアクセント差別化 */
+.feature-tabs {
+  background: linear-gradient(90deg, #1a73e8 0%, #1a73e8 50%, #0d8475 50%, #0d8475 100%);
+}
+
+.feature-tab[data-feature="proofread"].active {
+  background: rgba(255,255,255,0.18);
 }

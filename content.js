@@ -37,12 +37,123 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
     return true;
   }
   if (request.action === 'highlightInPage') {
-    const ok = highlightInPage(request.keyword, request.occurrenceIndex || 0);
+    let ok = highlightInPage(request.keyword, request.occurrenceIndex || 0);
+    // 単一ノード内で見つからない場合、要求があればクロスノード検索にフォールバック
+    if (!ok && request.allowCrossNode) {
+      ok = highlightCrossNodeInPage(request.keyword, request.occurrenceIndex || 0);
+    }
     sendResponse({ ok });
     return true;
   }
   return true;
 });
+
+// ====== クロスノード対応のページ内ハイライト ======
+// 文単位（sentence_metric / heuristic / sequence）の検出箇所を、
+// 複数テキストノードに跨る場合でもページ内ジャンプできるように対応する。
+function highlightCrossNodeInPage(prefix, occurrenceIndex) {
+  if (!prefix || typeof prefix !== 'string' || prefix.length < 2) return false;
+
+  const skipTags = new Set(['SCRIPT', 'STYLE', 'NOSCRIPT', 'TEXTAREA', 'IFRAME']);
+  const walker = document.createTreeWalker(
+    document.body,
+    NodeFilter.SHOW_TEXT,
+    {
+      acceptNode(node) {
+        const parent = node.parentElement;
+        if (!parent) return NodeFilter.FILTER_REJECT;
+        if (skipTags.has(parent.tagName)) return NodeFilter.FILTER_REJECT;
+        const style = window.getComputedStyle(parent);
+        if (style.display === 'none' || style.visibility === 'hidden') {
+          return NodeFilter.FILTER_REJECT;
+        }
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    }
+  );
+
+  // 全テキストノードを連結した仮想テキストと位置マップを構築
+  const segments = []; // {node, text, offset}
+  let pageText = '';
+  let node;
+  while ((node = walker.nextNode())) {
+    const t = node.nodeValue || '';
+    segments.push({ node, text: t, offset: pageText.length });
+    pageText += t;
+  }
+  if (segments.length === 0) return false;
+
+  // 連続空白を1文字に圧縮した正規化版を作り、prefix も同様に圧縮して検索する
+  const normalize = s => s.replace(/\s+/g, '');
+  const normalizedPrefix = normalize(prefix);
+  if (normalizedPrefix.length < 2) return false;
+
+  // pageText 上の位置→正規化テキスト上の位置 のマップを作る
+  const map = []; // map[i] = pageText index に対応（正規化テキスト i 文字目）
+  let normalizedText = '';
+  for (let i = 0; i < pageText.length; i++) {
+    const ch = pageText[i];
+    if (!/\s/.test(ch)) {
+      normalizedText += ch;
+      map.push(i);
+    }
+  }
+
+  let nth = 0;
+  let from = 0;
+  while (from <= normalizedText.length) {
+    const idx = normalizedText.indexOf(normalizedPrefix, from);
+    if (idx === -1) break;
+    if (nth === occurrenceIndex) {
+      const pageStart = map[idx];
+      const pageEnd = (map[idx + normalizedPrefix.length - 1] ?? pageStart) + 1;
+      return locateAndScroll(segments, pageStart, pageEnd);
+    }
+    nth += 1;
+    from = idx + normalizedPrefix.length;
+  }
+  return false;
+}
+
+function locateAndScroll(segments, pageStart, pageEnd) {
+  // pageStart, pageEnd が属するテキストノードとオフセットを特定
+  let startSegIdx = -1, startOffset = 0;
+  let endSegIdx = -1, endOffset = 0;
+  for (let i = 0; i < segments.length; i++) {
+    const segEnd = segments[i].offset + segments[i].text.length;
+    if (startSegIdx === -1 && pageStart < segEnd) {
+      startSegIdx = i;
+      startOffset = pageStart - segments[i].offset;
+    }
+    if (pageEnd <= segEnd) {
+      endSegIdx = i;
+      endOffset = pageEnd - segments[i].offset;
+      break;
+    }
+  }
+  if (startSegIdx === -1) return false;
+  if (endSegIdx === -1) {
+    endSegIdx = segments.length - 1;
+    endOffset = segments[endSegIdx].text.length;
+  }
+
+  try {
+    const range = document.createRange();
+    range.setStart(segments[startSegIdx].node, startOffset);
+    range.setEnd(segments[endSegIdx].node, endOffset);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+    const rect = range.getBoundingClientRect();
+    if (rect && (rect.width > 0 || rect.height > 0)) {
+      const targetY = window.scrollY + rect.top - (window.innerHeight / 2);
+      window.scrollTo({ top: targetY, behavior: 'smooth' });
+    }
+    return true;
+  } catch (e) {
+    return false;
+  }
+}
 
 // ページ本文内の keyword の N 番目（0-origin）にスクロール＆選択ハイライト
 function highlightInPage(keyword, occurrenceIndex) {
