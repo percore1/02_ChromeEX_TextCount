@@ -498,6 +498,51 @@ body {
   border: 1px solid #f3deaa;
   border-radius: 2px;
   font-size: 11px;
+  cursor: pointer;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.match-chip:hover {
+  background: #ffeaa0;
+  border-color: #e0c060;
+}
+
+.match-chip.active {
+  background: #ffb74d;
+  color: #4a2c00;
+  border-color: #ef6c00;
+}
+
+.proofread-source {
+  white-space: pre-wrap;
+  word-break: break-word;
+  padding: 8px 10px;
+  border: 1px solid #ddd;
+  border-radius: 3px;
+  background: #fafafa;
+  max-height: 300px;
+  overflow-y: auto;
+  font-size: 12px;
+  line-height: 1.6;
+  font-family: "Consolas", "Menlo", "Hiragino Sans", "Meiryo", monospace;
+}
+
+.proofread-source .hl {
+  background: #fff3a3;
+  border-bottom: 1px solid #e0c060;
+  cursor: pointer;
+  padding: 0 1px;
+  border-radius: 2px;
+}
+
+.proofread-source .hl:hover {
+  background: #ffeaa0;
+}
+
+.proofread-source .hl.active {
+  background: #ffb74d;
+  outline: 2px solid #ef6c00;
+  outline-offset: 0;
 }
 
 .proofread-rule-recommend {

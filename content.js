@@ -34,9 +34,76 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
   if (request.action === 'getSelection') {
     const liveResult = processSelection();
     sendResponse(liveResult.hasSelection ? liveResult : (cachedResult || { hasSelection: false }));
+    return true;
+  }
+  if (request.action === 'highlightInPage') {
+    const ok = highlightInPage(request.keyword, request.occurrenceIndex || 0);
+    sendResponse({ ok });
+    return true;
   }
   return true;
 });
+
+// ページ本文内の keyword の N 番目（0-origin）にスクロール＆選択ハイライト
+function highlightInPage(keyword, occurrenceIndex) {
+  if (!keyword || typeof keyword !== 'string') return false;
+
+  // SCRIPT/STYLE/拡張UIなどを除外しつつ TEXT_NODE を走査
+  const skipTags = new Set(['SCRIPT', 'STYLE', 'NOSCRIPT', 'TEXTAREA', 'IFRAME']);
+  const walker = document.createTreeWalker(
+    document.body,
+    NodeFilter.SHOW_TEXT,
+    {
+      acceptNode(node) {
+        if (!node.nodeValue || !node.nodeValue.includes(keyword.charAt(0))) {
+          // 早期スキップ（最初の1文字も含まないノードは無視）
+          // ただしマルチノード跨ぎは現状非対応の前提
+        }
+        const parent = node.parentElement;
+        if (!parent) return NodeFilter.FILTER_REJECT;
+        if (skipTags.has(parent.tagName)) return NodeFilter.FILTER_REJECT;
+        // 非表示要素はスキップ
+        const style = window.getComputedStyle(parent);
+        if (style.display === 'none' || style.visibility === 'hidden') {
+          return NodeFilter.FILTER_REJECT;
+        }
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    }
+  );
+
+  let nth = 0;
+  let node;
+  while ((node = walker.nextNode())) {
+    const value = node.nodeValue || '';
+    let from = 0;
+    while (from <= value.length) {
+      const idx = value.indexOf(keyword, from);
+      if (idx === -1) break;
+      if (nth === occurrenceIndex) {
+        try {
+          const range = document.createRange();
+          range.setStart(node, idx);
+          range.setEnd(node, idx + keyword.length);
+          const sel = window.getSelection();
+          sel.removeAllRanges();
+          sel.addRange(range);
+          const rect = range.getBoundingClientRect();
+          if (rect && (rect.width > 0 || rect.height > 0)) {
+            const targetY = window.scrollY + rect.top - (window.innerHeight / 2);
+            window.scrollTo({ top: targetY, behavior: 'smooth' });
+          }
+          return true;
+        } catch (e) {
+          return false;
+        }
+      }
+      nth += 1;
+      from = idx + keyword.length;
+    }
+  }
+  return false;
+}
 
 function injectBlockNewlines(container) {
   const blockSelectors = 'p,div,h1,h2,h3,h4,h5,h6,li,blockquote,tr,address,article,section,header,footer,main,nav';

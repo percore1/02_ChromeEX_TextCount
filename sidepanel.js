@@ -469,6 +469,7 @@ function renderProofread(result) {
     countEl.classList.toggle('has-detection', detectionCount > 0);
 
     renderMatched(matched);
+    renderProofreadSource(text, matched);
     renderChecklist(checklist);
   });
 }
@@ -499,14 +500,14 @@ function renderMatched(matched) {
     block.appendChild(title);
 
     group.items.forEach(item => {
-      block.appendChild(buildRuleCard(item.rule, item.matches));
+      block.appendChild(buildRuleCard(item.rule, item.occurrences));
     });
 
     container.appendChild(block);
   });
 }
 
-function buildRuleCard(rule, matches) {
+function buildRuleCard(rule, occurrences) {
   const card = document.createElement('div');
   card.className = 'proofread-rule';
 
@@ -526,17 +527,21 @@ function buildRuleCard(rule, matches) {
 
   card.appendChild(head);
 
-  if (matches && matches.length > 0) {
+  if (occurrences && occurrences.length > 0) {
     const matchRow = document.createElement('div');
     matchRow.className = 'proofread-rule-matches';
     const label = document.createElement('span');
     label.className = 'label';
-    label.textContent = '該当箇所:';
+    label.textContent = '該当箇所 (' + occurrences.length + '):';
     matchRow.appendChild(label);
-    matches.forEach(m => {
+    occurrences.forEach((occ, idx) => {
       const chip = document.createElement('span');
       chip.className = 'match-chip';
-      chip.textContent = m;
+      chip.textContent = occ.text + ' #' + (idx + 1);
+      chip.dataset.matchId = occ.id;
+      chip.dataset.keyword = occ.keyword;
+      chip.title = (occ.before || '') + '【' + occ.text + '】' + (occ.after || '');
+      chip.addEventListener('click', () => jumpToMatch(occ));
       matchRow.appendChild(chip);
     });
     card.appendChild(matchRow);
@@ -572,6 +577,106 @@ function buildRuleCard(rule, matches) {
   }
 
   return card;
+}
+
+// 校閲対象テキストを描画し、occurrences をハイライト
+function renderProofreadSource(text, matched) {
+  const section = document.getElementById('proofread-source-section');
+  const container = document.getElementById('proofread-source');
+  if (!section || !container) return;
+
+  container.innerHTML = '';
+
+  if (!text || !matched || matched.length === 0) {
+    section.style.display = 'none';
+    return;
+  }
+
+  // 全 occurrences を start 昇順に並べる（重複・包含は先勝ち）
+  const all = [];
+  matched.forEach(m => {
+    m.occurrences.forEach(occ => all.push(occ));
+  });
+  all.sort((a, b) => a.start - b.start || b.end - a.end);
+
+  const placed = [];
+  let cursor = 0;
+  all.forEach(occ => {
+    if (occ.start < cursor) return; // 先のハイライトと重なる場合はスキップ
+    placed.push(occ);
+    cursor = occ.end;
+  });
+
+  let pos = 0;
+  placed.forEach(occ => {
+    if (occ.start > pos) {
+      container.appendChild(document.createTextNode(text.slice(pos, occ.start)));
+    }
+    const span = document.createElement('span');
+    span.className = 'hl';
+    span.dataset.matchId = occ.id;
+    span.textContent = text.slice(occ.start, occ.end);
+    span.addEventListener('click', () => jumpToMatch(occ));
+    container.appendChild(span);
+    pos = occ.end;
+  });
+  if (pos < text.length) {
+    container.appendChild(document.createTextNode(text.slice(pos)));
+  }
+
+  section.style.display = 'block';
+}
+
+let activeMatchClearTimer = null;
+
+function jumpToMatch(occ) {
+  // 1) 校閲ペイン内のハイライトへスクロール＆強調
+  const span = document.querySelector('.proofread-source .hl[data-match-id="' + occ.id + '"]');
+  document.querySelectorAll('.proofread-source .hl.active').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('.match-chip.active').forEach(el => el.classList.remove('active'));
+
+  if (span) {
+    span.classList.add('active');
+    span.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  }
+  const chip = document.querySelector('.match-chip[data-match-id="' + occ.id + '"]');
+  if (chip) chip.classList.add('active');
+
+  if (activeMatchClearTimer) clearTimeout(activeMatchClearTimer);
+  activeMatchClearTimer = setTimeout(() => {
+    if (span) span.classList.remove('active');
+    if (chip) chip.classList.remove('active');
+  }, 2500);
+
+  // 2) 自動タブの場合はページ本文側にもジャンプ要求
+  const autoTabActive = document.getElementById('tab-auto')?.classList.contains('active');
+  if (autoTabActive) {
+    requestPageHighlight(occ);
+  }
+}
+
+function requestPageHighlight(occ) {
+  // 同一キーワードのうち何番目か（renderProofreadSource と独立して計算）
+  if (!lastResult || !lastResult.rawText) return;
+  const text = lastResult.rawText;
+  let nth = 0;
+  let from = 0;
+  while (from <= text.length) {
+    const idx = text.indexOf(occ.keyword, from);
+    if (idx === -1) break;
+    if (idx === occ.start) break;
+    nth += 1;
+    from = idx + occ.keyword.length;
+  }
+
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    if (!tabs || !tabs[0]) return;
+    chrome.tabs.sendMessage(
+      tabs[0].id,
+      { action: 'highlightInPage', keyword: occ.keyword, occurrenceIndex: nth },
+      () => { /* errorは無視（拡張不可ページなど） */ void chrome.runtime.lastError; }
+    );
+  });
 }
 
 function renderChecklist(checklist) {

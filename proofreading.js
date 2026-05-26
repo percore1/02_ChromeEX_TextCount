@@ -36,11 +36,34 @@
     return loadError;
   }
 
+  const CONTEXT_LEN = 20;
+
+  function findOccurrences(text, keyword) {
+    const out = [];
+    if (typeof keyword !== 'string' || keyword.length === 0) return out;
+    let from = 0;
+    while (from <= text.length) {
+      const idx = text.indexOf(keyword, from);
+      if (idx === -1) break;
+      const end = idx + keyword.length;
+      out.push({
+        keyword,
+        start: idx,
+        end,
+        text: text.slice(idx, end),
+        before: text.slice(Math.max(0, idx - CONTEXT_LEN), idx),
+        after: text.slice(end, end + CONTEXT_LEN)
+      });
+      from = end;
+    }
+    return out;
+  }
+
   // ルール照合
   // text: 校閲対象のテキスト（生テキスト推奨）
   // returns: {
-  //   detectionCount: number,        // keyword + replacement の検出件数（ルール単位）
-  //   matched: [{rule, matches: [string]}],
+  //   detectionCount: number,        // 総出現回数（occurrencesの合計）
+  //   matched: [{rule, occurrences: [{id, keyword, start, end, text, before, after}]}],
   //   checklist: [rule],             // 常時表示用
   // }
   function checkText(text, rules) {
@@ -55,6 +78,9 @@
       return { detectionCount: 0, matched, checklist };
     }
 
+    let totalCount = 0;
+    let matchIdCounter = 0;
+
     list.forEach(rule => {
       if (rule.type === 'checklist') {
         checklist.push(rule);
@@ -62,19 +88,26 @@
       }
 
       const keywords = Array.isArray(rule.keywords) ? rule.keywords : [];
-      const hits = [];
+      const occurrences = [];
       keywords.forEach(kw => {
-        if (typeof kw === 'string' && kw.length > 0 && text.includes(kw)) {
-          hits.push(kw);
-        }
+        findOccurrences(text, kw).forEach(occ => {
+          occurrences.push(occ);
+        });
       });
-      if (hits.length > 0) {
-        matched.push({ rule, matches: Array.from(new Set(hits)) });
+
+      if (occurrences.length > 0) {
+        occurrences.sort((a, b) => a.start - b.start);
+        occurrences.forEach(occ => {
+          matchIdCounter += 1;
+          occ.id = 'match-' + String(matchIdCounter).padStart(3, '0');
+        });
+        totalCount += occurrences.length;
+        matched.push({ rule, occurrences });
       }
     });
 
     return {
-      detectionCount: matched.length,
+      detectionCount: totalCount,
       matched,
       checklist
     };
