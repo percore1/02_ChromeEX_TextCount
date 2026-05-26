@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "TextCount",
-  "version": "1.9.0",
+  "version": "1.9.1",
   "description": "Webページの選択範囲の文字数カウントと、ローカルルールベースの校閲チェックを行います。全画面校閲ツール対応。",
   "permissions": ["activeTab", "sidePanel", "scripting", "tabs", "storage"],
   "host_permissions": [
