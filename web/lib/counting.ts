@@ -88,6 +88,49 @@ function kanjiRatioOf(text: string): number {
   return Math.round((kanji / orig) * 100);
 }
 
+// 除外箇所の可視化用：原文を「除外/カウント対象」の区間に分解する。
+// （applyTextExclusions と同じパターンを原文位置に当てて色分け表示する）
+export type ExclSeg = { text: string; excluded: boolean };
+
+export function annotateExclusions(text: string): ExclSeg[] {
+  const n = text.length;
+  const excl = new Array<boolean>(n).fill(false);
+  const mark = (re: RegExp) => {
+    let m: RegExpExecArray | null;
+    while ((m = re.exec(text)) !== null) {
+      if (m[0].length === 0) {
+        re.lastIndex++;
+        continue;
+      }
+      for (let i = m.index; i < m.index + m[0].length; i++) excl[i] = true;
+    }
+  };
+  // 見出しタグ（ペア＋孤立）
+  mark(/[<＜]h([1-6])[^>＞]*[>＞][\s\S]*?[<＜]\s*\/h\1[>＞]/gi);
+  mark(/[<＜]\s*\/?\s*h[1-6][^>＞]*[>＞]/gi);
+  // 引用・参照行
+  mark(/^[^\n]*(引用元|参照元|出典元|参考元|引用|参照|出典|参考)\s*[：:][^\n]*/gm);
+  // URL
+  mark(/(https?:\/\/|www\.)[^ \t\n\r　]*/g);
+  // リストマーカー
+  mark(/[・●○►▶※]/g);
+  mark(/^\d+[.）)]\s*/gm);
+  // 価格
+  mark(/[¥￥]\s*\d[\d,]*(?:\.\d+)?/g);
+  mark(/\d[\d,]*(?:\.\d+)?\s*円/g);
+
+  const segs: ExclSeg[] = [];
+  let i = 0;
+  while (i < n) {
+    const e = excl[i];
+    let j = i + 1;
+    while (j < n && excl[j] === e) j++;
+    segs.push({ text: text.slice(i, j), excluded: e });
+    i = j;
+  }
+  return segs;
+}
+
 // プレーンテキスト用（貼り付け・.txt・エディタ入力）
 export function processPlainText(text: string): CountResult {
   const rawText = text;

@@ -7,7 +7,12 @@ import React, {
   useRef,
   useState,
 } from "react";
-import { processPlainText, processHtml, type CountResult } from "@/lib/counting";
+import {
+  processPlainText,
+  processHtml,
+  annotateExclusions,
+  type CountResult,
+} from "@/lib/counting";
 import {
   loadRules,
   getLoadError,
@@ -43,7 +48,8 @@ export default function TextCountTool({
   const [rules, setRules] = useState<Rule[] | null>(null);
   const [ruleError, setRuleError] = useState<string | null>(null);
   const [feature, setFeature] = useState<Feature>("count");
-  const [activeId, setActiveId] = useState<string | null>(null);
+  const [active, setActive] = useState<Occurrence | null>(null);
+  const activeId = active?.id ?? null;
   const [autoCheck, setAutoCheck] = useState(true);
   const [showManual, setShowManual] = useState(false);
   const [fileMsg, setFileMsg] = useState<string | null>(null);
@@ -88,18 +94,16 @@ export default function TextCountTool({
   const [jumpNonce, setJumpNonce] = useState(0);
   const jumpTo = useCallback((occ: Occurrence) => {
     setFeature("proofread");
-    setActiveId(occ.id || null);
+    setActive(occ);
     setJumpNonce((n) => n + 1);
   }, []);
 
-  // クリックした該当箇所へスクロールし、強調表示は消さずに残す（次の選択まで保持）
+  // クリックした該当箇所（範囲）へスクロールし、強調表示は消さずに残す（次の選択まで保持）
   useEffect(() => {
-    if (!activeId) return;
-    const el = previewRef.current?.querySelector<HTMLElement>(
-      `mark[data-match-id="${activeId}"]`,
-    );
+    if (!active) return;
+    const el = previewRef.current?.querySelector<HTMLElement>("[data-active]");
     if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
-  }, [activeId, jumpNonce]);
+  }, [active, jumpNonce]);
 
   const onFile = useCallback(async (file: File) => {
     const name = file.name.toLowerCase();
@@ -336,7 +340,7 @@ export default function TextCountTool({
             <div className="preview-wrap">
               <div className="preview-head">校閲対象テキスト（クリックで該当箇所へ）</div>
               <div className="preview-body" ref={previewRef}>
-                {buildHighlightNodes(text, check.matched, jumpTo, activeId)}
+                {buildHighlightNodes(text, check.matched, jumpTo, active)}
               </div>
             </div>
           )}
@@ -426,6 +430,8 @@ export default function TextCountTool({
               setShowManual={setShowManual}
             />
           )}
+
+          {hasText && <ExclusionPreview text={text} previewText={count.previewText} />}
         </div>
       </div>
 
@@ -461,6 +467,52 @@ export default function TextCountTool({
         </div>
       )}
     </>
+  );
+}
+
+/* ---------- 除外プレビュー（除外/カウント対象の色分け＋修正後テキスト） ---------- */
+function ExclusionPreview({ text, previewText }: { text: string; previewText: string }) {
+  const segs = useMemo(() => annotateExclusions(text), [text]);
+  const [copied, setCopied] = useState(false);
+  return (
+    <div className="excl-section">
+      <div className="excl-head">
+        <span className="excl-title">除外プレビュー</span>
+        <button
+          className="excl-copy"
+          onClick={() => {
+            navigator.clipboard?.writeText(previewText);
+            setCopied(true);
+            setTimeout(() => setCopied(false), 1500);
+          }}
+        >
+          {copied ? "✓ コピー" : "修正後をコピー"}
+        </button>
+      </div>
+      <div className="excl-legend">
+        <span>
+          <i className="sw-count" />
+          カウント対象
+        </span>
+        <span>
+          <i className="sw-excl" />
+          除外（取り消し線）
+        </span>
+      </div>
+      <div className="excl-body">
+        {segs.map((s, i) =>
+          s.excluded ? (
+            <span className="excl-x" key={i}>
+              {s.text}
+            </span>
+          ) : (
+            <span className="excl-keep" key={i}>
+              {s.text}
+            </span>
+          ),
+        )}
+      </div>
+    </div>
   );
 }
 
@@ -645,7 +697,7 @@ function buildHighlightNodes(
   text: string,
   matched: Matched[],
   onJump: (o: Occurrence) => void,
-  activeId: string | null,
+  active: Occurrence | null,
 ): React.ReactNode[] {
   const all: Occurrence[] = [];
   matched.forEach((m) => m.occurrences.forEach((o) => all.push(o)));
@@ -675,13 +727,18 @@ function buildHighlightNodes(
     while (end < text.length && sentenceAt[end] === curSent && spanAt[end] === curSpan) end++;
     const seg = text.slice(pos, end);
 
+    // 範囲ベースの強調：クリックした occurrence の [start,end) に重なる区間を強調
+    // （同一位置に複数検出が重なっても確実に反応する）
+    const isActive = !!active && pos < active.end && end > active.start;
+
     let node: React.ReactNode = seg;
     if (curSpan) {
       node = (
         <mark
           key={"s" + key}
-          className={"shu" + (curSpan.id === activeId ? " active" : "")}
+          className={"shu" + (isActive ? " active" : "")}
           data-match-id={curSpan.id}
+          data-active={isActive ? "1" : undefined}
           onClick={(e) => {
             e.stopPropagation();
             onJump(curSpan);
@@ -695,10 +752,18 @@ function buildHighlightNodes(
       node = (
         <mark
           key={"t" + key}
-          className={"sentence" + (curSent.id === activeId ? " active" : "")}
+          className={"sentence" + (isActive ? " active" : "")}
           data-match-id={curSent.id}
+          data-active={isActive && !curSpan ? "1" : undefined}
           onClick={() => onJump(curSent)}
         >
+          {node}
+        </mark>
+      );
+    }
+    if (!curSpan && !curSent && isActive) {
+      node = (
+        <mark key={"a" + key} className="active" data-active="1">
           {node}
         </mark>
       );
