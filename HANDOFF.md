@@ -22,10 +22,13 @@
 | Phase | 内容 | 状態 |
 |:---:|------|------|
 | 1 | Next.js雛形＋カウント/校閲ロジック移植＋新UI | ✅ 完了・**ローカル動作検証済み** |
-| 2 | 招待制認証＋会員ごとの校閲履歴（Supabase） | ✅ コード完了・**Supabase接続待ち（実機未テスト）** |
-| 3 | 共有URL（提出）＋赤入れコメント | ✅ コード完了・**Supabase接続待ち（実機未テスト）** |
-| 4 | Vercelデプロイ準備 | ✅ 手順整備・本番ビルド確認・**Vercelログイン待ち** |
+| 2 | 招待制認証＋会員ごとの校閲履歴（Supabase） | ✅ 完了・**Supabase接続済み・実機検証済み** |
+| 3 | 共有URL（提出）＋赤入れコメント | ✅ 完了・**実機検証済み**（anonトークンで赤入れ確認） |
+| 4 | Vercelデプロイ | ✅ **本番公開済み → https://textcount.vercel.app** |
 | 5（任意） | コンパニオン拡張／PWA | 未着手 |
+
+**本番**：https://textcount.vercel.app （`feature/webapp-migration` を Vercel CLI で公開。Vercel に Supabase の env 設定済み・認証ON）。
+`main` には未取り込み（本番は feature ブランチから）。Supabase プロジェクト `xcjudwvgyabljxnbskgb`。
 
 コミット：`f5b9d91`(P1) → `e1bf3dc`(P2) → `3f7fac9`(P3+4)
 

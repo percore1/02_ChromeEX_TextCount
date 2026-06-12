@@ -76,13 +76,15 @@ web/
 | **1** | Next.js 雛形 + ロジック移植 + 新UI実装（白・黒・朱）。**拡張版との結果一致を検証** | `web/`（カウント129字・校閲9件で整合確認） | ✅ 完了 (`f5b9d91`) |
 | **2** | 招待制認証 + 会員ごとの校閲履歴（Supabase） | login/proxy/history、`schema.sql` | ✅ コード完了 (`e1bf3dc`)・**Supabase接続待ち** |
 | **3** | 共有URL（提出）+ 赤入れコメント（選択範囲コメント） | `/review/[token]`、shares/comments + RPC | ✅ コード完了・**Supabase接続待ち** |
-| **4** | Vercel デプロイ（Root=`web`）・環境変数 | `DEPLOY.md` | ✅ 手順整備・本番ビルド確認・**Vercelログイン待ち** |
+| **4** | Vercel デプロイ（Root=`web`）・環境変数 | **本番公開済み → https://textcount.vercel.app** | ✅ 公開・認証ON確認済み |
 | **5（任意）** | コンパニオン拡張（選択送信）／PWA 化 | — | 未着手 |
 
-> **有効化に必要な外部操作（残り2点）**
-> - Supabase プロジェクト作成＋キー設定（Phase 2/3 を実機で有効化）→ `web/SETUP-supabase.md`
-> - Vercel ログイン＋Import（本番公開）→ `web/DEPLOY.md`
-> どちらも未実施でも、アプリは**ゲストモード**（カウント＋校閲）でローカル/本番とも動作する。
+> **公開状況**
+> - 本番URL：**https://textcount.vercel.app**（`feature/webapp-migration` ブランチを Vercel CLI で公開）
+> - Vercel に `NEXT_PUBLIC_SUPABASE_URL` / `NEXT_PUBLIC_SUPABASE_ANON_KEY` を設定済み → 認証・履歴・共有が有効。
+> - Supabase の Authentication → URL Configuration に本番URLを登録済み。
+> - Supabase（Phase 2/3 の実機）も接続済み・検証済み。
+> - `main` には `web/` を取り込んでいない（本番は feature ブランチから公開）。
 
 ### Phase 1 で最初に確認すべきこと
 - `proofreading.js` を `import` 可能な ES モジュール化（`window.Proofreading` グローバル → named export）
