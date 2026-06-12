@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
+  <rect width="64" height="64" rx="14" fill="#D6402F"/>
+  <rect x="9" y="9" width="46" height="46" rx="9" fill="none" stroke="#ffffff" stroke-opacity="0.42" stroke-width="2"/>
+  <text x="32" y="33" fill="#ffffff" font-family="'Yu Gothic','Hiragino Sans','Meiryo','Noto Sans JP',sans-serif" font-size="34" font-weight="700" text-anchor="middle" dominant-baseline="central">朱</text>
+</svg>

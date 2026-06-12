@@ -159,3 +159,12 @@ grant execute on function public.get_share(text) to anon, authenticated;
 grant execute on function public.list_comments(text) to anon, authenticated;
 grant execute on function public.add_comment(text, text, text, int, int, text) to anon, authenticated;
 grant execute on function public.set_comment_resolved(text, uuid, boolean) to anon, authenticated;
+
+-- ========== テーブル権限（GRANT）==========
+-- SQLで直接作成したテーブルはロールへの基本権限が付かないため明示的に付与する。
+-- 「どの行を見れるか」は引き続き RLS が制御する。
+grant select, update on public.profiles to authenticated;
+grant select, insert, delete on public.proofread_history to authenticated;
+grant select, insert, delete on public.shares to authenticated;
+grant select, insert, update, delete on public.comments to authenticated;
+-- レビュアー（未ログイン）はテーブル直アクセス不要（SECURITY DEFINER の RPC 経由）。

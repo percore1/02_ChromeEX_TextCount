@@ -85,20 +85,21 @@ export default function TextCountTool({
   const animated = useCountUp(count.countedLength);
 
   // jump to an occurrence: highlight + scroll preview into view
+  const [jumpNonce, setJumpNonce] = useState(0);
   const jumpTo = useCallback((occ: Occurrence) => {
     setFeature("proofread");
     setActiveId(occ.id || null);
+    setJumpNonce((n) => n + 1);
   }, []);
 
+  // クリックした該当箇所へスクロールし、強調表示は消さずに残す（次の選択まで保持）
   useEffect(() => {
     if (!activeId) return;
     const el = previewRef.current?.querySelector<HTMLElement>(
       `mark[data-match-id="${activeId}"]`,
     );
     if (el) el.scrollIntoView({ behavior: "smooth", block: "center" });
-    const t = setTimeout(() => setActiveId(null), 1600);
-    return () => clearTimeout(t);
-  }, [activeId]);
+  }, [activeId, jumpNonce]);
 
   const onFile = useCallback(async (file: File) => {
     const name = file.name.toLowerCase();
@@ -335,7 +336,7 @@ export default function TextCountTool({
             <div className="preview-wrap">
               <div className="preview-head">校閲対象テキスト（クリックで該当箇所へ）</div>
               <div className="preview-body" ref={previewRef}>
-                {buildHighlightNodes(text, check.matched, jumpTo)}
+                {buildHighlightNodes(text, check.matched, jumpTo, activeId)}
               </div>
             </div>
           )}
@@ -644,6 +645,7 @@ function buildHighlightNodes(
   text: string,
   matched: Matched[],
   onJump: (o: Occurrence) => void,
+  activeId: string | null,
 ): React.ReactNode[] {
   const all: Occurrence[] = [];
   matched.forEach((m) => m.occurrences.forEach((o) => all.push(o)));
@@ -678,7 +680,7 @@ function buildHighlightNodes(
       node = (
         <mark
           key={"s" + key}
-          className="shu"
+          className={"shu" + (curSpan.id === activeId ? " active" : "")}
           data-match-id={curSpan.id}
           onClick={(e) => {
             e.stopPropagation();
@@ -693,7 +695,7 @@ function buildHighlightNodes(
       node = (
         <mark
           key={"t" + key}
-          className="sentence"
+          className={"sentence" + (curSent.id === activeId ? " active" : "")}
           data-match-id={curSent.id}
           onClick={() => onJump(curSent)}
         >
