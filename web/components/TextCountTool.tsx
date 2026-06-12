@@ -24,8 +24,19 @@ const SAMPLE = `商品の特徴について、当社の製品はとても優れ�
 
 type Feature = "count" | "proofread";
 
-export default function TextCountTool() {
-  const [text, setText] = useState("");
+type ToolProps = {
+  authEnabled?: boolean;
+  userEmail?: string | null;
+  initialText?: string;
+};
+
+export default function TextCountTool({
+  authEnabled = false,
+  userEmail = null,
+  initialText = "",
+}: ToolProps) {
+  const [text, setText] = useState(initialText);
+  const [saveMsg, setSaveMsg] = useState<string | null>(null);
   const [rules, setRules] = useState<Rule[] | null>(null);
   const [ruleError, setRuleError] = useState<string | null>(null);
   const [feature, setFeature] = useState<Feature>("count");
@@ -119,6 +130,30 @@ export default function TextCountTool() {
     }
   }, []);
 
+  const saveHistory = useCallback(async () => {
+    if (!text.trim()) return;
+    setSaveMsg("保存中…");
+    try {
+      const res = await fetch("/api/history", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          content: text,
+          counted_length: count.countedLength,
+          original_count: count.originalCount,
+          excluded_count: count.excludedCount,
+          detection_count: check.detectionCount,
+          kanji_ratio: count.kanjiRatio,
+        }),
+      });
+      if (!res.ok) throw new Error();
+      setSaveMsg("✓ 履歴に保存しました");
+    } catch {
+      setSaveMsg("保存に失敗しました");
+    }
+    setTimeout(() => setSaveMsg(null), 2200);
+  }, [text, count, check.detectionCount]);
+
   const hasText = count.hasSelection;
 
   return (
@@ -153,13 +188,28 @@ export default function TextCountTool() {
           漢字比率 <b>{count.kanjiRatio}%</b>
         </span>
         <div className="spacer" />
-        <div className="member">
-          <div>
-            <div className="name">ゲスト</div>
-            <div className="id">Phase 1 · 認証なし</div>
+        {authEnabled && userEmail ? (
+          <form action="/auth/signout" method="post" className="member-form">
+            <div className="member">
+              <div>
+                <div className="name">{userEmail.split("@")[0]}</div>
+                <div className="id">{userEmail}</div>
+              </div>
+              <div className="avatar">{userEmail.charAt(0).toUpperCase()}</div>
+            </div>
+            <button className="signout" type="submit" title="ログアウト">
+              <SignOutIcon />
+            </button>
+          </form>
+        ) : (
+          <div className="member">
+            <div>
+              <div className="name">ゲスト</div>
+              <div className="id">{authEnabled ? "未ログイン" : "認証なし（開発）"}</div>
+            </div>
+            <div className="avatar">G</div>
           </div>
-          <div className="avatar">G</div>
-        </div>
+        )}
       </div>
 
       <div className="shell">
@@ -181,11 +231,24 @@ export default function TextCountTool() {
             校閲チェック
           </button>
 
+          {authEnabled && (
+            <a className="nav" href="/history">
+              <HistoryIcon />
+              校閲履歴
+            </a>
+          )}
+
           <div className="grp">操作</div>
           <div className="tool" onClick={() => setAutoCheck((v) => !v)}>
             自動チェック
             <span className={"switch" + (autoCheck ? "" : " off")} />
           </div>
+          {authEnabled && (
+            <button className="tool" onClick={saveHistory} disabled={!hasText}>
+              <SaveIcon />
+              履歴に保存
+            </button>
+          )}
           <button className="tool" onClick={() => setText("")}>
             <ResetIcon />
             テキストをリセット
@@ -197,6 +260,7 @@ export default function TextCountTool() {
             <CopyIcon />
             除外後をコピー
           </button>
+          {saveMsg && <div className="save-msg">{saveMsg}</div>}
         </div>
 
         {/* CENTER */}
@@ -656,6 +720,27 @@ function BoxIcon() {
     <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#9A9A9A" strokeWidth={2}>
       <rect x="3" y="3" width="18" height="18" rx="2" />
       <path d="M3 9h18" />
+    </svg>
+  );
+}
+function HistoryIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+      <path d="M3 12a9 9 0 1 0 2-5.6M3 4v3h3M12 8v4l3 2" />
+    </svg>
+  );
+}
+function SaveIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+      <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2zM17 21v-8H7v8M7 3v5h8" />
+    </svg>
+  );
+}
+function SignOutIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} width="15" height="15">
+      <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9" />
     </svg>
   );
 }
