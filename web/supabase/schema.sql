@@ -70,24 +70,92 @@ create policy "history_delete_own" on public.proofread_history
   for delete using (auth.uid() = user_id);
 
 
--- ========== Phase 3 で追加予定（今は実行しない） ==========
--- 共有URL（編集者→チェック者→ディレクター提出）と赤入れコメント。
---
--- create table public.shares (
---   id uuid primary key default gen_random_uuid(),
---   owner_id uuid not null default auth.uid() references auth.users(id) on delete cascade,
---   token text not null unique,                 -- 推測困難な公開URLトークン
---   title text, content text,                   -- 提出時点のスナップショット
---   role text not null default 'director',      -- 受け取り手の役割
---   created_at timestamptz not null default now()
--- );
--- create table public.comments (
---   id uuid primary key default gen_random_uuid(),
---   share_id uuid not null references public.shares(id) on delete cascade,
---   author_name text,
---   quote text,                                 -- 選択範囲のテキスト
---   anchor_start int, anchor_end int,           -- 範囲アンカー
---   body text not null,
---   resolved boolean not null default false,
---   created_at timestamptz not null default now()
--- );
+-- ========== Phase 3: 共有URL（提出）＋赤入れコメント ==========
+-- 編集者→チェック者→ディレクターへ「共有URL」で提出し、URL先で選択範囲に
+-- コメント（赤入れ）を返せる。レビュアーはログイン不要（トークンが認可になる）。
+create extension if not exists pgcrypto;
+
+-- shares: 提出スナップショット。token（推測困難）が公開URLの鍵。
+create table if not exists public.shares (
+  id         uuid primary key default gen_random_uuid(),
+  owner_id   uuid not null default auth.uid() references auth.users(id) on delete cascade,
+  token      text not null unique default encode(gen_random_bytes(16), 'hex'),
+  title      text not null default '無題',
+  content    text not null default '',
+  role       text not null default 'director',  -- 受け取り手の役割
+  created_at timestamptz not null default now()
+);
+create index if not exists shares_owner_idx on public.shares (owner_id, created_at desc);
+alter table public.shares enable row level security;
+
+drop policy if exists "shares_select_own" on public.shares;
+create policy "shares_select_own" on public.shares for select using (auth.uid() = owner_id);
+drop policy if exists "shares_insert_own" on public.shares;
+create policy "shares_insert_own" on public.shares for insert with check (auth.uid() = owner_id);
+drop policy if exists "shares_delete_own" on public.shares;
+create policy "shares_delete_own" on public.shares for delete using (auth.uid() = owner_id);
+
+-- comments: 選択範囲アンカー付きコメント。
+create table if not exists public.comments (
+  id           uuid primary key default gen_random_uuid(),
+  share_id     uuid not null references public.shares(id) on delete cascade,
+  author_name  text not null default '匿名',
+  quote        text not null default '',  -- 選択範囲のテキスト
+  anchor_start int  not null default 0,
+  anchor_end   int  not null default 0,
+  body         text not null,
+  resolved     boolean not null default false,
+  created_at   timestamptz not null default now()
+);
+create index if not exists comments_share_idx on public.comments (share_id, created_at);
+alter table public.comments enable row level security;
+
+-- オーナー（提出者）は自分の共有のコメントを直接参照・管理できる。
+drop policy if exists "comments_owner_all" on public.comments;
+create policy "comments_owner_all" on public.comments for all
+  using (exists (select 1 from public.shares s where s.id = share_id and s.owner_id = auth.uid()))
+  with check (exists (select 1 from public.shares s where s.id = share_id and s.owner_id = auth.uid()));
+
+-- レビュアー（未ログイン）はトークン経由の SECURITY DEFINER 関数だけでアクセスする。
+create or replace function public.get_share(p_token text)
+returns table(id uuid, title text, content text, role text, created_at timestamptz)
+language sql security definer set search_path = public as $$
+  select id, title, content, role, created_at from public.shares where token = p_token;
+$$;
+
+create or replace function public.list_comments(p_token text)
+returns setof public.comments
+language sql security definer set search_path = public as $$
+  select c.* from public.comments c
+  join public.shares s on s.id = c.share_id
+  where s.token = p_token
+  order by c.created_at;
+$$;
+
+create or replace function public.add_comment(
+  p_token text, p_author text, p_quote text, p_start int, p_end int, p_body text)
+returns public.comments
+language plpgsql security definer set search_path = public as $$
+declare s_id uuid; row public.comments;
+begin
+  select id into s_id from public.shares where token = p_token;
+  if s_id is null then raise exception 'invalid token'; end if;
+  insert into public.comments(share_id, author_name, quote, anchor_start, anchor_end, body)
+  values (s_id, coalesce(nullif(p_author, ''), '匿名'), p_quote, p_start, p_end, p_body)
+  returning * into row;
+  return row;
+end; $$;
+
+create or replace function public.set_comment_resolved(p_token text, p_comment uuid, p_resolved boolean)
+returns void language plpgsql security definer set search_path = public as $$
+declare s_id uuid;
+begin
+  select id into s_id from public.shares where token = p_token;
+  if s_id is null then raise exception 'invalid token'; end if;
+  update public.comments set resolved = p_resolved where id = p_comment and share_id = s_id;
+end; $$;
+
+grant execute on function public.get_share(text) to anon, authenticated;
+grant execute on function public.list_comments(text) to anon, authenticated;
+grant execute on function public.add_comment(text, text, text, int, int, text) to anon, authenticated;
+grant execute on function public.set_comment_resolved(text, uuid, boolean) to anon, authenticated;

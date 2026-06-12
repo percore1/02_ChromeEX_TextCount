@@ -37,6 +37,9 @@ export default function TextCountTool({
 }: ToolProps) {
   const [text, setText] = useState(initialText);
   const [saveMsg, setSaveMsg] = useState<string | null>(null);
+  const [shareUrl, setShareUrl] = useState<string | null>(null);
+  const [sharing, setSharing] = useState(false);
+  const [copied, setCopied] = useState(false);
   const [rules, setRules] = useState<Rule[] | null>(null);
   const [ruleError, setRuleError] = useState<string | null>(null);
   const [feature, setFeature] = useState<Feature>("count");
@@ -154,6 +157,25 @@ export default function TextCountTool({
     setTimeout(() => setSaveMsg(null), 2200);
   }, [text, count, check.detectionCount]);
 
+  const createShare = useCallback(async () => {
+    if (!text.trim()) return;
+    setSharing(true);
+    setCopied(false);
+    try {
+      const res = await fetch("/api/shares", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ content: text }),
+      });
+      const data = await res.json();
+      if (data.url) setShareUrl(data.url);
+    } catch {
+      /* noop */
+    } finally {
+      setSharing(false);
+    }
+  }, [text]);
+
   const hasText = count.hasSelection;
 
   return (
@@ -247,6 +269,12 @@ export default function TextCountTool({
             <button className="tool" onClick={saveHistory} disabled={!hasText}>
               <SaveIcon />
               履歴に保存
+            </button>
+          )}
+          {authEnabled && (
+            <button className="tool" onClick={createShare} disabled={!hasText || sharing}>
+              <ShareIcon />
+              {sharing ? "発行中…" : "提出（共有URL）"}
             </button>
           )}
           <button className="tool" onClick={() => setText("")}>
@@ -399,6 +427,38 @@ export default function TextCountTool({
           )}
         </div>
       </div>
+
+      {shareUrl && (
+        <div className="modal-overlay" onClick={() => setShareUrl(null)}>
+          <div className="modal" onClick={(e) => e.stopPropagation()}>
+            <div className="modal-title">共有URLを発行しました</div>
+            <div className="modal-desc">
+              このURLを編集者・チェック者・ディレクターに共有してください。受け取った人は<b>ログイン不要</b>で本文を確認し、選択範囲に赤入れ（コメント）を返せます。
+            </div>
+            <div className="modal-url">
+              <input readOnly value={shareUrl} onFocus={(e) => e.target.select()} />
+              <button
+                className="hbtn primary"
+                onClick={() => {
+                  navigator.clipboard?.writeText(shareUrl);
+                  setCopied(true);
+                  setTimeout(() => setCopied(false), 1600);
+                }}
+              >
+                {copied ? "✓ コピー" : "コピー"}
+              </button>
+            </div>
+            <div className="modal-actions">
+              <a className="hbtn" href={shareUrl} target="_blank" rel="noreferrer">
+                プレビューを開く
+              </a>
+              <button className="hbtn" onClick={() => setShareUrl(null)}>
+                閉じる
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 }
@@ -734,6 +794,16 @@ function SaveIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
       <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2zM17 21v-8H7v8M7 3v5h8" />
+    </svg>
+  );
+}
+function ShareIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+      <circle cx="18" cy="5" r="3" />
+      <circle cx="6" cy="12" r="3" />
+      <circle cx="18" cy="19" r="3" />
+      <path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4" />
     </svg>
   );
 }
