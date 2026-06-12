@@ -59,8 +59,40 @@ function linkLabelRegex(): RegExp {
   return new RegExp(LINK_LABEL_SRC, "gim");
 }
 
+// 「タイトル：…」等のラベル行（コロン必須なので本文中の語「タイトル」は除外しない）
+const TITLE_LABEL_SRC =
+  "^[^\\n]*(タイトル|題名|件名|仮タイトル|記事タイトル|本文タイトル)\\s*[：:][^\\n]*";
+
+function titleLabelRegex(): RegExp {
+  return new RegExp(TITLE_LABEL_SRC, "gim");
+}
+
+// 原稿先頭の「タイトル行」を1行だけ検出する。
+// 条件：先頭の最初の非空行で、文末記号(。．！？!?)を含まず、40文字以内、かつ後続に本文がある。
+// （単独1行のみの入力はタイトル扱いしない＝カウント0になるのを防ぐ）
+function firstLineTitleRange(text: string): { start: number; end: number } | null {
+  let i = 0;
+  while (i < text.length && (text[i] === "\n" || text[i] === "\r")) i++;
+  let lineEnd = i;
+  while (lineEnd < text.length && text[lineEnd] !== "\n") lineEnd++;
+  const raw = text.slice(i, lineEnd).replace(/\r$/, "");
+  const trimmed = raw.trim();
+  if (!trimmed) return null;
+  if (trimmed.length > 40) return null;
+  if (/[。．！？!?]/.test(trimmed)) return null;
+  if (!/\S/.test(text.slice(lineEnd))) return null; // 後続に本文が無ければタイトル扱いしない
+  return { start: i, end: lineEnd };
+}
+
 // テキスト共通の除外ルール（リテラル見出し・引用・リンクラベル・URL・マーカー・価格・タブ）
 function applyTextExclusions(text: string, appliedRules: string[]): string {
+  // 原稿先頭のタイトル行を除外（原文位置で先に処理）
+  const titleRange = firstLineTitleRange(text);
+  if (titleRange) {
+    text = text.slice(0, titleRange.start) + text.slice(titleRange.end);
+    appliedRules.push("先頭のタイトル行を除外");
+  }
+
   const beforeHeadingTag = text;
   text = text.replace(/[<＜]h([1-6])[^>＞]*[>＞][\s\S]*?[<＜]\s*\/h\1[>＞]/gi, "");
   text = text.replace(/[<＜]\s*\/?\s*h[1-6][^>＞]*[>＞]/gi, "");
@@ -70,6 +102,11 @@ function applyTextExclusions(text: string, appliedRules: string[]): string {
   const beforeCitation = text;
   text = text.replace(citationRegex, "");
   if (beforeCitation !== text) appliedRules.push("引用元・参照・出典等の行を除外");
+
+  // タイトル等のラベル行（「タイトル：」「題名：」など）を除外
+  const beforeTitleLabel = text;
+  text = text.replace(titleLabelRegex(), "");
+  if (beforeTitleLabel !== text) appliedRules.push("タイトル等のラベル行を除外");
 
   // URL・SNS等のラベル行（「URL：」「Instagram：」など）を除外
   const beforeLinkLabel = text;
@@ -122,6 +159,11 @@ export function annotateExclusions(text: string): ExclSeg[] {
   // 見出しタグ（ペア＋孤立）
   mark(/[<＜]h([1-6])[^>＞]*[>＞][\s\S]*?[<＜]\s*\/h\1[>＞]/gi);
   mark(/[<＜]\s*\/?\s*h[1-6][^>＞]*[>＞]/gi);
+  // 先頭のタイトル行
+  const tr = firstLineTitleRange(text);
+  if (tr) for (let k = tr.start; k < tr.end; k++) excl[k] = true;
+  // タイトル等のラベル行（「タイトル：」など）
+  mark(titleLabelRegex());
   // 引用・参照行
   mark(/^[^\n]*(引用元|参照元|出典元|参考元|引用|参照|出典|参考)\s*[：:][^\n]*/gm);
   // URL・SNS等のラベル行（「URL：」「Instagram：」など）
