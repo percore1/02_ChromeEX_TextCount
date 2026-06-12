@@ -121,8 +121,14 @@
 
 → ご要望どおり **5a（管理画面）から着手**するのが妥当。5b までやると会員制として完成度が上がる。
 
-## 11. 要確認（決めていただきたいこと）
-1. **非契約者の入口**：自己サインアップ＋決済で自動許可 / それとも申請→承認も必須？
-2. **管理権限の粒度**：admin 1種で十分 / admin と staff（承認だけ）を分ける？
-3. **月額価格・無料トライアル**の有無（5c で必要）。
-4. **まず作るのは 5a（管理画面）単独でよいか**。
+## 11. 決定事項（2026-06 確定）
+1. **非契約者の入口** → ✅ **自己サインアップ＋Stripe決済で自動許可**（審査なし）。
+2. **管理権限の粒度** → ✅ **admin と staff を分ける**（admin=全権、staff=会員の承認・発行・停止のみ）。
+3. **着手範囲** → ✅ **まず 5a（管理画面）のみ先行**。Stripe(5c)は後続。
+4. 月額価格・無料トライアル → 5c 着手時に確定（未定）。
+
+### 5a 着手にあたり必要な外部準備（あなた側）
+- **`SUPABASE_SERVICE_ROLE_KEY`**（Supabase → Project Settings → API → service_role secret）を
+  **Vercel と `web/.env.local` のサーバー専用env**として追加（`NEXT_PUBLIC_` は付けない）。
+- `web/supabase/phase5-admin.sql` を SQL Editor で実行（会員モデル列・access_requests・admin用RLS）。
+- 自分のアカウントを管理者化：`update public.profiles set app_role='admin' where id = '<自分のuser id>';`

@@ -8,7 +8,7 @@ export default async function Home({
 }: {
   searchParams: Promise<{ load?: string }>;
 }) {
-  const { authEnabled, user } = await getAuthState();
+  const { authEnabled, user, profile } = await getAuthState();
   const sp = await searchParams;
 
   let initialText = "";
@@ -26,6 +26,7 @@ export default async function Home({
     <TextCountTool
       authEnabled={authEnabled && isSupabaseConfigured}
       userEmail={user?.email ?? null}
+      appRole={profile?.app_role ?? null}
       initialText={initialText}
     />
   );

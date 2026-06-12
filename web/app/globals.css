@@ -256,6 +256,45 @@ mark.active::after{display:none}
 .hbtn.primary{background:var(--shu);color:#fff;border-color:var(--shu)}
 .hbtn.primary:hover{background:var(--shu-deep);color:#fff}
 .hbtn:disabled{opacity:.5;cursor:default}
+
+/* admin */
+.admin-page{max-width:1040px;margin:0 auto;padding:24px 22px 60px}
+.admin-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;
+  padding-bottom:16px;border-bottom:1px solid var(--line)}
+.admin-top .brand{display:flex;align-items:center;gap:11px}
+.admin-top h1{font-size:19px;font-weight:700}
+.admin-top .sub{font-size:11px;color:var(--ink-faint)}
+.admin-warn{background:#FFF6E6;border:1px solid #F0D9A8;color:#8A5A14;font-size:12.5px;
+  padding:11px 14px;border-radius:var(--radius-sm);margin-bottom:16px}
+.admin-warn code{background:#fff;padding:1px 5px;border-radius:4px}
+.admin-notice{background:var(--shu-wash);border:1px solid #F0C9C1;color:var(--shu-deep);font-size:12.5px;
+  padding:11px 14px;border-radius:var(--radius-sm);margin-bottom:16px;word-break:break-all}
+.admin-card{border:1px solid var(--line-2);border-radius:var(--radius);padding:18px 20px;margin-bottom:18px;background:#fff}
+.admin-card h2{font-size:14px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px}
+.admin-count{font-size:11px;font-weight:700;color:#fff;background:var(--shu);border-radius:999px;padding:1px 8px}
+.admin-form{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.admin-form input,.admin-form select{border:1px solid var(--line-2);border-radius:8px;padding:9px 11px;
+  font-family:var(--gothic);font-size:13px;color:var(--ink);outline:none;background:#fff}
+.admin-form input{min-width:180px;flex:1}
+.admin-form input:focus,.admin-form select:focus{border-color:var(--shu);box-shadow:0 0 0 3px var(--shu-wash)}
+.admin-hint{font-size:11px;color:var(--ink-faint);margin-top:8px}
+.admin-reqs{display:flex;flex-direction:column;gap:8px}
+.admin-req{display:flex;align-items:flex-start;gap:12px;border:1px solid var(--line);border-left:3px solid var(--shu);
+  border-radius:var(--radius-sm);padding:11px 13px}
+.admin-req-main{flex:1;font-size:13px}
+.admin-req-main .muted{color:var(--ink-faint)}
+.admin-req-msg{font-size:12px;color:var(--ink-soft);margin-top:4px}
+.admin-req-actions{display:flex;gap:7px;flex:none}
+.admin-table-wrap{overflow-x:auto}
+.admin-table{width:100%;border-collapse:collapse;font-size:13px}
+.admin-table th{text-align:left;font-size:11px;color:var(--ink-faint);font-weight:700;padding:8px 10px;border-bottom:1px solid var(--line)}
+.admin-table td{padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
+.admin-table select{border:1px solid var(--line-2);border-radius:7px;padding:5px 8px;font-family:var(--gothic);font-size:12px;background:#fff;outline:none}
+.admin-table select.st-suspended{border-color:var(--shu);color:var(--shu-deep)}
+.admin-table select.st-pending{border-color:#E0A93C;color:#8A5A14}
+.admin-del{font-size:11.5px;color:var(--shu-deep);border:1px solid var(--line-2);background:#fff;padding:5px 10px;
+  border-radius:7px;cursor:pointer;transition:all .18s var(--ease)}
+.admin-del:hover{border-color:var(--shu);background:var(--shu-wash)}
 .empty.small{padding:18px 10px;font-size:11.5px}
 
 /* share modal */

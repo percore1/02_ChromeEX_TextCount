@@ -32,14 +32,17 @@ type Feature = "count" | "proofread";
 type ToolProps = {
   authEnabled?: boolean;
   userEmail?: string | null;
+  appRole?: string | null;
   initialText?: string;
 };
 
 export default function TextCountTool({
   authEnabled = false,
   userEmail = null,
+  appRole = null,
   initialText = "",
 }: ToolProps) {
+  const isStaff = appRole === "admin" || appRole === "staff";
   const [text, setText] = useState(initialText);
   const [saveMsg, setSaveMsg] = useState<string | null>(null);
   const [shareUrl, setShareUrl] = useState<string | null>(null);
@@ -262,6 +265,12 @@ export default function TextCountTool({
             <a className="nav" href="/history">
               <HistoryIcon />
               校閲履歴
+            </a>
+          )}
+          {isStaff && (
+            <a className="nav" href="/admin">
+              <AdminIcon />
+              管理画面
             </a>
           )}
 
@@ -861,6 +870,14 @@ function SaveIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
       <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2zM17 21v-8H7v8M7 3v5h8" />
+    </svg>
+  );
+}
+function AdminIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+      <path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6z" />
+      <path d="M9 12l2 2 4-4" />
     </svg>
   );
 }

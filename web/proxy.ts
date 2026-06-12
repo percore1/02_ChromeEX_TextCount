@@ -37,7 +37,9 @@ export async function proxy(request: NextRequest) {
     path.startsWith("/login") ||
     path.startsWith("/auth") ||
     path.startsWith("/review") ||
-    path.startsWith("/api/review");
+    path.startsWith("/api/review") ||
+    path.startsWith("/request-access") ||
+    path.startsWith("/api/request-access");
 
   // 未ログイン → ログインへ
   if (!user && !isPublic) {
