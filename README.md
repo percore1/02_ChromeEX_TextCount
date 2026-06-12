@@ -1,5 +1,9 @@
 # TextCount
 
+> 🚧 **Webアプリ移行中**（ブランチ `feature/webapp-migration`）。Vercel デプロイの会員制 Webアプリ化を進行中です。
+> 現状・残作業は [`HANDOFF.md`](HANDOFF.md)、Webアプリは [`web/`](web/README.md)、設計は [`design/web-migration-plan.md`](design/web-migration-plan.md) を参照。
+> 以下は既存の Chrome 拡張機能の説明です。
+
 ウェブページや原稿ファイルから、文字数のカウントとローカルルールベースの校閲チェックを行う Chrome 拡張機能です。  
 **サイドパネル**（軽量チェック）と **全画面校閲ツール**（本格校閲）の2系統 UI を備えています。
 

@@ -1,36 +1,33 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# TextCount Web（エディトリアルツール）
 
-## Getting Started
+Chrome拡張「TextCount」を会員制 Webアプリ化したもの。**文字数カウント**と**ローカルルールベース校閲チェック（226ルール）**をブラウザ内で完結して行う。
 
-First, run the development server:
+- スタック：Next.js 16 (App Router/Turbopack) ＋ React 19 ＋ TypeScript ＋ Supabase
+- 入力：**貼り付け／入力／ファイル(.txt/.docx)**（ページ選択の自動検出は廃止）
+- 配色：白・黒・朱の3色／書体：メイリオ系ゴシック
+- 処理は全てクライアント側（原稿はサーバー送信しない）。サーバーは認証・履歴・共有のみ。
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 開発
 ```
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # 本番ビルド
+```
+Supabase 環境変数が未設定でも **ゲストモード**（カウント＋校閲のみ）で動作する。
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 機能の有効化
+- 認証・履歴・共有を使うには Supabase を接続： **[SETUP-supabase.md](SETUP-supabase.md)**
+- 本番公開（Vercel）： **[DEPLOY.md](DEPLOY.md)**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 主要ディレクトリ
+| パス | 役割 |
+|------|------|
+| `lib/counting.ts` `lib/proofreading.ts` | カウント／校閲ロジック（拡張から移植） |
+| `lib/supabase/*` `lib/auth.ts` `proxy.ts` | 認証・セッション・ルート保護 |
+| `app/` | ページ・APIルート（login / history / review / api） |
+| `components/` | UI（TextCountTool / HistoryList / ReviewBoard） |
+| `supabase/schema.sql` | DBスキーマ（profiles/history/shares/comments＋RPC＋RLS） |
+| `public/data/text_checklist.json` | 校閲ルール 226件 |
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 引き継ぎ
+プロジェクト全体の状況・残作業は リポジトリ直下 **[`HANDOFF.md`](../HANDOFF.md)** を参照。
