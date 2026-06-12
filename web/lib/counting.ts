@@ -50,7 +50,16 @@ export function detectTagWarnings(text: string): string[] {
   return [...new Set(warnings)];
 }
 
-// テキスト共通の除外ルール（リテラル見出し・引用・URL・マーカー・価格・タブ）
+// URL・SNS等の「ラベル：…」行を1行まるごと除外する対象ラベル
+// （例：「URL：https://…」「Instagram：https://…」「公式サイト：…」）
+const LINK_LABEL_SRC =
+  "^[^\\n]*(URL|ＵＲＬ|リンク|Instagram|インスタグラム|インスタ|Twitter|ツイッター|Facebook|フェイスブック|TikTok|ティックトック|YouTube|ユーチューブ|LINE|note|Threads|スレッズ|Pinterest|ピンタレスト|LinkedIn|HP|ホームページ|公式サイト|公式アカウント)\\s*[：:][^\\n]*";
+
+function linkLabelRegex(): RegExp {
+  return new RegExp(LINK_LABEL_SRC, "gim");
+}
+
+// テキスト共通の除外ルール（リテラル見出し・引用・リンクラベル・URL・マーカー・価格・タブ）
 function applyTextExclusions(text: string, appliedRules: string[]): string {
   const beforeHeadingTag = text;
   text = text.replace(/[<＜]h([1-6])[^>＞]*[>＞][\s\S]*?[<＜]\s*\/h\1[>＞]/gi, "");
@@ -61,6 +70,11 @@ function applyTextExclusions(text: string, appliedRules: string[]): string {
   const beforeCitation = text;
   text = text.replace(citationRegex, "");
   if (beforeCitation !== text) appliedRules.push("引用元・参照・出典等の行を除外");
+
+  // URL・SNS等のラベル行（「URL：」「Instagram：」など）を除外
+  const beforeLinkLabel = text;
+  text = text.replace(linkLabelRegex(), "");
+  if (beforeLinkLabel !== text) appliedRules.push("URL・SNS等のラベル行を除外");
 
   const urlRegex = /(https?:\/\/|www\.)[^ \t\n\r　]*/g;
   const beforeUrl = text;
@@ -110,6 +124,8 @@ export function annotateExclusions(text: string): ExclSeg[] {
   mark(/[<＜]\s*\/?\s*h[1-6][^>＞]*[>＞]/gi);
   // 引用・参照行
   mark(/^[^\n]*(引用元|参照元|出典元|参考元|引用|参照|出典|参考)\s*[：:][^\n]*/gm);
+  // URL・SNS等のラベル行（「URL：」「Instagram：」など）
+  mark(linkLabelRegex());
   // URL
   mark(/(https?:\/\/|www\.)[^ \t\n\r　]*/g);
   // リストマーカー
