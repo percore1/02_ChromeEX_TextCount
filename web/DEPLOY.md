@@ -3,6 +3,11 @@
 このリポジトリは「Chrome拡張（ルート）」と「Webアプリ（`web/`）」が同居しています。
 Vercel では **Root Directory = `web`** を指定してデプロイします。
 
+> 現在 Webアプリは `feature/webapp-migration` ブランチにあり、`main` には `web/` がありません。
+> **本番は当面このブランチから公開**します（CLI なら `web/` を直接アップロードするのでブランチ設定不要）。
+> GitHub 連携で自動デプロイにする場合は、Vercel の **Settings → Git → Production Branch** を
+> `feature/webapp-migration` に設定してください。
+
 > Supabase 環境変数を設定しなくても**ゲストモード**（カウント＋校閲のみ）で公開できます。
 > 認証・履歴・共有を有効にするには `web/SETUP-supabase.md` を先に実施してください。
 
