@@ -54,6 +54,12 @@ npm run dev
 
 ---
 
+## パスワード再設定メールを機能させる（重要）
+Authentication → **URL Configuration**：
+- **Site URL**：`https://textcount.vercel.app`
+- **Redirect URLs** に追加：`https://textcount.vercel.app/**` と（ローカル検証用に）`http://localhost:3000/**`
+→ これで `/forgot-password` からの再設定メールのリンクが `/auth/confirm` 経由で正しく開きます。
+
 ## 補足
 - **未設定のまま**でも `npm run dev` はゲストモードで動作（認証・履歴は非表示）。開発中はこのままでもOK。
 - 本番（Vercel）では同じ環境変数を Vercel の Environment Variables に設定します（Phase 4）。

@@ -73,6 +73,11 @@ export default function LoginPage() {
             <button className="login-btn" type="submit" disabled={loading}>
               {loading ? "確認中…" : "ログインする"}
             </button>
+            <div style={{ textAlign: "center", marginTop: 14 }}>
+              <a href="/forgot-password" style={{ fontSize: 12, color: "var(--ink-soft)" }}>
+                パスワードを忘れた方はこちら
+              </a>
+            </div>
           </form>
         )}
 
