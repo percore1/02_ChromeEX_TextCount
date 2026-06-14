@@ -91,6 +91,16 @@ create policy "pr_write_staff" on public.proofread_rules
 grant select on public.proofread_rules to authenticated;
 grant insert, update, delete on public.proofread_rules to authenticated;
 
--- ===== 初期管理者のブートストラップ（自分のIDに置き換えて1度だけ実行） =====
--- update public.profiles set app_role = 'admin' where id = '<あなたのユーザーID>';
+-- ===== service_role（管理APIの secret キー）に権限付与 =====
+-- このプロジェクトは新規テーブルへの既定付与が効かないため、明示的に付与する。
+-- これが無いと管理画面（secretキー）で「permission denied for table」になる。
+grant all on all tables in schema public to service_role;
+grant all on all sequences in schema public to service_role;
+
+-- ===== 初期管理者のブートストラップ =====
+-- 自分のユーザーIDで1度だけ実行（profile行が無い場合も作成）。
 -- ユーザーIDは Authentication → Users で確認できます。
+-- 例（percore1@gmail.com の場合）:
+-- insert into public.profiles (id, app_role, status)
+-- values ('94c5db66-a6cd-45c2-8357-b5b3d2da7abd', 'admin', 'active')
+-- on conflict (id) do update set app_role = 'admin', status = 'active';
