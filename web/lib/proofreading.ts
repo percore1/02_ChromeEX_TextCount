@@ -4,6 +4,7 @@
 // URL は検出対象から除外する（位置情報は保持、原文表示は維持）
 
 const RULES_URL = "/data/text_checklist.json";
+const CUSTOM_RULES_URL = "/api/rules";
 
 export type Occurrence = {
   kind: "span" | "sentence";
@@ -54,14 +55,23 @@ export function loadRules(): Promise<Rule[]> {
   if (cachedRules) return Promise.resolve(cachedRules);
   if (loadPromise) return loadPromise;
 
-  loadPromise = fetch(RULES_URL)
+  const staticP = fetch(RULES_URL)
     .then((res) => {
       if (!res.ok) throw new Error("rules fetch failed: " + res.status);
       return res.json();
     })
-    .then((rules) => {
-      if (!Array.isArray(rules)) throw new Error("rules is not an array");
-      cachedRules = rules
+    .then((r) => (Array.isArray(r) ? r : []));
+
+  // カスタムルール（ログイン時のみ取得。失敗・未ログインは空でフォールバック）
+  const customP = fetch(CUSTOM_RULES_URL)
+    .then((res) => (res.ok ? res.json() : { rules: [] }))
+    .then((j) => (Array.isArray(j?.rules) ? j.rules : []))
+    .catch(() => []);
+
+  loadPromise = Promise.all([staticP, customP])
+    .then(([staticRules, customRules]) => {
+      const all = [...staticRules, ...customRules];
+      cachedRules = all
         .filter((r: any) => r && r.enabled !== false)
         .map(normalizeRule);
       loadError = null;

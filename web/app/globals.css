@@ -295,6 +295,53 @@ mark.active::after{display:none}
 .admin-del{font-size:11.5px;color:var(--shu-deep);border:1px solid var(--line-2);background:#fff;padding:5px 10px;
   border-radius:7px;cursor:pointer;transition:all .18s var(--ease)}
 .admin-del:hover{border-color:var(--shu);background:var(--shu-wash)}
+
+/* rules viewer */
+.rules-page{max-width:920px;margin:0 auto;padding:24px 22px 60px}
+.rules-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px;
+  padding-bottom:16px;border-bottom:1px solid var(--line)}
+.rules-top .brand{display:flex;align-items:center;gap:11px}
+.rules-top h1{font-size:19px;font-weight:700}
+.rules-top .sub{font-size:11px;color:var(--ink-faint)}
+.rules-filter{display:flex;gap:10px;align-items:center;margin-bottom:18px;position:sticky;top:0;
+  background:#fff;padding:6px 0;z-index:5}
+.rules-filter input{flex:1;border:1px solid var(--line-2);border-radius:9px;padding:10px 13px;font-family:var(--gothic);
+  font-size:13px;outline:none}
+.rules-filter input:focus{border-color:var(--shu);box-shadow:0 0 0 3px var(--shu-wash)}
+.rules-filter select{border:1px solid var(--line-2);border-radius:9px;padding:10px;font-family:var(--gothic);font-size:13px;background:#fff;outline:none}
+.rules-hit{font-size:12px;color:var(--ink-faint);white-space:nowrap}
+.rules-cat{margin-bottom:18px}
+.rules-cat-title{font-size:13px;font-weight:700;color:var(--ink);margin-bottom:8px;display:flex;align-items:center;gap:8px;
+  border-left:3px solid var(--shu);padding-left:9px}
+.rules-cat-title span{font-size:11px;color:#fff;background:var(--ink-faint);border-radius:999px;padding:1px 8px;font-weight:700}
+.rules-item{border:1px solid var(--line);border-radius:var(--radius-sm);padding:11px 14px;margin-bottom:8px;background:#fff}
+.rules-item-head{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.rules-item .sev{font-size:9.5px;font-weight:700;padding:3px 7px;border-radius:5px;border:1px solid var(--line-2);color:var(--ink-soft)}
+.rules-item .sev-error,.rules-item .sev-warn{border-color:var(--shu);color:var(--shu-deep)}
+.rules-det{font-size:10px;color:var(--ink-faint);border:1px solid var(--line-2);padding:2px 7px;border-radius:5px}
+.rules-custom{font-size:10px;color:var(--shu-deep);background:var(--shu-wash);border:1px solid #F0C9C1;padding:2px 7px;border-radius:5px;font-weight:700}
+.rules-title{font-weight:700;font-size:13.5px}
+.rules-kw{font-size:12px;color:var(--ink-soft);margin-top:6px}
+.rules-rec{font-size:12.5px;color:var(--ink-soft);margin-top:3px}
+.rules-rec b{color:var(--shu-deep);font-weight:700}
+.rules-desc{font-size:11.5px;color:var(--ink-faint);margin-top:4px;line-height:1.6}
+
+/* rule add form / list */
+.rule-form{display:grid;grid-template-columns:120px 1fr;gap:9px 12px;align-items:center}
+.rule-form label{font-size:12px;font-weight:700;color:var(--ink-2);text-align:right}
+.rule-form input,.rule-form select,.rule-form textarea{border:1px solid var(--line-2);border-radius:8px;padding:9px 11px;
+  font-family:var(--gothic);font-size:13px;color:var(--ink);outline:none;background:#fff;width:100%}
+.rule-form input:focus,.rule-form select:focus,.rule-form textarea:focus{border-color:var(--shu);box-shadow:0 0 0 3px var(--shu-wash)}
+.rule-list{display:flex;flex-direction:column;gap:8px}
+.rule-row{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-left:3px solid var(--shu);
+  border-radius:var(--radius-sm);padding:11px 13px}
+.rule-row.off{opacity:.55;border-left-color:var(--line-2)}
+.rule-row-main{flex:1;min-width:0}
+.rule-row-title{font-size:13px;font-weight:700;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.rule-row-cat{font-size:10px;color:var(--ink-faint);border:1px solid var(--line-2);padding:1px 7px;border-radius:5px;font-weight:400}
+.rule-row-sub{font-size:11.5px;color:var(--ink-soft);margin-top:3px;word-break:break-all}
+.rule-row-actions{display:flex;gap:7px;flex:none}
+@media(max-width:640px){.rule-form{grid-template-columns:1fr}.rule-form label{text-align:left}}
 .empty.small{padding:18px 10px;font-size:11.5px}
 
 /* share modal */

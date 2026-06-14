@@ -162,9 +162,14 @@ export default function AdminPanel({
             </div>
           </div>
         </div>
-        <Link className="tb-file" href="/">
-          ← ツールに戻る
-        </Link>
+        <div style={{ display: "flex", gap: 8 }}>
+          <Link className="tb-file" href="/admin/rules">
+            校閲ルール管理
+          </Link>
+          <Link className="tb-file" href="/">
+            ← ツールに戻る
+          </Link>
+        </div>
       </div>
 
       {!adminConfigured && (

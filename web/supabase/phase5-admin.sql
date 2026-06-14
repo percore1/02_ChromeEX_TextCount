@@ -57,6 +57,40 @@ create policy "ar_update_staff" on public.access_requests
 grant insert on public.access_requests to anon, authenticated;
 grant select, update on public.access_requests to authenticated;
 
+-- ===== proofread_rules（管理者が追加するカスタム校閲ルール） =====
+create table if not exists public.proofread_rules (
+  id               uuid primary key default gen_random_uuid(),
+  category         text not null default '(未分類)',
+  check_item       text not null,                    -- ルール名（タイトル）
+  severity         text not null default 'info',     -- info / warn / error
+  detection_type   text not null default 'exact',    -- exact / regex
+  keyword          text,                             -- exact用（; 区切りで複数）
+  pattern          text,                             -- regex用
+  recommended_word text,                             -- 改善案
+  message          text,                             -- 推奨コメント
+  explanation      text,                             -- 補足説明
+  source_tab       text not null default 'カスタム',
+  enabled          boolean not null default true,
+  created_by       uuid references auth.users(id),
+  created_at       timestamptz not null default now()
+);
+alter table public.proofread_rules enable row level security;
+
+-- 全ログインユーザーが参照できる（校閲・一覧表示に必要）
+drop policy if exists "pr_select_auth" on public.proofread_rules;
+create policy "pr_select_auth" on public.proofread_rules
+  for select to authenticated using (true);
+
+-- staff以上が作成・編集・削除できる
+drop policy if exists "pr_write_staff" on public.proofread_rules;
+create policy "pr_write_staff" on public.proofread_rules
+  for all
+  using (public.current_app_role() in ('admin', 'staff'))
+  with check (public.current_app_role() in ('admin', 'staff'));
+
+grant select on public.proofread_rules to authenticated;
+grant insert, update, delete on public.proofread_rules to authenticated;
+
 -- ===== 初期管理者のブートストラップ（自分のIDに置き換えて1度だけ実行） =====
 -- update public.profiles set app_role = 'admin' where id = '<あなたのユーザーID>';
 -- ユーザーIDは Authentication → Users で確認できます。

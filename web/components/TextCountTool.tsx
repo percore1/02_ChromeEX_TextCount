@@ -267,6 +267,12 @@ export default function TextCountTool({
               校閲履歴
             </a>
           )}
+          {authEnabled && (
+            <a className="nav" href="/rules">
+              <RulesIcon />
+              ルール一覧
+            </a>
+          )}
           {isStaff && (
             <a className="nav" href="/admin">
               <AdminIcon />
@@ -870,6 +876,13 @@ function SaveIcon() {
   return (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
       <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2zM17 21v-8H7v8M7 3v5h8" />
+    </svg>
+  );
+}
+function RulesIcon() {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
+      <path d="M4 6h16M4 12h16M4 18h10" />
     </svg>
   );
 }
