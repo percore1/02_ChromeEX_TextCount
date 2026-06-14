@@ -5,6 +5,28 @@
 
 ---
 
+## ⏭ 申し送り：次にやること（未完了の確認）
+
+> ユーザー側で **Redirect URLs 追加（`https://textcount.vercel.app/**`・`http://localhost:3000/**`）＋ `npx vercel --prod` 再デプロイは完了済み**。残るは下の通し確認。
+
+### A. パスワード再設定の通し確認（最優先・本番）
+1. [ ] `https://textcount.vercel.app/login` →「**パスワードを忘れた方はこちら**」
+2. [ ] 登録メールアドレスを入力 → 「再設定メールを送る」→ 送信完了表示
+3. [ ] 届いたメールのリンクを開く → `/auth/confirm` 経由で **`/account/update-password`** が開く
+4. [ ] 新パスワード（8文字以上）×2 を入力 → 更新 → ツール `/` にログイン状態で遷移
+5. [ ] いったんログアウト → **新パスワードで再ログインできる**
+- うまくいかない時の確認：Supabase の Redirect URLs に本番ドメインが入っているか／本番が再デプロイ済みか／メールのリンク先が本番ドメインか（迷惑メールも確認）。リンクが無効なら `/account/update-password` は「リンクから開いてください」を表示する。
+
+### B. 管理画面・ルールの本番確認
+6. [ ] `/admin` で会員一覧・発行（初期PW表示）が動く（service_role 経由・permission denied が出ないこと）
+7. [ ] `/admin/rules` でカスタムルール追加 → `/rules` と校閲チェックに反映される
+8. [ ] `/request-access` の申請 → `/admin` で承認・却下できる
+
+### C. 次の開発フェーズ
+9. **5b エンタイトルメント**：`status`/`plan` で実際に利用可否をゲート（suspended/未払いをブロックし `/billing` へ）。→ 詳細は本書 §7・§10。
+
+---
+
 ## 0. 概要
 - 既存 Chrome 拡張「TextCount」（**文字数カウント**＋**ローカルルールベース校閲チェック226ルール**）を、**Vercel デプロイの会員制 Webアプリ**へ移行したもの。ライター・編集者・外注ディレクター向け。
 - **本番**：**https://textcount.vercel.app**（稼働中・認証ON・招待制）。
@@ -102,8 +124,7 @@ SETUP-supabase.md / SETUP-admin.md / DEPLOY.md
 ## 8. ユーザー側で必要な設定（実施済み/要確認）
 - ✅ Supabase接続（anon）・schema.sql・fix-grants.sql 実行・本番公開・サインアップ無効化。
 - ✅ phase5-admin.sql 実行・service_role 設定・percore1 を admin 化。
-- ⚠ **パスワード再設定を本番で機能させるには**：Supabase → Authentication → **URL Configuration → Redirect URLs** に
-  `https://textcount.vercel.app/**` と（ローカル検証用に）`http://localhost:3000/**` を追加。Site URL は本番URL。
+- ✅ **パスワード再設定の本番設定（完了）**：Redirect URLs に `https://textcount.vercel.app/**`・`http://localhost:3000/**` 追加済み、`npx vercel --prod` 再デプロイ済み。あとは上の「申し送り A」の通し確認のみ。
 - 会員発行は `/admin`、ルール追加は `/admin/rules`。
 
 ## 9. 主要URL
