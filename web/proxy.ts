@@ -41,7 +41,8 @@ export async function proxy(request: NextRequest) {
     path.startsWith("/review") ||
     path.startsWith("/api/review") ||
     path.startsWith("/request-access") ||
-    path.startsWith("/api/request-access");
+    path.startsWith("/api/request-access") ||
+    path.startsWith("/api/stripe/webhook");
 
   // 未ログイン → ログインへ
   if (!user && !isPublic) {
