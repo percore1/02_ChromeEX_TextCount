@@ -1,10 +1,14 @@
 import { isSupabaseConfigured, isAdminConfigured } from "./supabase/config";
 import { createClient } from "./supabase/server";
+import { isEntitled } from "./entitlement";
+
+export { isEntitled };
 
 export type Profile = {
   app_role: "admin" | "staff" | "member";
   status: "pending" | "active" | "suspended";
   plan: "contract_free" | "paid" | "none";
+  subscription_status: string | null;
   display_name: string | null;
   member_code: string | null;
 };
@@ -27,7 +31,7 @@ export async function getAuthState(): Promise<AuthState> {
   let profile: Profile | null = null;
   const { data } = await supabase
     .from("profiles")
-    .select("app_role,status,plan,display_name,member_code")
+    .select("app_role,status,plan,subscription_status,display_name,member_code")
     .eq("id", user.id)
     .single();
   if (data) profile = data as Profile;

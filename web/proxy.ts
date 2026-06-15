@@ -2,6 +2,7 @@
 // Supabase 未設定（環境変数なし）の場合は何もせずゲストモードで通す。
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
+import { isEntitled } from "@/lib/entitlement";
 
 const SUPABASE_URL = process.env.NEXT_PUBLIC_SUPABASE_URL || "";
 const SUPABASE_ANON_KEY = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || "";
@@ -53,6 +54,30 @@ export async function proxy(request: NextRequest) {
     const url = request.nextUrl.clone();
     url.pathname = "/";
     return NextResponse.redirect(url);
+  }
+
+  // 利用ゲート（5b）：ログイン済み会員が「利用可」でなければ /billing へ。
+  // admin/staff は素通り。/billing・/account・/admin・/api・公開ルートは対象外。
+  if (user) {
+    const exempt =
+      isPublic ||
+      path.startsWith("/billing") ||
+      path.startsWith("/account") ||
+      path.startsWith("/admin") ||
+      path.startsWith("/api");
+    if (!exempt) {
+      const { data: prof, error: pErr } = await supabase
+        .from("profiles")
+        .select("app_role,status,plan,subscription_status")
+        .eq("id", user.id)
+        .single();
+      // 判定できた場合のみブロック（エラー時は可用性優先で通す）
+      if (!pErr && prof && !isEntitled(prof)) {
+        const url = request.nextUrl.clone();
+        url.pathname = "/billing";
+        return NextResponse.redirect(url);
+      }
+    }
   }
 
   return response;

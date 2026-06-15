@@ -54,9 +54,9 @@
 | 5(追加) | パスワード再設定フロー（メール） | ✅ 完了 |
 | 5(追加) | 会員発行時の初期パスワード表示を「消えない＋コピー可能」に修正（PR #1） | ✅ 完了・本番反映済み |
 | 運用 | Vercel を GitHub 自動デプロイ化（手動CLI廃止） | ✅ 完了（2026-06-15） |
-| **5b** | **エンタイトルメント（status/planで利用ゲート）** | ⬜ 未着手（次の優先） |
-| 5c | Stripe 月額課金（有料）＋無料契約区分 | ⬜ 未着手（要 Stripe アカウント） |
-| 5d | 共有URLの一覧・失効(revoke) | ⬜ 未着手 |
+| 5b | エンタイトルメント（status/planで利用ゲート→/billing） | ✅ コード完了・proxyで判定（admin/staffは素通り）。**要・本番確認** |
+| 5c | Stripe 月額課金（有料）＋無料契約区分 | 🟡 スキャフォールド済み（checkout/webhook/portal/billingボタン）・**要 Stripe アカウント＋env**（[`web/SETUP-stripe.md`](web/SETUP-stripe.md)） |
+| 5d | 共有URLの一覧・失効(revoke) | ✅ コード完了（/shares・失効）・**要マイグレーション `phase5d-share-revoke.sql`** |
 | 5e | コメントのリアルタイム反映 | ⬜ 未着手 |
 | 5f | PWA / コンパニオン拡張 | ⬜ 未着手 |
 
@@ -77,12 +77,15 @@
   | `NEXT_PUBLIC_SUPABASE_URL` | 公開 | Supabase URL |
   | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | 公開 | ブラウザ/サーバーのセッション用 |
   | `SUPABASE_SERVICE_ROLE_KEY` | **秘密（サーバー専用）** | 管理API（会員発行等）。`sb_secret_…` 新形式キー。**絶対に公開・コミットしない** |
+  | `STRIPE_SECRET_KEY` `STRIPE_WEBHOOK_SECRET` `STRIPE_PRICE_ID` | **秘密（サーバー専用）** | 5c 課金。**未設定可**（その場合 `/billing` は「準備中」表示）。設定手順は [`web/SETUP-stripe.md`](web/SETUP-stripe.md) |
 
 ## 4. DBマイグレーション（Supabase SQL Editor で実行する順番）
 1. `web/supabase/schema.sql` — profiles / proofread_history / shares / comments / RPC / RLS
 2. `web/supabase/fix-grants.sql` — `authenticated` へのテーブル権限（42501対策）
 3. `web/supabase/phase5-admin.sql` — 会員モデル列(app_role/status/plan/stripe_*)・access_requests・proofread_rules・admin用RLS・**service_role への権限付与**・管理者ブートストラップ例
+4. `web/supabase/phase5d-share-revoke.sql` — `shares.revoked` 追加・owner更新RLS・`get_share` を失効除外に（**5d を使うなら必須**）
 - ブートストラップ（管理者化）：`insert into public.profiles (id,app_role,status) values ('<uid>','admin','active') on conflict (id) do update set app_role='admin',status='active';`
+- **5b の注意**：本番に反映すると、`status=active` でも **`plan=none` の member は `/billing` にブロックされる**。既存の利用者は `/admin` で `plan=contract_free` に設定すること（admin/staff は影響なし）。
 
 ## 5. 開発フロー／デプロイ
 **ローカル起動**

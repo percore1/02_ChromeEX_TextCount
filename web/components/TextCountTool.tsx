@@ -273,6 +273,12 @@ export default function TextCountTool({
               ルール一覧
             </a>
           )}
+          {authEnabled && (
+            <a className="nav" href="/shares">
+              <ShareIcon />
+              共有一覧
+            </a>
+          )}
           {isStaff && (
             <a className="nav" href="/admin">
               <AdminIcon />
