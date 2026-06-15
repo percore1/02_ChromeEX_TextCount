@@ -51,6 +51,8 @@ export default function AdminPanel({
   const [requests, setRequests] = useState<Req[]>([]);
   const [loading, setLoading] = useState(true);
   const [notice, setNotice] = useState<string | null>(null);
+  // 発行直後の初期パスワード（手動で閉じるまで消えない。DBには保存しない）
+  const [issued, setIssued] = useState<{ email: string; password: string } | null>(null);
 
   // 発行フォーム
   const [email, setEmail] = useState("");
@@ -79,6 +81,15 @@ export default function AdminPanel({
     setTimeout(() => setNotice(null), 6000);
   };
 
+  const copyText = async (text: string, label: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      flash(`${label}をコピーしました`);
+    } catch {
+      flash("コピーに失敗しました。手動で選択してコピーしてください。");
+    }
+  };
+
   const createMember = useCallback(async () => {
     if (!email.trim()) return;
     const res = await fetch("/api/admin/members", {
@@ -91,7 +102,8 @@ export default function AdminPanel({
       flash("発行に失敗：" + (data.error || res.status));
       return;
     }
-    flash(`発行しました → ${data.email} / 初期パスワード: ${data.password}（本人に共有してください）`);
+    setIssued({ email: data.email, password: data.password });
+    flash("発行しました");
     setEmail("");
     setDisplayName("");
     setMemberCode("");
@@ -141,7 +153,8 @@ export default function AdminPanel({
         return;
       }
       if (action === "approve" && data.password) {
-        flash(`承認・発行 → ${data.email} / 初期パスワード: ${data.password}（本人に共有）`);
+        setIssued({ email: data.email, password: data.password });
+        flash("承認・発行しました");
       } else {
         flash("却下しました");
       }
@@ -180,6 +193,53 @@ export default function AdminPanel({
       )}
 
       {notice && <div className="admin-notice">{notice}</div>}
+
+      {issued && (
+        <div className="admin-cred">
+          <div className="admin-cred-head">
+            <b>初期パスワードを発行しました</b>
+            <button
+              className="admin-cred-close"
+              aria-label="閉じる"
+              onClick={() => setIssued(null)}
+            >
+              ×
+            </button>
+          </div>
+          <div className="admin-cred-rows">
+            <div className="admin-cred-row">
+              <span className="admin-cred-label">メール</span>
+              <code className="admin-cred-value">{issued.email}</code>
+              <button className="hbtn" onClick={() => copyText(issued.email, "メール")}>
+                コピー
+              </button>
+            </div>
+            <div className="admin-cred-row">
+              <span className="admin-cred-label">初期パスワード</span>
+              <code className="admin-cred-value">{issued.password}</code>
+              <button className="hbtn" onClick={() => copyText(issued.password, "パスワード")}>
+                コピー
+              </button>
+            </div>
+          </div>
+          <div className="admin-cred-actions">
+            <button
+              className="hbtn primary"
+              onClick={() =>
+                copyText(
+                  `メール: ${issued.email}\n初期パスワード: ${issued.password}`,
+                  "ログイン情報",
+                )
+              }
+            >
+              まとめてコピー
+            </button>
+            <span className="admin-cred-note">
+              この内容は閉じるまで表示されます。本人に共有後、「×」で閉じてください。
+            </span>
+          </div>
+        </div>
+      )}
 
       {/* 会員発行 */}
       <section className="admin-card">
