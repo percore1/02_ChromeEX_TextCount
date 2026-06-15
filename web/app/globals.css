@@ -269,6 +269,21 @@ mark.active::after{display:none}
 .admin-warn code{background:#fff;padding:1px 5px;border-radius:4px}
 .admin-notice{background:var(--shu-wash);border:1px solid #F0C9C1;color:var(--shu-deep);font-size:12.5px;
   padding:11px 14px;border-radius:var(--radius-sm);margin-bottom:16px;word-break:break-all}
+.admin-cred{background:var(--shu-wash);border:1px solid #F0C9C1;border-radius:var(--radius-sm);
+  padding:13px 15px;margin-bottom:16px}
+.admin-cred-head{display:flex;align-items:center;justify-content:space-between;color:var(--shu-deep);
+  font-size:13px;margin-bottom:10px}
+.admin-cred-close{border:none;background:transparent;color:var(--shu-deep);font-size:18px;line-height:1;
+  cursor:pointer;padding:0 4px}
+.admin-cred-close:hover{color:var(--ink)}
+.admin-cred-rows{display:flex;flex-direction:column;gap:8px}
+.admin-cred-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.admin-cred-label{font-size:11px;color:var(--ink-faint);min-width:84px}
+.admin-cred-value{font-family:var(--mono,ui-monospace,monospace);font-size:13.5px;color:var(--ink);
+  background:#fff;border:1px solid var(--line-2);border-radius:6px;padding:5px 9px;
+  user-select:all;word-break:break-all;flex:1;min-width:160px}
+.admin-cred-actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:11px}
+.admin-cred-note{font-size:11px;color:var(--ink-faint)}
 .admin-card{border:1px solid var(--line-2);border-radius:var(--radius);padding:18px 20px;margin-bottom:18px;background:#fff}
 .admin-card h2{font-size:14px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:8px}
 .admin-count{font-size:11px;font-weight:700;color:#fff;background:var(--shu);border-radius:999px;padding:1px 8px}
