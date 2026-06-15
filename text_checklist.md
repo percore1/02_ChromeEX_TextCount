@@ -1,6 +1,6 @@
-# 文賢 辞書・チェックリスト統合データ
+# 参考ツール 辞書・チェックリスト統合データ
 
-既存の辞書・チェックリストに、文賢公式ヘルプURLおよび添付キャプチャから抽出した「ルール校正」「ルール推敲」カテゴリを追加したデータです。
+既存の辞書・チェックリストに、参考ツール公式ヘルプURLおよび添付キャプチャから抽出した「ルール校正」「ルール推敲」カテゴリを追加したデータです。
 
 ## 件数
 
@@ -15,7 +15,7 @@
 - `detection_type`: exact / regex / sentence_metric / sequence / heuristic / dictionary / manual
 - `pattern`: 検出に使う文字列・正規表現・メトリクス条件
 - `enabled`: Chrome拡張で動作させる前提のON/OFF
-- `default_enabled_in_bunken`: 文賢側の初期ON/OFFに関する参考情報
+- `default_enabled`: 参考ツール側の初期ON/OFFに関する参考情報
 - `screenshot_enabled`: 添付キャプチャ上のON/OFFに関する参考情報
 
 ---
@@ -4026,9 +4026,9 @@ P＝Point（結論を繰り返す）
 
 
 また、上記の「話し言葉」はあくまでも、感情を伝えるひとつの方法です。
-話し言葉を使わずとも、文賢の【文章表現】機能を使えば、感情の伝わる文章に仕上げることは難しくありません。
+話し言葉を使わずとも、参考ツールの【文章表現】機能を使えば、感情の伝わる文章に仕上げることは難しくありません。
 
-たとえば、文賢の【文章表現】機能には、「好き」という感情を表すための表現がたくさん用意されています。
+たとえば、参考ツールの【文章表現】機能には、「好き」という感情を表すための表現がたくさん用意されています。
 
 
 ●文章表現の例
@@ -4042,7 +4042,7 @@ P＝Point（結論を繰り返す）
 ・心が奪われるほどの
 
 
-文賢の【文章表現】機能はあくまでも、ひとつの感情表現を取り上げたものです。
+参考ツールの【文章表現】機能はあくまでも、ひとつの感情表現を取り上げたものです。
 あなたなりの感情表現を考えてみてくださいね。
 
 #### 実装メモ
@@ -4354,7 +4354,7 @@ https://pf.bunka.go.jp/chosaku/chosakuken/naruhodo/answer.asp?Q_ID=0000338
 - pattern: `こんにちわ|よろしくお願いしmす`
 - 推奨ワード: こんにちは;よろしくお願いします
 - 表示メッセージ: 表記の誤りやタイプミスの可能性があります。
-- 文賢側の初期ON/OFF: True
+- 参考ツール側の初期ON/OFF: True
 - キャプチャ上のON/OFF: True
 
 #### 補足
@@ -4367,7 +4367,7 @@ https://pf.bunka.go.jp/chosaku/chosakuken/naruhodo/answer.asp?Q_ID=0000338
 
 #### 実装メモ
 
-detection_type=exact として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=exact として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -4382,7 +4382,7 @@ detection_type=exact として検出エンジン側で処理。文賢画面で�
 - pattern: `役不足|確信犯|敷居が高い|琴線に触れる|失笑|姑息|すべからく`
 - 推奨ワード: 文脈に合う意味か確認
 - 表示メッセージ: 誤った意味で使われやすい言葉です。文脈に合っているか確認してください。
-- 文賢側の初期ON/OFF: True
+- 参考ツール側の初期ON/OFF: True
 - キャプチャ上のON/OFF: True
 
 #### 補足
@@ -4395,7 +4395,7 @@ detection_type=exact として検出エンジン側で処理。文賢画面で�
 
 #### 実装メモ
 
-detection_type=exact として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=exact として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -4409,7 +4409,7 @@ detection_type=exact として検出エンジン側で処理。文賢画面で�
 - pattern: `[①②③④⑤⑥⑦⑧⑨⑩⑪⑫⑬⑭⑮⑯⑰⑱⑲⑳ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ㍉㌔㌢㍍㌘㌧㌃㌶㍑㍗㌍㌦㌣㌫㍊㌻㎜㎝㎞㎎㎏㏄㎡㈱㈲㈹㊤㊥㊦㊧㊨№℡]`
 - 推奨ワード: 環境依存しない表記
 - 表示メッセージ: 機種依存文字の可能性があります。文字化けしない表記に置き換えてください。
-- 文賢側の初期ON/OFF: True
+- 参考ツール側の初期ON/OFF: True
 - キャプチャ上のON/OFF: True
 
 #### 補足
@@ -4422,7 +4422,7 @@ detection_type=exact として検出エンジン側で処理。文賢画面で�
 
 #### 実装メモ
 
-detection_type=regex として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=regex として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -4437,7 +4437,7 @@ detection_type=regex として検出エンジン側で処理。文賢画面で�
 - pattern: `時季|時期|時機|以外|意外|対象|対照|体制|体勢|耐性`
 - 推奨ワード: 文脈に合う漢字か確認
 - 表示メッセージ: 誤変換しやすい言葉です。文脈に合う漢字か確認してください。
-- 文賢側の初期ON/OFF: True
+- 参考ツール側の初期ON/OFF: True
 - キャプチャ上のON/OFF: True
 
 #### 補足
@@ -4450,7 +4450,7 @@ detection_type=regex として検出エンジン側で処理。文賢画面で�
 
 #### 実装メモ
 
-detection_type=exact として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=exact として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -4465,7 +4465,7 @@ detection_type=exact として検出エンジン側で処理。文賢画面で�
 - pattern: `的を得る|とんでもありません|違和感を感じる|押しも押されぬ`
 - 推奨ワード: 的を射る;とんでもないです;違和感がある;押しも押されもせぬ
 - 表示メッセージ: 日本語として誤り、または不自然な可能性があります。
-- 文賢側の初期ON/OFF: True
+- 参考ツール側の初期ON/OFF: True
 - キャプチャ上のON/OFF: True
 
 #### 補足
@@ -4478,7 +4478,7 @@ detection_type=exact として検出エンジン側で処理。文賢画面で�
 
 #### 実装メモ
 
-detection_type=exact として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=exact として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -4493,7 +4493,7 @@ detection_type=exact として検出エンジン側で処理。文賢画面で�
 - pattern: `ちゃんと|ちょっと|やっぱり|すごく|めっちゃ|[られ]れる(?=。|、| |$)|てる(?=。|、| |$)`
 - 推奨ワード: 書き言葉に調整
 - 表示メッセージ: 話し言葉の可能性があります。媒体に合わせて書き言葉へ調整してください。
-- 文賢側の初期ON/OFF: True
+- 参考ツール側の初期ON/OFF: True
 - キャプチャ上のON/OFF: True
 
 #### 補足
@@ -4506,7 +4506,7 @@ detection_type=exact として検出エンジン側で処理。文賢画面で�
 
 #### 実装メモ
 
-detection_type=regex として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=regex として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -4519,7 +4519,7 @@ detection_type=regex として検出エンジン側で処理。文賢画面で�
 - detection_type: dictionary
 - 推奨ワード: 中立的な表現
 - 表示メッセージ: 読み手に不快感を与える可能性がある表現です。社内辞書に登録した語句を確認してください。
-- 文賢側の初期ON/OFF: True
+- 参考ツール側の初期ON/OFF: True
 - キャプチャ上のON/OFF: True
 
 #### 補足
@@ -4532,7 +4532,7 @@ detection_type=regex として検出エンジン側で処理。文賢画面で�
 
 #### 実装メモ
 
-detection_type=dictionary として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=dictionary として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -4547,7 +4547,7 @@ detection_type=dictionary として検出エンジン側で処理。文賢画面
 - pattern: `読まさせる|聞かさせる|行かさせる|書かさせる|取らさせる`
 - 推奨ワード: 読ませる;聞かせる;行かせる;書かせる;取らせる
 - 表示メッセージ: さ入れ表現の可能性があります。
-- 文賢側の初期ON/OFF: False
+- 参考ツール側の初期ON/OFF: False
 - キャプチャ上のON/OFF: False
 
 #### 補足
@@ -4560,7 +4560,7 @@ detection_type=dictionary として検出エンジン側で処理。文賢画面
 
 #### 実装メモ
 
-detection_type=exact として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=exact として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -4575,7 +4575,7 @@ detection_type=exact として検出エンジン側で処理。文賢画面で�
 - pattern: `仰られる|お話になられる|参られます|ご持参ください|拝見させていただく`
 - 推奨ワード: おっしゃる;お話しになる;いらっしゃいます;お持ちください;拝見します
 - 表示メッセージ: 二重敬語または誤った敬語の可能性があります。
-- 文賢側の初期ON/OFF: True
+- 参考ツール側の初期ON/OFF: True
 - キャプチャ上のON/OFF: True
 
 #### 補足
@@ -4588,7 +4588,7 @@ detection_type=exact として検出エンジン側で処理。文賢画面で�
 
 #### 実装メモ
 
-detection_type=exact として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=exact として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -4603,7 +4603,7 @@ detection_type=exact として検出エンジン側で処理。文賢画面で�
 - pattern: `一番最初|後で後悔する|まず最初に|必ず必要|過半数を超える|あらかじめ予約`
 - 推奨ワード: 最初;後悔する;最初に;必要;過半数になる;予約
 - 表示メッセージ: 意味が重複している可能性があります。
-- 文賢側の初期ON/OFF: True
+- 参考ツール側の初期ON/OFF: True
 - キャプチャ上のON/OFF: True
 
 #### 補足
@@ -4616,7 +4616,7 @@ detection_type=exact として検出エンジン側で処理。文賢画面で�
 
 #### 実装メモ
 
-detection_type=exact として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=exact として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -4631,7 +4631,7 @@ detection_type=exact として検出エンジン側で処理。文賢画面で�
 - pattern: `ビジネスマン|看護婦|保母|スチュワーデス|OL|サラリーマン`
 - 推奨ワード: ビジネスパーソン;看護師;保育士;客室乗務員;会社員;会社員
 - 表示メッセージ: 性別や職業に関する固定観念を含む可能性があります。
-- 文賢側の初期ON/OFF: True
+- 参考ツール側の初期ON/OFF: True
 - キャプチャ上のON/OFF: True
 
 #### 補足
@@ -4644,7 +4644,7 @@ detection_type=exact として検出エンジン側で処理。文賢画面で�
 
 #### 実装メモ
 
-detection_type=exact として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=exact として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -4659,7 +4659,7 @@ detection_type=exact として検出エンジン側で処理。文賢画面で�
 - pattern: `Youtube|youtube|iphone|ｉＰｈｏｎｅ|instagram|Line(?!株式会社)`
 - 推奨ワード: YouTube;iPhone;Instagram;LINE
 - 表示メッセージ: 正式名称・商標表記と異なる可能性があります。
-- 文賢側の初期ON/OFF: True
+- 参考ツール側の初期ON/OFF: True
 - キャプチャ上のON/OFF: True
 
 #### 補足
@@ -4672,7 +4672,7 @@ Youtube→YouTube / iphone→iPhone
 
 #### 実装メモ
 
-detection_type=exact として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=exact として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -4686,7 +4686,7 @@ detection_type=exact として検出エンジン側で処理。文賢画面で�
 - pattern: `[ｦ-ﾟ]+`
 - 推奨ワード: 全角カタカナ
 - 表示メッセージ: 半角カタカナが含まれています。全角カタカナへの統一を検討してください。
-- 文賢側の初期ON/OFF: True
+- 参考ツール側の初期ON/OFF: True
 - キャプチャ上のON/OFF: True
 
 #### 補足
@@ -4699,7 +4699,7 @@ detection_type=exact として検出エンジン側で処理。文賢画面で�
 
 #### 実装メモ
 
-detection_type=regex として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=regex として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -4716,7 +4716,7 @@ detection_type=regex として検出エンジン側で処理。文賢画面で�
 - pattern: `しかし|また|さらに|そのため|したがって|一方|なお|ちなみに|ところが|つまり|たとえば|そして|では`
 - 推奨ワード: 文脈に合う接続語
 - 表示メッセージ: 接続語です。同じ接続語の連続使用や論理関係を確認してください。
-- 文賢側の初期ON/OFF: True
+- 参考ツール側の初期ON/OFF: True
 - キャプチャ上のON/OFF: True
 
 #### 補足
@@ -4729,7 +4729,7 @@ detection_type=regex として検出エンジン側で処理。文賢画面で�
 
 #### 実装メモ
 
-detection_type=exact として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=exact として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -4744,7 +4744,7 @@ detection_type=exact として検出エンジン側で処理。文賢画面で�
 - pattern: `が(?=、|，| |　|[^ぁ-んァ-ン一-龥]|$)`
 - 推奨ワード: 文脈により「しかし」「一方」など
 - 表示メッセージ: 接続助詞「が」です。逆接以外で使っていないか確認してください。
-- 文賢側の初期ON/OFF: True
+- 参考ツール側の初期ON/OFF: True
 - キャプチャ上のON/OFF: True
 
 #### 補足
@@ -4757,7 +4757,7 @@ detection_type=exact として検出エンジン側で処理。文賢画面で�
 
 #### 実装メモ
 
-detection_type=regex として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=regex として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -4772,7 +4772,7 @@ detection_type=regex として検出エンジン側で処理。文賢画面で�
 - pattern: `これ|それ|あれ|この|その|あの|こちら|そちら|あちら|ここ|そこ|あそこ|こう|そう`
 - 推奨ワード: 具体的な名詞
 - 表示メッセージ: 指示語です。何を指しているか前後の文脈で明確か確認してください。
-- 文賢側の初期ON/OFF: True
+- 参考ツール側の初期ON/OFF: True
 - キャプチャ上のON/OFF: True
 
 #### 補足
@@ -4785,7 +4785,7 @@ detection_type=regex として検出エンジン側で処理。文賢画面で�
 
 #### 実装メモ
 
-detection_type=exact として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=exact として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -4799,7 +4799,7 @@ detection_type=exact として検出エンジン側で処理。文賢画面で�
 - pattern: `(?:\d{1,4}[年/-]\d{1,2}[月/-]\d{1,2}日?|\d{1,2}月\d{1,2}日|\d{1,3}(?:,\d{3})+|\d{3,})`
 - 推奨ワード: 数値・日付の確認
 - 表示メッセージ: 日付または3桁以上の数字です。日時・金額・数量に誤りがないか確認してください。
-- 文賢側の初期ON/OFF: True
+- 参考ツール側の初期ON/OFF: True
 - キャプチャ上のON/OFF: True
 
 #### 補足
@@ -4812,7 +4812,7 @@ detection_type=exact として検出エンジン側で処理。文賢画面で�
 
 #### 実装メモ
 
-detection_type=regex として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=regex として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -4826,7 +4826,7 @@ detection_type=regex として検出エンジン側で処理。文賢画面で�
 - pattern: `[\[\]\(\){}=+\-*#&%$!?;:]`
 - 推奨ワード: 全角記号
 - 表示メッセージ: 半角記号が含まれています。全角記号への統一を検討してください。
-- 文賢側の初期ON/OFF: True
+- 参考ツール側の初期ON/OFF: True
 - キャプチャ上のON/OFF: True
 
 #### 補足
@@ -4839,7 +4839,7 @@ detection_type=regex として検出エンジン側で処理。文賢画面で�
 
 #### 実装メモ
 
-detection_type=regex として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=regex として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -4853,7 +4853,7 @@ detection_type=regex として検出エンジン側で処理。文賢画面で�
 - pattern: `[Ａ-Ｚａ-ｚ０-９]+`
 - 推奨ワード: 半角英数字
 - 表示メッセージ: 全角英数字が含まれています。半角英数字への統一を検討してください。
-- 文賢側の初期ON/OFF: True
+- 参考ツール側の初期ON/OFF: True
 - キャプチャ上のON/OFF: True
 
 #### 補足
@@ -4866,7 +4866,7 @@ detection_type=regex として検出エンジン側で処理。文賢画面で�
 
 #### 実装メモ
 
-detection_type=regex として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=regex として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -4880,7 +4880,7 @@ detection_type=regex として検出エンジン側で処理。文賢画面で�
 - pattern: `(?<!です)(?<!ます)(?<!だ)(?<!である)[一-龥ぁ-んァ-ンー]+(?=。|$)`
 - 推奨ワード: 文末を述語で閉じる
 - 表示メッセージ: 体言止めの可能性があります。多用していないか確認してください。
-- 文賢側の初期ON/OFF: True
+- 参考ツール側の初期ON/OFF: True
 - キャプチャ上のON/OFF: True
 
 #### 補足
@@ -4893,7 +4893,7 @@ detection_type=regex として検出エンジン側で処理。文賢画面で�
 
 #### 実装メモ
 
-detection_type=heuristic として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=heuristic として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -4907,7 +4907,7 @@ detection_type=heuristic として検出エンジン側で処理。文賢画面�
 - pattern: `comma_count>=4`
 - 推奨ワード: 文を分割する
 - 表示メッセージ: 1文の中に読点が4つ以上あります。文を分けることを検討してください。
-- 文賢側の初期ON/OFF: True
+- 参考ツール側の初期ON/OFF: True
 - キャプチャ上のON/OFF: True
 
 #### 補足
@@ -4920,7 +4920,7 @@ detection_type=heuristic として検出エンジン側で処理。文賢画面�
 
 #### 実装メモ
 
-detection_type=sentence_metric として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=sentence_metric として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -4934,7 +4934,7 @@ detection_type=sentence_metric として検出エンジン側で処理。文賢�
 - pattern: `sentence_length>=50 AND comma_count==0`
 - 推奨ワード: 適切な位置に読点を入れる
 - 表示メッセージ: 50文字以上の文に読点がありません。読みやすい位置で区切ることを検討してください。
-- 文賢側の初期ON/OFF: True
+- 参考ツール側の初期ON/OFF: True
 - キャプチャ上のON/OFF: True
 
 #### 補足
@@ -4947,7 +4947,7 @@ detection_type=sentence_metric として検出エンジン側で処理。文賢�
 
 #### 実装メモ
 
-detection_type=sentence_metric として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=sentence_metric として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -4961,7 +4961,7 @@ detection_type=sentence_metric として検出エンジン側で処理。文賢�
 - pattern: `sentence_length>=80 OR modifier_chain>=3`
 - 推奨ワード: 主語と述語を近づける
 - 表示メッセージ: 主述関係が不明瞭な可能性があります。主語と述語の距離を確認してください。
-- 文賢側の初期ON/OFF: False
+- 参考ツール側の初期ON/OFF: False
 - キャプチャ上のON/OFF: True
 
 #### 補足
@@ -4974,7 +4974,7 @@ detection_type=sentence_metric として検出エンジン側で処理。文賢�
 
 #### 実装メモ
 
-detection_type=heuristic として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=heuristic として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -4988,7 +4988,7 @@ detection_type=heuristic として検出エンジン側で処理。文賢画面�
 - pattern: `sentence_length>=100`
 - 推奨ワード: 文を分割する
 - 表示メッセージ: 一文が100文字以上あります。文を分けることを検討してください。
-- 文賢側の初期ON/OFF: True
+- 参考ツール側の初期ON/OFF: True
 - キャプチャ上のON/OFF: True
 
 #### 補足
@@ -5001,7 +5001,7 @@ detection_type=heuristic として検出エンジン側で処理。文賢画面�
 
 #### 実装メモ
 
-detection_type=sentence_metric として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=sentence_metric として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -5015,7 +5015,7 @@ detection_type=sentence_metric として検出エンジン側で処理。文賢�
 - pattern: `[。！？](?=[^\n」』）])`
 - 推奨ワード: 句点・記号のあとで改行
 - 表示メッセージ: 句点や記号のあとに改行がありません。Web向け文章では改行を検討してください。
-- 文賢側の初期ON/OFF: False
+- 参考ツール側の初期ON/OFF: False
 - キャプチャ上のON/OFF: False
 
 #### 補足
@@ -5028,7 +5028,7 @@ detection_type=sentence_metric として検出エンジン側で処理。文賢�
 
 #### 実装メモ
 
-detection_type=regex として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=regex として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -5042,7 +5042,7 @@ detection_type=regex として検出エンジン側で処理。文賢画面で�
 - pattern: `[^。！？\n]\n[^\n]`
 - 推奨ワード: 句点・記号の位置で改行
 - 表示メッセージ: 句点や記号以外で改行している可能性があります。文の途中で不自然に切れていないか確認してください。
-- 文賢側の初期ON/OFF: False
+- 参考ツール側の初期ON/OFF: False
 - キャプチャ上のON/OFF: False
 
 #### 補足
@@ -5056,7 +5056,7 @@ detection_type=regex として検出エンジン側で処理。文賢画面で�
 
 #### 実装メモ
 
-detection_type=regex として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=regex として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -5071,7 +5071,7 @@ detection_type=regex として検出エンジン側で処理。文賢画面で�
 - pattern: `alias_groups: WEB/Web/ウェブ|犬/いぬ/イヌ|Email/Eメール/メール`
 - 推奨ワード: 表記を統一
 - 表示メッセージ: 表記揺れの可能性があります。同じ意味の語の表記を統一してください。
-- 文賢側の初期ON/OFF: True
+- 参考ツール側の初期ON/OFF: True
 - キャプチャ上のON/OFF: True
 
 #### 補足
@@ -5084,7 +5084,7 @@ WEB／Web／ウェブ、いぬ／犬／イヌ
 
 #### 実装メモ
 
-detection_type=sequence として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=sequence として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -5099,7 +5099,7 @@ detection_type=sequence として検出エンジン側で処理。文賢画面�
 - pattern: `ということがわかる|することができる|することが可能|という形になります|する必要があります|していきたいと思います`
 - 推奨ワード: 簡潔な表現
 - 表示メッセージ: 冗長な表現の可能性があります。より短く書けないか確認してください。
-- 文賢側の初期ON/OFF: True
+- 参考ツール側の初期ON/OFF: True
 - キャプチャ上のON/OFF: True
 
 #### 補足
@@ -5112,7 +5112,7 @@ detection_type=sequence として検出エンジン側で処理。文賢画面�
 
 #### 実装メモ
 
-detection_type=exact として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=exact として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -5127,7 +5127,7 @@ detection_type=exact として検出エンジン側で処理。文賢画面で�
 - pattern: `(お[^、。]{0,12}){3,}|(ご[^、。]{0,12}){3,}`
 - 推奨ワード: 敬語を整理する
 - 表示メッセージ: 一文の中で丁寧語が多い可能性があります。冗長になっていないか確認してください。
-- 文賢側の初期ON/OFF: False
+- 参考ツール側の初期ON/OFF: False
 - キャプチャ上のON/OFF: False
 
 #### 補足
@@ -5140,7 +5140,7 @@ detection_type=exact として検出エンジン側で処理。文賢画面で�
 
 #### 実装メモ
 
-detection_type=heuristic として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=heuristic として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -5155,7 +5155,7 @@ detection_type=heuristic として検出エンジン側で処理。文賢画面�
 - pattern: `ないこともない|なくはない|ないわけではない|ないとは言えない`
 - 推奨ワード: 肯定表現
 - 表示メッセージ: 二重否定表現です。肯定表現に書き換えると伝わりやすくなる場合があります。
-- 文賢側の初期ON/OFF: True
+- 参考ツール側の初期ON/OFF: True
 - キャプチャ上のON/OFF: True
 
 #### 補足
@@ -5168,7 +5168,7 @@ detection_type=heuristic として検出エンジン側で処理。文賢画面�
 
 #### 実装メモ
 
-detection_type=regex として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=regex として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -5182,7 +5182,7 @@ detection_type=regex として検出エンジン側で処理。文賢画面で�
 - pattern: `(嬉しい|うれしい|悲しい|楽しい|美しい|難しい|良い|よい|悪い|高い|低い|大きい|小さい|多い|少ない)です`
 - 推奨ワード: 形容詞＋ございます／別表現
 - 表示メッセージ: 「形容詞＋です」の表現です。書き言葉では稚拙な印象にならないか確認してください。
-- 文賢側の初期ON/OFF: False
+- 参考ツール側の初期ON/OFF: False
 - キャプチャ上のON/OFF: False
 
 #### 補足
@@ -5195,7 +5195,7 @@ detection_type=regex として検出エンジン側で処理。文賢画面で�
 
 #### 実装メモ
 
-detection_type=regex として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=regex として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -5210,7 +5210,7 @@ detection_type=regex として検出エンジン側で処理。文賢画面で�
 - pattern: `same_particle_count>=3 within_sentence`
 - 推奨ワード: 助詞・語順を調整
 - 表示メッセージ: 同じ助詞が連続して使われています。読みにくくないか確認してください。
-- 文賢側の初期ON/OFF: True
+- 参考ツール側の初期ON/OFF: True
 - キャプチャ上のON/OFF: True
 
 #### 補足
@@ -5223,7 +5223,7 @@ detection_type=regex として検出エンジン側で処理。文賢画面で�
 
 #### 実装メモ
 
-detection_type=sequence として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=sequence として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -5238,7 +5238,7 @@ detection_type=sequence として検出エンジン側で処理。文賢画面�
 - pattern: `same_sentence_ending>=3 consecutive`
 - 推奨ワード: 文末表現を分散
 - 表示メッセージ: 同じ文末表現が連続しています。単調になっていないか確認してください。
-- 文賢側の初期ON/OFF: True
+- 参考ツール側の初期ON/OFF: True
 - キャプチャ上のON/OFF: True
 
 #### 補足
@@ -5251,7 +5251,7 @@ detection_type=sequence として検出エンジン側で処理。文賢画面�
 
 #### 実装メモ
 
-detection_type=sequence として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=sequence として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -5266,7 +5266,7 @@ detection_type=sequence として検出エンジン側で処理。文賢画面�
 - pattern: `御社|貴社|お世話になっております|ご苦労様です|了解しました|各位様`
 - 推奨ワード: 文脈に合う表現
 - 表示メッセージ: 状況や相手との関係性によって使い分けが必要な言葉です。
-- 文賢側の初期ON/OFF: True
+- 参考ツール側の初期ON/OFF: True
 - キャプチャ上のON/OFF: True
 
 #### 補足
@@ -5279,7 +5279,7 @@ detection_type=sequence として検出エンジン側で処理。文賢画面�
 
 #### 実装メモ
 
-detection_type=exact として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=exact として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 
@@ -5294,7 +5294,7 @@ detection_type=exact として検出エンジン側で処理。文賢画面で�
 - pattern: `use_existing_dictionary_category:ひらがなで書くほうがよい言葉`
 - 推奨ワード: ひらがな表記
 - 表示メッセージ: ひらがなで書くほうがよい可能性があります。
-- 文賢側の初期ON/OFF: True
+- 参考ツール側の初期ON/OFF: True
 - キャプチャ上のON/OFF: True
 
 #### 補足
@@ -5307,7 +5307,7 @@ detection_type=exact として検出エンジン側で処理。文賢画面で�
 
 #### 実装メモ
 
-detection_type=dictionary として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
+detection_type=dictionary として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。
 
 ---
 

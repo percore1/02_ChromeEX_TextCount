@@ -24,7 +24,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -53,7 +53,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -82,7 +82,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -111,7 +111,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -140,7 +140,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -169,7 +169,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -198,7 +198,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -227,7 +227,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -256,7 +256,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -285,7 +285,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -314,7 +314,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -343,7 +343,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -372,7 +372,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -401,7 +401,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -430,7 +430,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -459,7 +459,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -488,7 +488,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -517,7 +517,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -546,7 +546,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -575,7 +575,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -604,7 +604,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -633,7 +633,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -662,7 +662,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -691,7 +691,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -720,7 +720,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -749,7 +749,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -778,7 +778,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -807,7 +807,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -836,7 +836,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -865,7 +865,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -894,7 +894,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -923,7 +923,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -952,7 +952,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -981,7 +981,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1010,7 +1010,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1039,7 +1039,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1068,7 +1068,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1097,7 +1097,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1126,7 +1126,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1155,7 +1155,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1184,7 +1184,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1213,7 +1213,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1242,7 +1242,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1271,7 +1271,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1300,7 +1300,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1329,7 +1329,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1358,7 +1358,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1387,7 +1387,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1416,7 +1416,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1445,7 +1445,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 033相当 / ルール推敲 1/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1474,7 +1474,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1503,7 +1503,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1532,7 +1532,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1561,7 +1561,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1590,7 +1590,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1619,7 +1619,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1648,7 +1648,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1677,7 +1677,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1706,7 +1706,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1735,7 +1735,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1764,7 +1764,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1793,7 +1793,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1822,7 +1822,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1851,7 +1851,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1880,7 +1880,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1909,7 +1909,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1938,7 +1938,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1967,7 +1967,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -1996,7 +1996,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2025,7 +2025,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2054,7 +2054,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2083,7 +2083,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2112,7 +2112,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2141,7 +2141,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2170,7 +2170,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2199,7 +2199,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2228,7 +2228,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2257,7 +2257,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2286,7 +2286,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2315,7 +2315,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2344,7 +2344,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2373,7 +2373,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2402,7 +2402,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2431,7 +2431,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2460,7 +2460,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2489,7 +2489,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2518,7 +2518,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2547,7 +2547,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2576,7 +2576,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2605,7 +2605,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2634,7 +2634,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2663,7 +2663,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2692,7 +2692,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2721,7 +2721,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2750,7 +2750,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2779,7 +2779,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2808,7 +2808,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2837,7 +2837,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2866,7 +2866,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2895,7 +2895,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 034相当 / ルール推敲 2/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2924,7 +2924,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2953,7 +2953,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -2982,7 +2982,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3011,7 +3011,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3040,7 +3040,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3069,7 +3069,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3098,7 +3098,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3127,7 +3127,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3156,7 +3156,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3185,7 +3185,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3214,7 +3214,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3243,7 +3243,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3272,7 +3272,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3301,7 +3301,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3330,7 +3330,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3359,7 +3359,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3388,7 +3388,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3417,7 +3417,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3446,7 +3446,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3475,7 +3475,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3504,7 +3504,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3533,7 +3533,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3562,7 +3562,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3591,7 +3591,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3620,7 +3620,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3649,7 +3649,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3678,7 +3678,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3707,7 +3707,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3736,7 +3736,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3765,7 +3765,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3794,7 +3794,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3823,7 +3823,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3852,7 +3852,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3881,7 +3881,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3910,7 +3910,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3939,7 +3939,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3968,7 +3968,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -3997,7 +3997,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4026,7 +4026,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4055,7 +4055,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4084,7 +4084,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4113,7 +4113,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4142,7 +4142,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4171,7 +4171,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4200,7 +4200,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4229,7 +4229,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4258,7 +4258,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4287,7 +4287,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4316,7 +4316,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4345,7 +4345,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 035相当 / ルール推敲 3/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4374,7 +4374,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 036相当 / ルール推敲 4/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4403,7 +4403,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 036相当 / ルール推敲 4/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4432,7 +4432,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 036相当 / ルール推敲 4/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4461,7 +4461,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 036相当 / ルール推敲 4/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4490,7 +4490,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 036相当 / ルール推敲 4/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4519,7 +4519,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 036相当 / ルール推敲 4/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4548,7 +4548,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 036相当 / ルール推敲 4/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4577,7 +4577,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 036相当 / ルール推敲 4/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4606,7 +4606,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 036相当 / ルール推敲 4/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4635,7 +4635,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 036相当 / ルール推敲 4/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4664,7 +4664,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 036相当 / ルール推敲 4/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4693,7 +4693,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 036相当 / ルール推敲 4/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4722,7 +4722,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 036相当 / ルール推敲 4/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4751,7 +4751,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 036相当 / ルール推敲 4/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4780,7 +4780,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 036相当 / ルール推敲 4/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4809,7 +4809,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 036相当 / ルール推敲 4/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4838,7 +4838,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 036相当 / ルール推敲 4/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4867,7 +4867,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 036相当 / ルール推敲 4/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4896,7 +4896,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 036相当 / ルール推敲 4/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4925,7 +4925,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 036相当 / ルール推敲 4/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4954,7 +4954,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "FireShot Capture 036相当 / ルール推敲 4/4ページ",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -4983,7 +4983,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "貼り付けられたHTMLソース / チェックリスト画面",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -5012,7 +5012,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "貼り付けられたHTMLソース / チェックリスト画面",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -5041,7 +5041,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "貼り付けられたHTMLソース / チェックリスト画面",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -5070,7 +5070,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "貼り付けられたHTMLソース / チェックリスト画面",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -5099,7 +5099,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "貼り付けられたHTMLソース / チェックリスト画面",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -5128,7 +5128,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "貼り付けられたHTMLソース / チェックリスト画面",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -5157,7 +5157,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "貼り付けられたHTMLソース / チェックリスト画面",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -5186,7 +5186,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "貼り付けられたHTMLソース / チェックリスト画面",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -5200,7 +5200,7 @@
     "morphological_setting": "",
     "check_item": "読み手に共感してもらうための「感情表現」は意識していますか？",
     "basic_comment_preview": "",
-    "explanation": "たとえば「話し言葉」が使える文章であれば、以下のような「話し言葉」を入れると、あなたの感情が相手に伝わりやすくなり、相手が共感しやすくなります。\n感情が見えない文章には、人は共感しにくいものです。\n共感してほしいのであれば、あなたの感情が宿った文章を書きましょう。\n\n●例文\nあなたは文章を書いているとき、「もっと語彙力があればなあ・・・」と肩を落としたことはありませんか？\n\n\nまた、上記の「話し言葉」はあくまでも、感情を伝えるひとつの方法です。\n話し言葉を使わずとも、文賢の【文章表現】機能を使えば、感情の伝わる文章に仕上げることは難しくありません。\n\nたとえば、文賢の【文章表現】機能には、「好き」という感情を表すための表現がたくさん用意されています。\n\n\n●文章表現の例\n・笑顔を抑えきれない\n・うれしそうな顔をほこらばせる\n・相手のことで頭が一杯になる\n・ハートを射貫かれる\n・嬉しすぎて鳥肌が立つ\n・語り始めると止まらない\n・うれしすぎて大声で叫びたくなる\n・心が奪われるほどの\n\n\n文賢の【文章表現】機能はあくまでも、ひとつの感情表現を取り上げたものです。\nあなたなりの感情表現を考えてみてくださいね。",
+    "explanation": "たとえば「話し言葉」が使える文章であれば、以下のような「話し言葉」を入れると、あなたの感情が相手に伝わりやすくなり、相手が共感しやすくなります。\n感情が見えない文章には、人は共感しにくいものです。\n共感してほしいのであれば、あなたの感情が宿った文章を書きましょう。\n\n●例文\nあなたは文章を書いているとき、「もっと語彙力があればなあ・・・」と肩を落としたことはありませんか？\n\n\nまた、上記の「話し言葉」はあくまでも、感情を伝えるひとつの方法です。\n話し言葉を使わずとも、参考ツールの【文章表現】機能を使えば、感情の伝わる文章に仕上げることは難しくありません。\n\nたとえば、参考ツールの【文章表現】機能には、「好き」という感情を表すための表現がたくさん用意されています。\n\n\n●文章表現の例\n・笑顔を抑えきれない\n・うれしそうな顔をほこらばせる\n・相手のことで頭が一杯になる\n・ハートを射貫かれる\n・嬉しすぎて鳥肌が立つ\n・語り始めると止まらない\n・うれしすぎて大声で叫びたくなる\n・心が奪われるほどの\n\n\n参考ツールの【文章表現】機能はあくまでも、ひとつの感情表現を取り上げたものです。\nあなたなりの感情表現を考えてみてくださいね。",
     "admin_memo": "",
     "source_file": "貼り付けられたHTMLソース / チェックリスト画面",
     "source_page": "",
@@ -5215,7 +5215,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "貼り付けられたHTMLソース / チェックリスト画面",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -5244,7 +5244,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "貼り付けられたHTMLソース / チェックリスト画面",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -5273,7 +5273,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "貼り付けられたHTMLソース / チェックリスト画面",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -5302,7 +5302,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "貼り付けられたHTMLソース / チェックリスト画面",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -5331,7 +5331,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "貼り付けられたHTMLソース / チェックリスト画面",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -5360,7 +5360,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "貼り付けられたHTMLソース / チェックリスト画面",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -5389,7 +5389,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "貼り付けられたHTMLソース / チェックリスト画面",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -5418,7 +5418,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "貼り付けられたHTMLソース / チェックリスト画面",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -5447,7 +5447,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "貼り付けられたHTMLソース / チェックリスト画面",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -5476,7 +5476,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "貼り付けられたHTMLソース / チェックリスト画面",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -5505,7 +5505,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "貼り付けられたHTMLソース / チェックリスト画面",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -5534,7 +5534,7 @@
     "examples": "",
     "source_url": "",
     "source_from": "貼り付けられたHTMLソース / チェックリスト画面",
-    "default_enabled_in_bunken": "",
+    "default_enabled": "",
     "screenshot_enabled": "",
     "implementation_note": "既存辞書ルール。keywordを文字列一致または安全にエスケープした正規表現として検出する。"
   },
@@ -5553,7 +5553,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "proofreading",
     "severity": "error",
     "detection_type": "exact",
@@ -5561,11 +5561,11 @@
     "message": "表記の誤りやタイプミスの可能性があります。",
     "examples": "こんにちわ→こんにちは / よろしくお願いしmす→よろしくお願いします",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": true,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": true,
     "screenshot_enabled": true,
-    "implementation_note": "detection_type=exact として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=exact として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 193,
@@ -5582,7 +5582,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "proofreading",
     "severity": "warning",
     "detection_type": "exact",
@@ -5590,11 +5590,11 @@
     "message": "誤った意味で使われやすい言葉です。文脈に合っているか確認してください。",
     "examples": "役不足 / 確信犯",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": true,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": true,
     "screenshot_enabled": true,
-    "implementation_note": "detection_type=exact として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=exact として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 194,
@@ -5611,7 +5611,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "proofreading",
     "severity": "warning",
     "detection_type": "regex",
@@ -5619,11 +5619,11 @@
     "message": "機種依存文字の可能性があります。文字化けしない表記に置き換えてください。",
     "examples": "① / ㈱ / Ⅰ / ㎝",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": true,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": true,
     "screenshot_enabled": true,
-    "implementation_note": "detection_type=regex として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=regex として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 195,
@@ -5640,7 +5640,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "proofreading",
     "severity": "notice",
     "detection_type": "exact",
@@ -5648,11 +5648,11 @@
     "message": "誤変換しやすい言葉です。文脈に合う漢字か確認してください。",
     "examples": "時季／時期／時機",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": true,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": true,
     "screenshot_enabled": true,
-    "implementation_note": "detection_type=exact として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=exact として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 196,
@@ -5669,7 +5669,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "proofreading",
     "severity": "error",
     "detection_type": "exact",
@@ -5677,11 +5677,11 @@
     "message": "日本語として誤り、または不自然な可能性があります。",
     "examples": "的を得る→的を射る / とんでもありません→とんでもないです",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": true,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": true,
     "screenshot_enabled": true,
-    "implementation_note": "detection_type=exact として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=exact として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 197,
@@ -5698,7 +5698,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "proofreading",
     "severity": "notice",
     "detection_type": "regex",
@@ -5706,11 +5706,11 @@
     "message": "話し言葉の可能性があります。媒体に合わせて書き言葉へ調整してください。",
     "examples": "ちゃんと→きちんと / ちょっと→少し",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": true,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": true,
     "screenshot_enabled": true,
-    "implementation_note": "detection_type=regex として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=regex として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 198,
@@ -5727,7 +5727,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "proofreading",
     "severity": "critical",
     "detection_type": "dictionary",
@@ -5735,11 +5735,11 @@
     "message": "読み手に不快感を与える可能性がある表現です。社内辞書に登録した語句を確認してください。",
     "examples": "社内NGワード辞書で管理",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": true,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": true,
     "screenshot_enabled": true,
-    "implementation_note": "detection_type=dictionary として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=dictionary として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 199,
@@ -5756,7 +5756,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "proofreading",
     "severity": "warning",
     "detection_type": "exact",
@@ -5764,11 +5764,11 @@
     "message": "さ入れ表現の可能性があります。",
     "examples": "読まさせる→読ませる",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": false,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": false,
     "screenshot_enabled": false,
-    "implementation_note": "detection_type=exact として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=exact として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 200,
@@ -5785,7 +5785,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "proofreading",
     "severity": "error",
     "detection_type": "exact",
@@ -5793,11 +5793,11 @@
     "message": "二重敬語または誤った敬語の可能性があります。",
     "examples": "仰られる→おっしゃる / ご持参ください→お持ちください",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": true,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": true,
     "screenshot_enabled": true,
-    "implementation_note": "detection_type=exact として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=exact として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 201,
@@ -5814,7 +5814,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "proofreading",
     "severity": "warning",
     "detection_type": "exact",
@@ -5822,11 +5822,11 @@
     "message": "意味が重複している可能性があります。",
     "examples": "一番最初→最初 / 後で後悔する→後悔する",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": true,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": true,
     "screenshot_enabled": true,
-    "implementation_note": "detection_type=exact として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=exact として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 202,
@@ -5843,7 +5843,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "proofreading",
     "severity": "warning",
     "detection_type": "exact",
@@ -5851,11 +5851,11 @@
     "message": "性別や職業に関する固定観念を含む可能性があります。",
     "examples": "ビジネスマン→ビジネスパーソン / 看護婦→看護師",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": true,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": true,
     "screenshot_enabled": true,
-    "implementation_note": "detection_type=exact として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=exact として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 203,
@@ -5872,7 +5872,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "proofreading",
     "severity": "warning",
     "detection_type": "exact",
@@ -5880,11 +5880,11 @@
     "message": "正式名称・商標表記と異なる可能性があります。",
     "examples": "Youtube→YouTube / iphone→iPhone",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": true,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": true,
     "screenshot_enabled": true,
-    "implementation_note": "detection_type=exact として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=exact として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 204,
@@ -5901,7 +5901,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "proofreading",
     "severity": "warning",
     "detection_type": "regex",
@@ -5909,11 +5909,11 @@
     "message": "半角カタカナが含まれています。全角カタカナへの統一を検討してください。",
     "examples": "ﾁｪｯｸ→チェック",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": true,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": true,
     "screenshot_enabled": true,
-    "implementation_note": "detection_type=regex として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=regex として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 205,
@@ -5930,7 +5930,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "review",
     "severity": "info",
     "detection_type": "exact",
@@ -5938,11 +5938,11 @@
     "message": "接続語です。同じ接続語の連続使用や論理関係を確認してください。",
     "examples": "しかし / また / そのため",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": true,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": true,
     "screenshot_enabled": true,
-    "implementation_note": "detection_type=exact として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=exact として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 206,
@@ -5959,7 +5959,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "review",
     "severity": "info",
     "detection_type": "regex",
@@ -5967,11 +5967,11 @@
     "message": "接続助詞「が」です。逆接以外で使っていないか確認してください。",
     "examples": "〜ですが、 / 〜したが、",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": true,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": true,
     "screenshot_enabled": true,
-    "implementation_note": "detection_type=regex として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=regex として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 207,
@@ -5988,7 +5988,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "review",
     "severity": "info",
     "detection_type": "exact",
@@ -5996,11 +5996,11 @@
     "message": "指示語です。何を指しているか前後の文脈で明確か確認してください。",
     "examples": "これ / それ / その",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": true,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": true,
     "screenshot_enabled": true,
-    "implementation_note": "detection_type=exact として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=exact として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 208,
@@ -6017,7 +6017,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "review",
     "severity": "info",
     "detection_type": "regex",
@@ -6025,11 +6025,11 @@
     "message": "日付または3桁以上の数字です。日時・金額・数量に誤りがないか確認してください。",
     "examples": "3月6日 / 1,980円 / 1000",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": true,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": true,
     "screenshot_enabled": true,
-    "implementation_note": "detection_type=regex として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=regex として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 209,
@@ -6046,7 +6046,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "review",
     "severity": "notice",
     "detection_type": "regex",
@@ -6054,11 +6054,11 @@
     "message": "半角記号が含まれています。全角記号への統一を検討してください。",
     "examples": "[ ] / = / !",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": true,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": true,
     "screenshot_enabled": true,
-    "implementation_note": "detection_type=regex として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=regex として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 210,
@@ -6075,7 +6075,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "review",
     "severity": "notice",
     "detection_type": "regex",
@@ -6083,11 +6083,11 @@
     "message": "全角英数字が含まれています。半角英数字への統一を検討してください。",
     "examples": "ＡＢＣ→ABC / １２３→123",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": true,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": true,
     "screenshot_enabled": true,
-    "implementation_note": "detection_type=regex として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=regex として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 211,
@@ -6104,7 +6104,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "review",
     "severity": "info",
     "detection_type": "heuristic",
@@ -6112,11 +6112,11 @@
     "message": "体言止めの可能性があります。多用していないか確認してください。",
     "examples": "本日のテーマは売上改善。",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": true,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": true,
     "screenshot_enabled": true,
-    "implementation_note": "detection_type=heuristic として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=heuristic として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 212,
@@ -6133,7 +6133,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "review",
     "severity": "warning",
     "detection_type": "sentence_metric",
@@ -6141,11 +6141,11 @@
     "message": "1文の中に読点が4つ以上あります。文を分けることを検討してください。",
     "examples": "、が4個以上ある文",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": true,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": true,
     "screenshot_enabled": true,
-    "implementation_note": "detection_type=sentence_metric として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=sentence_metric として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 213,
@@ -6162,7 +6162,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "review",
     "severity": "warning",
     "detection_type": "sentence_metric",
@@ -6170,11 +6170,11 @@
     "message": "50文字以上の文に読点がありません。読みやすい位置で区切ることを検討してください。",
     "examples": "50文字以上かつ「、」がない文",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": true,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": true,
     "screenshot_enabled": true,
-    "implementation_note": "detection_type=sentence_metric として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=sentence_metric として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 214,
@@ -6191,7 +6191,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "review",
     "severity": "notice",
     "detection_type": "heuristic",
@@ -6199,11 +6199,11 @@
     "message": "主述関係が不明瞭な可能性があります。主語と述語の距離を確認してください。",
     "examples": "主語と述語が離れている長文",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": false,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": false,
     "screenshot_enabled": true,
-    "implementation_note": "detection_type=heuristic として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=heuristic として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 215,
@@ -6220,7 +6220,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "review",
     "severity": "warning",
     "detection_type": "sentence_metric",
@@ -6228,11 +6228,11 @@
     "message": "一文が100文字以上あります。文を分けることを検討してください。",
     "examples": "100文字以上の文",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": true,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": true,
     "screenshot_enabled": true,
-    "implementation_note": "detection_type=sentence_metric として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=sentence_metric として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 216,
@@ -6249,7 +6249,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "review",
     "severity": "notice",
     "detection_type": "regex",
@@ -6257,11 +6257,11 @@
     "message": "句点や記号のあとに改行がありません。Web向け文章では改行を検討してください。",
     "examples": "。次の文 / ！次の文",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": false,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": false,
     "screenshot_enabled": false,
-    "implementation_note": "detection_type=regex として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=regex として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 217,
@@ -6278,7 +6278,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "review",
     "severity": "notice",
     "detection_type": "regex",
@@ -6286,11 +6286,11 @@
     "message": "句点や記号以外で改行している可能性があります。文の途中で不自然に切れていないか確認してください。",
     "examples": "文の途中\nで改行",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": false,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": false,
     "screenshot_enabled": false,
-    "implementation_note": "detection_type=regex として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=regex として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 218,
@@ -6307,7 +6307,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "review",
     "severity": "warning",
     "detection_type": "sequence",
@@ -6315,11 +6315,11 @@
     "message": "表記揺れの可能性があります。同じ意味の語の表記を統一してください。",
     "examples": "WEB／Web／ウェブ、いぬ／犬／イヌ",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": true,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": true,
     "screenshot_enabled": true,
-    "implementation_note": "detection_type=sequence として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=sequence として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 219,
@@ -6336,7 +6336,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "review",
     "severity": "warning",
     "detection_type": "exact",
@@ -6344,11 +6344,11 @@
     "message": "冗長な表現の可能性があります。より短く書けないか確認してください。",
     "examples": "することができる→できる",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": true,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": true,
     "screenshot_enabled": true,
-    "implementation_note": "detection_type=exact として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=exact として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 220,
@@ -6365,7 +6365,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "review",
     "severity": "notice",
     "detection_type": "heuristic",
@@ -6373,11 +6373,11 @@
     "message": "一文の中で丁寧語が多い可能性があります。冗長になっていないか確認してください。",
     "examples": "お申し込みのお手続きのお知らせ",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": false,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": false,
     "screenshot_enabled": false,
-    "implementation_note": "detection_type=heuristic として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=heuristic として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 221,
@@ -6394,7 +6394,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "review",
     "severity": "notice",
     "detection_type": "regex",
@@ -6402,11 +6402,11 @@
     "message": "二重否定表現です。肯定表現に書き換えると伝わりやすくなる場合があります。",
     "examples": "できないこともない→できる場合がある",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": true,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": true,
     "screenshot_enabled": true,
-    "implementation_note": "detection_type=regex として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=regex として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 222,
@@ -6423,7 +6423,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "review",
     "severity": "notice",
     "detection_type": "regex",
@@ -6431,11 +6431,11 @@
     "message": "「形容詞＋です」の表現です。書き言葉では稚拙な印象にならないか確認してください。",
     "examples": "うれしいです / 難しいです",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": false,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": false,
     "screenshot_enabled": false,
-    "implementation_note": "detection_type=regex として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=regex として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 223,
@@ -6452,7 +6452,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "review",
     "severity": "warning",
     "detection_type": "sequence",
@@ -6460,11 +6460,11 @@
     "message": "同じ助詞が連続して使われています。読みにくくないか確認してください。",
     "examples": "当社の新商品の開発の進捗報告",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": true,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": true,
     "screenshot_enabled": true,
-    "implementation_note": "detection_type=sequence として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=sequence として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 224,
@@ -6481,7 +6481,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "review",
     "severity": "warning",
     "detection_type": "sequence",
@@ -6489,11 +6489,11 @@
     "message": "同じ文末表現が連続しています。単調になっていないか確認してください。",
     "examples": "です。です。です。",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": true,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": true,
     "screenshot_enabled": true,
-    "implementation_note": "detection_type=sequence として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=sequence として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 225,
@@ -6510,7 +6510,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "review",
     "severity": "notice",
     "detection_type": "exact",
@@ -6518,11 +6518,11 @@
     "message": "状況や相手との関係性によって使い分けが必要な言葉です。",
     "examples": "御社／貴社 / ご苦労様です",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": true,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": true,
     "screenshot_enabled": true,
-    "implementation_note": "detection_type=exact として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=exact として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   },
   {
     "id": 226,
@@ -6539,7 +6539,7 @@
     "source_file": "image(69).png / ルール校正・ルール推敲カテゴリ画面",
     "source_page": "",
     "source_row": "",
-    "extraction_note": "文賢公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
+    "extraction_note": "参考ツール公式ヘルプURLと添付キャプチャからカテゴリを抽出し、Chrome拡張で検出しやすい形に再設計。",
     "rule_type": "review",
     "severity": "notice",
     "detection_type": "dictionary",
@@ -6547,10 +6547,10 @@
     "message": "ひらがなで書くほうがよい可能性があります。",
     "examples": "上手く→うまく / 繋がる→つながる",
     "auto_detectable": true,
-    "source_url": "https://help.bun-ken.net/check-tool-detail/",
-    "source_from": "文賢公式ヘルプURL + 添付キャプチャ",
-    "default_enabled_in_bunken": true,
+    "source_url": "",
+    "source_from": "参考ツール公式ヘルプURL + 添付キャプチャ",
+    "default_enabled": true,
     "screenshot_enabled": true,
-    "implementation_note": "detection_type=dictionary として検出エンジン側で処理。文賢画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
+    "implementation_note": "detection_type=dictionary として検出エンジン側で処理。参考ツール画面で初期OFFの項目も、このデータでは enabled=true として動作対象にしている。必要ならUIトグルで制御する。"
   }
 ]
