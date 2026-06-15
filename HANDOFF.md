@@ -1,33 +1,31 @@
 # 引き継ぎドキュメント — TextCount Webアプリ
 
 別エージェント／別担当が単独で作業を継続するための現状サマリ（最新の単一ソース）。
-**最終更新：2026-06-15 / ブランチ `feature/webapp-migration` / 本番稼働中**
+**最終更新：2026-06-16 / ブランチ `feature/webapp-migration` / 本番稼働中**
 
-> **デプロイ運用が変わりました（2026-06-15）**：手動 `npx vercel --prod` → **GitHub 連携の自動デプロイ**。
-> `feature/webapp-migration` に push / PR マージするだけで本番反映されます。詳細は §3「本番・接続情報」と §5「開発フロー／デプロイ」を参照。
+> 📊 **まず全体像はビジュアルで**：[`design/roadmap.html`](design/roadmap.html) をブラウザで開くと、ロードマップ・進捗・「次にやること」が一目で分かります。
+> **デプロイ**：GitHub 自動デプロイ（`feature/webapp-migration` に push で本番反映）。**リポジトリは public**（Hobby×private のデプロイ制限回避のため。秘密キーはコミットされていない）。
 
 ---
 
-## ⏭ 申し送り：次にやること（未完了の確認）
+## ⏭ 申し送り：次にやること（未完了の対応）
 
-> ユーザー側で **Redirect URLs 追加（`https://textcount.vercel.app/**`・`http://localhost:3000/**`）は完了済み**。
-> **本番デプロイは GitHub 自動デプロイに移行済み**（Production Branch=`feature/webapp-migration` / Root Directory=`web`）。残るは下の通し確認。
+> 本番は稼働中。Phase 1〜5a＋5b（利用ゲート）＋ルール一覧/追加＋パスワード再設定まで**完了・本番検証済み**。残りは下記2点の有効化のみ。
 
-### A. パスワード再設定の通し確認（最優先・本番）
-1. [ ] `https://textcount.vercel.app/login` →「**パスワードを忘れた方はこちら**」
-2. [ ] 登録メールアドレスを入力 → 「再設定メールを送る」→ 送信完了表示
-3. [ ] 届いたメールのリンクを開く → `/auth/confirm` 経由で **`/account/update-password`** が開く
-4. [ ] 新パスワード（8文字以上）×2 を入力 → 更新 → ツール `/` にログイン状態で遷移
-5. [ ] いったんログアウト → **新パスワードで再ログインできる**
-- うまくいかない時の確認：Supabase の Redirect URLs に本番ドメインが入っているか／本番が再デプロイ済みか／メールのリンク先が本番ドメインか（迷惑メールも確認）。リンクが無効なら `/account/update-password` は「リンクから開いてください」を表示する。
+### 🔴 1. 共有失効(5d)を有効化する（DB実行）
+- Supabase → SQL Editor で **`web/supabase/phase5d-share-revoke.sql`** を実行。
+- → `/shares` の一覧・**失効/復活**が使えるようになる（現在は「要マイグレーション」表示にフォールバック中。`shares.revoked` 列が未作成）。
 
-### B. 管理画面・ルールの本番確認
-6. [ ] `/admin` で会員一覧・発行が動く（service_role 経由・permission denied が出ないこと）。発行後の**初期パスワードは「閉じるまで消えないパネル＋コピーボタン」で表示**される（2026-06-15 修正 / PR #1）。
-7. [ ] `/admin/rules` でカスタムルール追加 → `/rules` と校閲チェックに反映される
-8. [ ] `/request-access` の申請 → `/admin` で承認・却下できる
+### 🟡 2. Stripe を接続する（任意・学習用 / 5c）
+- [`web/SETUP-stripe.md`](web/SETUP-stripe.md) に沿って商品・価格を作成し、Vercel に `STRIPE_SECRET_KEY` / `STRIPE_WEBHOOK_SECRET` / `STRIPE_PRICE_ID` を登録。
+- → 月額課金の決済フロー（checkout→webhookで `plan=paid`）が有効化。未設定時は `/billing` が「準備中」表示（正常）。
 
-### C. 次の開発フェーズ
-9. **5b エンタイトルメント**：`status`/`plan` で実際に利用可否をゲート（suspended/未払いをブロックし `/billing` へ）。→ 詳細は本書 §7・§10。
+### （将来）商用化の段階で Vercel を Pro に
+- Hobby は非商用・private共同作業不可。商用開始時に Pro（$20/月〜）へ。現在は public 化で運用中。
+
+### 検証メモ（2026-06-16）
+- ✅ **5b 利用ゲート**：本番で実挙動確認済み（plan=none / suspended → `/billing`、contract_free → ツール表示）。
+- ✅ 参考元ツール名「文賢/bun-ken」を全ファイル・本番配信JSONから除去（226ルールは無傷）。
 
 ---
 
@@ -53,10 +51,10 @@
 | 5(追加) | 校閲ルール一覧(利用者) ＋ カスタムルール追加(管理者) | ✅ 完了 |
 | 5(追加) | パスワード再設定フロー（メール） | ✅ 完了 |
 | 5(追加) | 会員発行時の初期パスワード表示を「消えない＋コピー可能」に修正（PR #1） | ✅ 完了・本番反映済み |
-| 運用 | Vercel を GitHub 自動デプロイ化（手動CLI廃止） | ✅ 完了（2026-06-15） |
-| 5b | エンタイトルメント（status/planで利用ゲート→/billing） | ✅ コード完了・proxyで判定（admin/staffは素通り）。**要・本番確認** |
-| 5c | Stripe 月額課金（有料）＋無料契約区分 | 🟡 スキャフォールド済み（checkout/webhook/portal/billingボタン）・**要 Stripe アカウント＋env**（[`web/SETUP-stripe.md`](web/SETUP-stripe.md)） |
-| 5d | 共有URLの一覧・失効(revoke) | ✅ コード完了（/shares・失効）・**要マイグレーション `phase5d-share-revoke.sql`** |
+| 運用 | Vercel を GitHub 自動デプロイ化・リポジトリ public 化（Hobby制限回避） | ✅ 完了 |
+| 5b | エンタイトルメント（status/planで利用ゲート→/billing） | ✅ **完了・本番検証済み**（plan=none/suspended→/billing、contract_free→ツール） |
+| 5c | Stripe 月額課金（有料）＋無料契約区分 | 🟡 スキャフォールド配信済み（checkout/webhook/portal/billingボタン）・**要 Stripe アカウント＋env**（[`web/SETUP-stripe.md`](web/SETUP-stripe.md)） |
+| 5d | 共有URLの一覧・失効(revoke) | 🟡 コード配信済み・**要マイグレーション `phase5d-share-revoke.sql`**（実行で有効化） |
 | 5e | コメントのリアルタイム反映 | ⬜ 未着手 |
 | 5f | PWA / コンパニオン拡張 | ⬜ 未着手 |
 

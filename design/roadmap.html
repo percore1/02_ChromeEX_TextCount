@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TextCount 開発ロードマップ & 進捗</title>
+<style>
+  :root{
+    --bg:#FFFFFF; --ink:#262626; --ink-2:#3A3A3A; --ink-soft:#6B6B6B; --ink-faint:#9A9A9A;
+    --line:#E9E9E9; --line-2:#DCDCDC; --hover:#F6F6F6;
+    --shu:#D6402F; --shu-deep:#B5301F; --shu-wash:#FBEDEA;
+    --amber:#B5790C; --amber-wash:#FBF1DC;
+    --r:14px; --r-sm:9px; --ease:cubic-bezier(.22,.61,.36,1);
+    --gothic:"Meiryo","メイリオ","Hiragino Kaku Gothic ProN","Hiragino Sans","Yu Gothic UI","Segoe UI",system-ui,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--gothic);color:var(--ink);background:var(--bg);line-height:1.7;font-size:14px;-webkit-font-smoothing:antialiased}
+  .wrap{max-width:1000px;margin:0 auto;padding:28px 24px 70px}
+  .fade{opacity:0;transform:translateY(12px);animation:up .6s var(--ease) forwards}
+  .d1{animation-delay:.05s}.d2{animation-delay:.13s}.d3{animation-delay:.21s}.d4{animation-delay:.29s}.d5{animation-delay:.37s}.d6{animation-delay:.45s}
+  @keyframes up{to{opacity:1;transform:translateY(0)}}
+
+  /* header */
+  .head{display:flex;align-items:center;gap:14px;padding-bottom:18px;border-bottom:1px solid var(--line);margin-bottom:22px}
+  .seal{width:44px;height:44px;border-radius:11px;flex:none;background:var(--shu);color:#fff;display:grid;place-items:center;
+    font-weight:700;font-size:22px;box-shadow:0 0 0 1px rgba(255,255,255,.3) inset;position:relative}
+  .seal::after{content:"";position:absolute;inset:5px;border:1px solid rgba(255,255,255,.4);border-radius:7px}
+  .head h1{font-size:21px;font-weight:700;letter-spacing:.03em}
+  .head .sub{font-size:11.5px;color:var(--ink-faint);letter-spacing:.1em;font-weight:700}
+  .head .spacer{flex:1}
+  .live{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:700;color:#1d7a4d;
+    border:1px solid #BfE3CE;background:#EAF7F0;padding:8px 14px;border-radius:999px}
+  .live .dot{width:8px;height:8px;border-radius:50%;background:#23A35F;box-shadow:0 0 0 3px rgba(35,163,95,.2);animation:pulse 1.8s infinite}
+  @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(35,163,95,.4)}70%{box-shadow:0 0 0 6px rgba(35,163,95,0)}100%{box-shadow:0 0 0 0 rgba(35,163,95,0)}}
+
+  /* summary band */
+  .band{display:grid;grid-template-columns:1.3fr 1fr;gap:16px;margin-bottom:22px}
+  @media(max-width:760px){.band{grid-template-columns:1fr}.head{flex-wrap:wrap}}
+  .card{border:1px solid var(--line-2);border-radius:var(--r);padding:18px 20px;background:#fff}
+  .card h2{font-size:13px;font-weight:700;color:var(--ink-faint);letter-spacing:.08em;margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  .card h2::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--shu)}
+  .prog-num{font-size:40px;font-weight:700;letter-spacing:-.02em}
+  .prog-num small{font-size:15px;color:var(--ink-soft);font-weight:700;margin-left:4px}
+  .prog-cap{font-size:12.5px;color:var(--ink-soft);margin:2px 0 14px}
+  .bar{height:12px;border-radius:99px;background:#F0F0F0;overflow:hidden;display:flex}
+  .bar i{height:100%;display:block}
+  .bar .done{background:var(--shu)}
+  .bar .wait{background:repeating-linear-gradient(45deg,#F0C36B,#F0C36B 5px,#EBB94F 5px,#EBB94F 10px)}
+  .legend{display:flex;gap:16px;margin-top:10px;font-size:11.5px;color:var(--ink-soft);flex-wrap:wrap}
+  .legend span{display:flex;align-items:center;gap:6px}
+  .sw{width:13px;height:11px;border-radius:3px;display:inline-block}
+  .facts{font-size:12.5px}
+  .facts .row{display:flex;justify-content:space-between;gap:10px;padding:6px 0;border-bottom:1px dashed var(--line)}
+  .facts .row:last-child{border-bottom:0}
+  .facts .k{color:var(--ink-faint);font-weight:700;white-space:nowrap}
+  .facts .v{color:var(--ink-2);text-align:right;word-break:break-all}
+  .facts a{color:var(--shu-deep);font-weight:700;text-decoration:none}
+
+  /* next actions */
+  .next{border:1px solid var(--shu);border-radius:var(--r);background:var(--shu-wash);padding:18px 20px;margin-bottom:24px}
+  .next h2{font-size:15px;font-weight:700;color:var(--shu-deep);margin-bottom:12px;display:flex;align-items:center;gap:8px}
+  .next .badge{font-size:10px;color:#fff;background:var(--shu);border-radius:999px;padding:2px 9px}
+  .todo{display:flex;gap:11px;padding:11px 0;border-top:1px solid #F3D2CB}
+  .todo:first-of-type{border-top:0}
+  .todo .no{width:24px;height:24px;border-radius:7px;background:var(--shu);color:#fff;font-weight:700;font-size:12px;display:grid;place-items:center;flex:none}
+  .todo .t{font-size:13.5px;font-weight:700;margin-bottom:2px}
+  .todo .d{font-size:12px;color:var(--ink-soft)}
+  .todo code{background:#fff;border:1px solid #F0D2CC;padding:1px 6px;border-radius:5px;font-size:11.5px;color:var(--shu-deep)}
+  .todo .opt{font-size:10px;color:var(--amber);border:1px solid #E8CF92;background:var(--amber-wash);border-radius:5px;padding:1px 6px;margin-left:6px}
+
+  /* roadmap */
+  .sec-title{font-size:15px;font-weight:700;margin:6px 0 14px;display:flex;align-items:center;gap:9px}
+  .sec-title .line{width:16px;height:2px;background:var(--shu);border-radius:2px}
+  .phase{display:flex;gap:14px;padding:14px 16px;border:1px solid var(--line);border-radius:var(--r-sm);margin-bottom:9px;background:#fff;
+    border-left:3px solid var(--line-2);transition:transform .2s var(--ease),box-shadow .2s var(--ease)}
+  .phase:hover{transform:translateY(-1px);box-shadow:0 10px 22px -18px rgba(0,0,0,.5)}
+  .phase.ok{border-left-color:var(--shu)}
+  .phase.wait{border-left-color:#E0A93C}
+  .phase .pn{width:40px;flex:none;font-weight:700;font-size:12px;color:var(--ink-faint);padding-top:2px}
+  .phase .body{flex:1;min-width:0}
+  .phase .pt{font-size:14px;font-weight:700;display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+  .phase .pd{font-size:12px;color:var(--ink-soft);margin-top:3px}
+  .chip{font-size:10.5px;font-weight:700;padding:3px 9px;border-radius:999px;flex:none}
+  .chip.ok{background:var(--shu);color:#fff}
+  .chip.wait{background:var(--amber-wash);color:var(--amber);border:1px solid #E8CF92}
+  .chip.todo{background:#F1F1F1;color:var(--ink-faint)}
+
+  .docs{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+  .docs a{font-size:12px;font-weight:700;color:var(--ink-2);border:1px solid var(--line-2);background:#fff;padding:7px 13px;border-radius:8px;text-decoration:none}
+  .docs a:hover{border-color:var(--shu);color:var(--shu-deep)}
+  .foot{margin-top:26px;font-size:11px;color:var(--ink-faint);text-align:center}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <!-- HEADER -->
+  <div class="head fade">
+    <div class="seal">朱</div>
+    <div>
+      <h1>TextCount 開発ロードマップ</h1>
+      <div class="sub">EDITORIAL SUITE — 文字数カウント & 校閲チェック</div>
+    </div>
+    <div class="spacer"></div>
+    <a class="live" href="https://textcount.vercel.app" target="_blank" rel="noreferrer">
+      <span class="dot"></span>本番稼働中 · textcount.vercel.app
+    </a>
+  </div>
+
+  <!-- SUMMARY -->
+  <div class="band">
+    <div class="card fade d1">
+      <h2>全体進捗</h2>
+      <div class="prog-num" id="pct">75<small>%</small></div>
+      <div class="prog-cap">コア機能は完成・本番運用中。残りは課金接続(5c)と共有失効のDB反映(5d)、将来拡張(5e/5f)。</div>
+      <div class="bar">
+        <i class="done" style="width:67%"></i>
+        <i class="wait" style="width:16%"></i>
+      </div>
+      <div class="legend">
+        <span><i class="sw" style="background:var(--shu)"></i>完了 8</span>
+        <span><i class="sw" style="background:#EBB94F"></i>対応待ち 2</span>
+        <span><i class="sw" style="background:#F0F0F0;border:1px solid var(--line-2)"></i>未着手 2</span>
+      </div>
+    </div>
+    <div class="card fade d2">
+      <h2>基本情報</h2>
+      <div class="facts">
+        <div class="row"><span class="k">本番URL</span><span class="v"><a href="https://textcount.vercel.app" target="_blank" rel="noreferrer">textcount.vercel.app</a></span></div>
+        <div class="row"><span class="k">管理画面</span><span class="v">/admin（admin/staff）</span></div>
+        <div class="row"><span class="k">リポジトリ</span><span class="v">percore1/02_ChromeEX_TextCount（public）</span></div>
+        <div class="row"><span class="k">スタック</span><span class="v">Next.js 16 / React 19 / Supabase</span></div>
+        <div class="row"><span class="k">管理者</span><span class="v">percore1@gmail.com</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- NEXT ACTIONS -->
+  <div class="next fade d3">
+    <h2><span class="badge">必読</span>🔴 次にあなたがすべきこと</h2>
+    <div class="todo">
+      <div class="no">1</div>
+      <div>
+        <div class="t">共有失効(5d)を有効化する</div>
+        <div class="d">Supabase → SQL Editor で <code>web/supabase/phase5d-share-revoke.sql</code> を実行。→ <code>/shares</code> の一覧・失効が使えるようになります（現在は「要マイグレーション」表示）。</div>
+      </div>
+    </div>
+    <div class="todo">
+      <div class="no">2</div>
+      <div>
+        <div class="t">Stripe を接続する<span class="opt">任意・学習用</span></div>
+        <div class="d"><code>web/SETUP-stripe.md</code> に沿って商品/価格を作成し、Vercel に <code>STRIPE_SECRET_KEY</code> / <code>STRIPE_WEBHOOK_SECRET</code> / <code>STRIPE_PRICE_ID</code> を登録。→ 月額課金(5c)の決済フローが有効化。</div>
+      </div>
+    </div>
+    <div class="todo">
+      <div class="no">3</div>
+      <div>
+        <div class="t">（商用化する段階で）Vercel を Pro に切替<span class="opt">将来</span></div>
+        <div class="d">Hobby は非商用・private共同作業不可のため、商用開始時に Pro（$20/月〜）へ。現在は public 化で運用中。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROADMAP -->
+  <div class="sec-title fade d4"><span class="line"></span>フェーズ別ロードマップ</div>
+
+  <div class="phase ok fade d4"><div class="pn">1</div><div class="body"><div class="pt">Web移行＋新UI<span class="chip ok">✓ 完了</span></div><div class="pd">Chrome拡張のカウント/校閲ロジックを Next.js に移植。白・黒・朱／メイリオの3ペインUI。</div></div></div>
+  <div class="phase ok fade d4"><div class="pn">2</div><div class="body"><div class="pt">招待制認証＋校閲履歴<span class="chip ok">✓ 完了</span></div><div class="pd">Supabase認証（招待制）、会員ごとの履歴保存・再表示。</div></div></div>
+  <div class="phase ok fade d4"><div class="pn">3</div><div class="body"><div class="pt">共有URL＋赤入れコメント<span class="chip ok">✓ 完了</span></div><div class="pd">提出用URL発行、未ログインのレビュアーが選択範囲にコメント（赤入れ）。</div></div></div>
+  <div class="phase ok fade d5"><div class="pn">4</div><div class="body"><div class="pt">Vercel 本番公開<span class="chip ok">✓ 完了</span></div><div class="pd">GitHub連携で自動デプロイ。本番URL稼働中。</div></div></div>
+  <div class="phase ok fade d5"><div class="pn">5a</div><div class="body"><div class="pt">運営向け管理画面<span class="chip ok">✓ 完了</span></div><div class="pd">会員の発行・承認・権限/プラン/状態の管理（admin/staff）。</div></div></div>
+  <div class="phase ok fade d5"><div class="pn">＋</div><div class="body"><div class="pt">ルール一覧＋カスタムルール追加<span class="chip ok">✓ 完了</span></div><div class="pd">利用者は <code>/rules</code> で確認、管理者は <code>/admin/rules</code> で独自ルール追加。</div></div></div>
+  <div class="phase ok fade d5"><div class="pn">＋</div><div class="body"><div class="pt">パスワード再設定（メール）<span class="chip ok">✓ 完了</span></div><div class="pd">忘れた方→メール→リンク→再設定の一連フロー。</div></div></div>
+  <div class="phase ok fade d6"><div class="pn">5b</div><div class="body"><div class="pt">利用ゲート（status/plan）<span class="chip ok">✓ 完了・本番検証済み</span></div><div class="pd">プランなし／停止の会員は <code>/billing</code> へ。契約無料・admin/staffは利用可。</div></div></div>
+  <div class="phase wait fade d6"><div class="pn">5c</div><div class="body"><div class="pt">Stripe 月額課金<span class="chip wait">対応待ち（Stripe接続）</span></div><div class="pd">実装・配信済み。商品/価格＋env を登録すれば決済→自動で利用可に。</div></div></div>
+  <div class="phase wait fade d6"><div class="pn">5d</div><div class="body"><div class="pt">共有URLの一覧・失効<span class="chip wait">対応待ち（DB実行）</span></div><div class="pd">実装・配信済み。<code>phase5d-share-revoke.sql</code> を実行すれば有効化。</div></div></div>
+  <div class="phase fade d6"><div class="pn">5e</div><div class="body"><div class="pt">コメントのリアルタイム反映<span class="chip todo">未着手</span></div><div class="pd">Supabase Realtime（Broadcast）で赤入れを即時反映（将来）。</div></div></div>
+  <div class="phase fade d6"><div class="pn">5f</div><div class="body"><div class="pt">PWA / コンパニオン拡張<span class="chip todo">未着手</span></div><div class="pd">インストール可能化、選択テキストを送る軽量拡張（将来）。</div></div></div>
+
+  <!-- DOCS -->
+  <div class="sec-title fade d6" style="margin-top:24px"><span class="line"></span>引き継ぎ・手順ドキュメント</div>
+  <div class="docs fade d6">
+    <a href="../HANDOFF.md">HANDOFF.md（引き継ぎ・単一ソース）</a>
+    <a href="../web/SETUP-supabase.md">SETUP-supabase.md</a>
+    <a href="../web/SETUP-admin.md">SETUP-admin.md</a>
+    <a href="../web/SETUP-stripe.md">SETUP-stripe.md</a>
+    <a href="../web/DEPLOY.md">DEPLOY.md</a>
+    <a href="web-migration-plan.md">設計メモ</a>
+    <a href="phase5-admin-billing-plan.md">管理/課金 設計</a>
+  </div>
+
+  <div class="foot fade d6">最終更新：2026-06-16 ／ ブランチ feature/webapp-migration ／ マイグレーション順：schema → fix-grants → phase5-admin → phase5d-share-revoke</div>
+
+</div>
+
+<script>
+  // 進捗数字をカウントアップ
+  (function(){
+    var el=document.getElementById('pct'), to=75, t0=null;
+    function tick(t){ if(!t0)t0=t; var p=Math.min(1,(t-t0)/900), v=Math.round(75*(1-Math.pow(1-p,3)));
+      el.firstChild.nodeValue=v; if(p<1)requestAnimationFrame(tick); }
+    requestAnimationFrame(tick);
+  })();
+</script>
+</body>
+</html>
