@@ -1,44 +1,51 @@
-# Vercel デプロイ手順（Phase 4）
+# Vercel デプロイ手順
 
 このリポジトリは「Chrome拡張（ルート）」と「Webアプリ（`web/`）」が同居しています。
-Vercel では **Root Directory = `web`** を指定してデプロイします。
+Next.js アプリは `web/` 配下にあるため、Vercel では **Root Directory = `web`** が必須です。
 
-> 現在 Webアプリは `feature/webapp-migration` ブランチにあり、`main` には `web/` がありません。
-> **本番は当面このブランチから公開**します（CLI なら `web/` を直接アップロードするのでブランチ設定不要）。
-> GitHub 連携で自動デプロイにする場合は、Vercel の **Settings → Git → Production Branch** を
-> `feature/webapp-migration` に設定してください。
+> **現状（2026-06-15〜）：GitHub 連携の自動デプロイで運用中。** 下の「現在の設定」を参照。
+> `feature/webapp-migration` に push / PR マージするだけで本番（`textcount.vercel.app`）に反映されます。
+> 手動 CLI デプロイ（方法B）は緊急フォールバックです。
 
 > Supabase 環境変数を設定しなくても**ゲストモード**（カウント＋校閲のみ）で公開できます。
 > 認証・履歴・共有を有効にするには `web/SETUP-supabase.md` を先に実施してください。
 
 ---
 
-## 方法A：GitHub 連携（推奨・自動デプロイ）
-1. ブランチを push（または main にマージ）：
-   ```
-   git push -u origin feature/webapp-migration
-   ```
-2. https://vercel.com/ に GitHub でサインイン（無料）。
-3. **Add New… → Project** → このリポジトリ（`02_ChromeEX_TextCount`）を Import。
-4. 設定：
-   - **Root Directory**: `web` ←【重要】「Edit」から選択
-   - Framework Preset: `Next.js`（自動検出）
-   - Build/Output: 既定のまま
-5. **Environment Variables**（任意・認証を使う場合）：
-   | Name | Value |
-   |------|-------|
-   | `NEXT_PUBLIC_SUPABASE_URL` | `https://xxxx.supabase.co` |
-   | `NEXT_PUBLIC_SUPABASE_ANON_KEY` | `eyJ...`（anon public） |
-6. **Deploy**。数分で `https://<project>.vercel.app` が発行されます。
-7. 以降、push するたびに自動で本番反映（プレビューURLも自動発行）。
+## 現在の設定（GitHub 自動デプロイ・設定済み）
+Vercel プロジェクト `textcount`（Scope: `percore-s-projects` / Project ID: `prj_AqoiMFSz2okywJEW3ueTi2QM0ILC`）に、
+以下が**設定済み**。新規に作り直す必要はない。
 
-## 方法B：Vercel CLI
+| 設定 | 値 | 場所（Vercel ダッシュボード） |
+|------|----|------|
+| Connected Git Repository | `percore1/02_ChromeEX_TextCount` | Settings → Git |
+| **Production Branch** | **`feature/webapp-migration`** | Settings → Environments → Production → Branch Tracking |
+| **Root Directory** | **`web`** | Settings → Build and Deployment → Root Directory |
+| Framework Preset | Next.js（自動検出） | Settings → Build and Deployment |
+| 環境変数 | `NEXT_PUBLIC_SUPABASE_URL` / `NEXT_PUBLIC_SUPABASE_ANON_KEY` / `SUPABASE_SERVICE_ROLE_KEY` | Settings → Environments |
+
+**運用フロー**：`feature/webapp-migration` への push / PR マージ → 自動で本番デプロイ。PR を出すとプレビューURLが自動発行。
+
+> ⚠️ よくある失敗：Root Directory が空（リポジトリのルート）だと、ルートに Next.js が無いため
+> `Error: Couldn't find any 'pages' or 'app' directory` でビルドが 8 秒程度で失敗する。必ず `web` を設定すること。
+
+### ゼロから接続し直す場合（参考）
+1. https://vercel.com/ に GitHub でサインイン。
+2. プロジェクト → Settings → Git で対象リポジトリを Connect。
+3. Settings → Environments → Production → Branch Tracking を `feature/webapp-migration` に。
+4. Settings → Build and Deployment → Root Directory を `web` に。
+5. Settings → Environments で上表の環境変数を登録。
+6. 接続後の初回は遡及デプロイされないので、`feature/webapp-migration` に空コミットを push してトリガー：
+   `git commit --allow-empty -m "chore: trigger deploy" && git push origin feature/webapp-migration`
+
+## 方法B：Vercel CLI（緊急フォールバック）
+自動デプロイが使えないときのみ。CLI が `percore1` でログイン済みの端末から：
 ```
 cd web
-npx vercel login          # ブラウザで認証
-npx vercel                # 初回：プロジェクト作成（Root Directory は web のまま実行）
-npx vercel --prod         # 本番デプロイ
+npx vercel login          # 未ログイン時のみ
+npx vercel --prod         # web/ を直接アップロードして本番デプロイ
 ```
+状況確認：`npx vercel ls --prod` / `npx vercel inspect <url> --logs`。
 環境変数は `npx vercel env add NEXT_PUBLIC_SUPABASE_URL` などで追加。
 
 ---

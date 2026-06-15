@@ -3,11 +3,15 @@
 別エージェント／別担当が単独で作業を継続するための現状サマリ（最新の単一ソース）。
 **最終更新：2026-06-15 / ブランチ `feature/webapp-migration` / 本番稼働中**
 
+> **デプロイ運用が変わりました（2026-06-15）**：手動 `npx vercel --prod` → **GitHub 連携の自動デプロイ**。
+> `feature/webapp-migration` に push / PR マージするだけで本番反映されます。詳細は §3「本番・接続情報」と §5「開発フロー／デプロイ」を参照。
+
 ---
 
 ## ⏭ 申し送り：次にやること（未完了の確認）
 
-> ユーザー側で **Redirect URLs 追加（`https://textcount.vercel.app/**`・`http://localhost:3000/**`）＋ `npx vercel --prod` 再デプロイは完了済み**。残るは下の通し確認。
+> ユーザー側で **Redirect URLs 追加（`https://textcount.vercel.app/**`・`http://localhost:3000/**`）は完了済み**。
+> **本番デプロイは GitHub 自動デプロイに移行済み**（Production Branch=`feature/webapp-migration` / Root Directory=`web`）。残るは下の通し確認。
 
 ### A. パスワード再設定の通し確認（最優先・本番）
 1. [ ] `https://textcount.vercel.app/login` →「**パスワードを忘れた方はこちら**」
@@ -18,7 +22,7 @@
 - うまくいかない時の確認：Supabase の Redirect URLs に本番ドメインが入っているか／本番が再デプロイ済みか／メールのリンク先が本番ドメインか（迷惑メールも確認）。リンクが無効なら `/account/update-password` は「リンクから開いてください」を表示する。
 
 ### B. 管理画面・ルールの本番確認
-6. [ ] `/admin` で会員一覧・発行（初期PW表示）が動く（service_role 経由・permission denied が出ないこと）
+6. [ ] `/admin` で会員一覧・発行が動く（service_role 経由・permission denied が出ないこと）。発行後の**初期パスワードは「閉じるまで消えないパネル＋コピーボタン」で表示**される（2026-06-15 修正 / PR #1）。
 7. [ ] `/admin/rules` でカスタムルール追加 → `/rules` と校閲チェックに反映される
 8. [ ] `/request-access` の申請 → `/admin` で承認・却下できる
 
@@ -48,6 +52,8 @@
 | 5a | 運営向け管理画面（会員発行/承認/権限/プラン/状態） | ✅ 完了・admin動作確認済み |
 | 5(追加) | 校閲ルール一覧(利用者) ＋ カスタムルール追加(管理者) | ✅ 完了 |
 | 5(追加) | パスワード再設定フロー（メール） | ✅ 完了 |
+| 5(追加) | 会員発行時の初期パスワード表示を「消えない＋コピー可能」に修正（PR #1） | ✅ 完了・本番反映済み |
+| 運用 | Vercel を GitHub 自動デプロイ化（手動CLI廃止） | ✅ 完了（2026-06-15） |
 | **5b** | **エンタイトルメント（status/planで利用ゲート）** | ⬜ 未着手（次の優先） |
 | 5c | Stripe 月額課金（有料）＋無料契約区分 | ⬜ 未着手（要 Stripe アカウント） |
 | 5d | 共有URLの一覧・失効(revoke) | ⬜ 未着手 |
@@ -55,7 +61,14 @@
 | 5f | PWA / コンパニオン拡張 | ⬜ 未着手 |
 
 ## 3. 本番・接続情報
-- 本番URL：https://textcount.vercel.app（`feature/webapp-migration` を `npx vercel --prod` でデプロイ。`main` には取り込んでいない）
+- 本番URL：https://textcount.vercel.app
+- **Vercel プロジェクト**（GitHub 自動デプロイ）：
+  - チーム/Scope：`percore-s-projects`（Hobbyプラン） / プロジェクト名：`textcount` / Project ID：`prj_AqoiMFSz2okywJEW3ueTi2QM0ILC`
+  - GitHub 連携：`percore1/02_ChromeEX_TextCount` を接続済み
+  - **Production Branch：`feature/webapp-migration`**（Settings → Environments → Production → Branch Tracking）
+  - **Root Directory：`web`**（Settings → Build and Deployment → Root Directory）← Next.js が `web/` 配下のため必須。未設定だと「Couldn't find any pages or app directory」でビルド失敗する
+  - 反映方法：**`feature/webapp-migration` に push / PR マージ → 自動で本番デプロイ**。PR を出すとプレビューURLが自動発行。手動 `npx vercel --prod` はもう不要（緊急時のフォールバックとしては可）
+  - `main` には `web/` を取り込んでいない（拡張機能のソースのみ）
 - Supabase プロジェクト ref：`xcjudwvgyabljxnbskgb`
 - 管理者アカウント：`percore1@gmail.com`（`profiles.app_role='admin'`）。テスト用 `percore.info@gmail.com`。
 - 環境変数（Vercel と `web/.env.local` の両方に設定済み。`.env.local` はGit管理外）：
@@ -71,14 +84,25 @@
 3. `web/supabase/phase5-admin.sql` — 会員モデル列(app_role/status/plan/stripe_*)・access_requests・proofread_rules・admin用RLS・**service_role への権限付与**・管理者ブートストラップ例
 - ブートストラップ（管理者化）：`insert into public.profiles (id,app_role,status) values ('<uid>','admin','active') on conflict (id) do update set app_role='admin',status='active';`
 
-## 5. ローカル起動
+## 5. 開発フロー／デプロイ
+**ローカル起動**
 ```
 cd web
 npm install
 npm run dev      # http://localhost:3000
-npx vercel --prod  # 本番デプロイ（web/ を直接アップロード）
+npm run build    # 本番ビルドの事前検証（型チェック込み。push前に推奨）
 ```
 Node 24 / Next.js 16 (App Router・Turbopack・**middlewareはproxy.tsに改称**) / React 19 / @supabase/ssr。
+
+**変更を本番に出す流れ（標準）**
+1. `feature/webapp-migration` から作業ブランチを切る（例：`fix/...`、`feat/...`）。`main` ではなく **`feature/webapp-migration` が本流**。
+2. 実装 → `cd web && npm run build` でビルドが通ることを確認。
+3. push → GitHub で **PR を作成（base = `feature/webapp-migration`）** → 自動でプレビューURLが付くので実画面確認。
+4. PR をマージ → **自動で本番デプロイ**（`textcount.vercel.app` に反映）。マージだけで反映される（手動デプロイ不要）。
+5. 反映確認は本番をハードリロード（Ctrl+Shift+R）。
+
+**デプロイ状況の確認（CLI・任意）**：`npx vercel ls --prod`（`● Ready`/`● Error`）、失敗時は `npx vercel inspect <url> --logs`。
+**緊急フォールバック**：自動デプロイが使えない場合のみ `cd web && npx vercel --prod`（CLIは `percore1` でログイン済みの端末から）。
 
 ## 6. ファイルマップ（`web/`）
 ```
@@ -124,7 +148,8 @@ SETUP-supabase.md / SETUP-admin.md / DEPLOY.md
 ## 8. ユーザー側で必要な設定（実施済み/要確認）
 - ✅ Supabase接続（anon）・schema.sql・fix-grants.sql 実行・本番公開・サインアップ無効化。
 - ✅ phase5-admin.sql 実行・service_role 設定・percore1 を admin 化。
-- ✅ **パスワード再設定の本番設定（完了）**：Redirect URLs に `https://textcount.vercel.app/**`・`http://localhost:3000/**` 追加済み、`npx vercel --prod` 再デプロイ済み。あとは上の「申し送り A」の通し確認のみ。
+- ✅ **パスワード再設定の本番設定（完了）**：Redirect URLs に `https://textcount.vercel.app/**`・`http://localhost:3000/**` 追加済み。あとは上の「申し送り A」の通し確認のみ。
+- ✅ **Vercel GitHub 自動デプロイ（完了）**：リポジトリ接続・Production Branch=`feature/webapp-migration`・Root Directory=`web` 設定済み。以降は push/マージで自動反映。
 - 会員発行は `/admin`、ルール追加は `/admin/rules`。
 
 ## 9. 主要URL
@@ -142,4 +167,4 @@ SETUP-supabase.md / SETUP-admin.md / DEPLOY.md
 - **5b**：proxy/Server にエンタイトルメント判定を追加し、`/billing`（案内）を作る。suspended/未払いをブロック。
 - **5c**：Stripe（Checkout/Customer Portal/Webhook `/api/stripe/webhook`）。env `STRIPE_SECRET_KEY/STRIPE_WEBHOOK_SECRET/STRIPE_PRICE_ID`。決定事項：自己サインアップ＋決済で自動許可。
 - 5d 共有失効（`shares.revoked` 追加＋`get_share`条件＋一覧UI）、5e Realtime（Broadcast `review:<token>`）、5f PWA/拡張。
-- 補足：Windows のため Git の CRLF 警告は無害。`main` は未取り込み（Vercel は feature ブランチ/ローカルから）。
+- 補足：Windows のため Git の CRLF 警告は無害。`main` は未取り込み（本番は `feature/webapp-migration` から GitHub 自動デプロイ。§3・§5 参照）。

@@ -19,7 +19,7 @@ Supabase → **Project Settings → API → `service_role` `secret`** をコピ�
   SUPABASE_SERVICE_ROLE_KEY=（service_role secret）
   ```
 - **Vercel**：Project → Settings → Environment Variables に
-  `SUPABASE_SERVICE_ROLE_KEY` を **Production/Preview/Development** で追加 → 再デプロイ（`npx vercel --prod`）。
+  `SUPABASE_SERVICE_ROLE_KEY` を **Production/Preview/Development** で追加 → 再デプロイ（`feature/webapp-migration` に push すれば自動デプロイ。詳細は `web/DEPLOY.md`）。
 
 ## 3. 自分を管理者にする（初回だけ）
 Supabase → Authentication → Users で自分の **User ID** を確認し、SQL Editor で：
