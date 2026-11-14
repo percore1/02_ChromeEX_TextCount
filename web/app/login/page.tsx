@@ -20,7 +20,13 @@ export default function LoginPage() {
       const supabase = createClient();
       const { error } = await supabase.auth.signInWithPassword({ email, password });
       if (error) {
-        setError("メールアドレスまたはパスワードが正しくありません。");
+        // 通信の失敗（サーバーに届かない）をパスワード違いと出さない（2026-11-14 休止時の誤案内の再発防止）
+        const unreachable = error.name === "AuthRetryableFetchError" || error.status === 0;
+        setError(
+          unreachable
+            ? "サーバーに接続できませんでした。パスワードの問題ではありません。時間をおいても続く場合は管理者へご連絡ください。"
+            : "メールアドレスまたはパスワードが正しくありません。",
+        );
         setLoading(false);
         return;
       }
