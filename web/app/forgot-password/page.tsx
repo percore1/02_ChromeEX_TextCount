@@ -21,7 +21,12 @@ export default function ForgotPasswordPage() {
       });
       setLoading(false);
       if (error) {
-        setError("送信に失敗しました。時間をおいて再度お試しください。");
+        const unreachable = error.name === "AuthRetryableFetchError" || error.status === 0;
+        setError(
+          unreachable
+            ? "サーバーに接続できませんでした。時間をおいても続く場合は管理者へご連絡ください。"
+            : "送信に失敗しました。時間をおいても続く場合は管理者へご連絡ください。",
+        );
         return;
       }
       setSent(true);
